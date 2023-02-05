@@ -2,7 +2,7 @@ import './styles.scss';
 function TopSection() {
     return (
         <section className={"topSection"}>
-            <p>PROUT BODY TOP</p>
+            <p>BODY TOP SECTION</p>
         </section>
     );
 }

@@ -16,9 +16,9 @@ function Bar(props) {
       
     return (
     
-        <div id="progress-bar" onAnimationEnd={props.setShowElement} className='progress-bar' style={{
+        <div onAnimationEnd={() => props.setShowLogo(!props.showLogo)} id="progress-bar" className='progress-bar' style={{
             //display: props.showElement ? "block" : "none",
-            animation: props.showElement ? "slideOutToLeft 1s ease-in-out forwards" : "slideInFromLeft 1s ease-in-out forwards"
+            animation: props.animation,
           }}>
           <div
             className="progress-bar__filler"
