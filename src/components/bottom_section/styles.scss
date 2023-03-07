@@ -1,9 +1,15 @@
 .bottomSection {
   height: 100vh;
-  background-color: #282c34;
   color: #011627;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.morgane {
+  background-repeat: no-repeat;
+  background-size: 70vh !important;
+  background-position: bottom 400px right 300px !important;
 }
