@@ -12,11 +12,11 @@ function Bar(props) {
     })
     
     
-    
+    console.log(props)
       
     return (
     
-        <div onAnimationEnd={() => props.setShowLogo(!props.showLogo)} id="progress-bar" className='progress-bar' style={{
+        <div onFocus={console.log('prout')} onAnimationEnd={() => props.setShowLogo(!props.showLogo)} id="progress-bar" className='progress-bar' style={{
             //display: props.showElement ? "block" : "none",
             animation: props.animation,
           }}>

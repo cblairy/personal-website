@@ -15,9 +15,10 @@ $test: blue;
     display: flex;
     align-items: center !important;
     justify-content: end;
-    position: absolute;
+    position: relative;
+    float: right;
     height: 150vh !important;
-    width: 80vw;
+    width: 50vw;
   }
   
   .content span.img-txt {

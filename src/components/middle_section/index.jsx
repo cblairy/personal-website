@@ -4,8 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import Bar from './bar';
 import symfonyLogo from './symfony.png';
 
-
-
 function MiddleSection() {
     const [showElement, setShowElement] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
@@ -41,17 +39,17 @@ function MiddleSection() {
         <div id='divBars'>
           <div className='divBar'>
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
             </div>
 
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
             </div>
 
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
             </div>
             
@@ -59,25 +57,28 @@ function MiddleSection() {
           </div>
           <div className='divBar divBar2'>
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
             </div>
 
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
             </div>
 
             <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible" : ""} alt="SymfonyLogo"/>
+              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
             </div>
       
 
           </div>
+          
+
         </div>
         
-      
+        <button onClick={() => setShowElement(true)}>test</button>
+
       </section>
     );
 }
