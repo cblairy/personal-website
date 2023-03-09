@@ -1,7 +1,8 @@
-$test: blue;
+$key: #55A4E9;
 
 .topSection {
     height: 100vh;
+    background-color: $key;
 
 }
 
@@ -13,20 +14,74 @@ $test: blue;
 
 .content {
     display: flex;
-    align-items: center !important;
-    justify-content: end;
-    position: relative;
+    flex-direction: column;
+    justify-content: center;
     float: right;
     height: 150vh !important;
-    width: 50vw;
+    width: 55vw;
   }
   
-  .content span.img-txt {
-    background-color: rgb(125, 86, 37);
-    text-transform: uppercase;
-    color: #fff;
-    padding: 1rem;
-    font-size: 1rem;
-    letter-spacing: 10px;
-    border-radius: 5px;
+.subIntro {
+  padding: 20px;
+  width: 60%;
+  background-color: rgba(85, 164, 233, 0.6);
+  border-radius: 10px;
+
+  &.isBlink {
+    opacity: 1;
+    animation: blink 1s 5;
   }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+  // INTRO PART
+
+//// Make long shadows
+/// @param {Number} $num [1] - number of shadows to make
+/// @param {Color} $color [white] - color of shadows
+@function longshadow($num,$color: white){
+  $shadow: '';
+  $i: 0;
+
+  @for $i from 1 through $num{
+    $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
+    @if $i < $num{
+      $shadow: $shadow + ', ';
+    }
+  }
+  @return unquote($shadow);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+
+.welcome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0 auto;
+    color: white;
+    font: 700 normal 3em/1.5 'Montserrat',sans-serif;
+    text-shadow: longshadow(10,darken($key,20%));
+    margin: 0;
+    padding: 0;
+}}
+
+.lineOneIntro {
+  font: 700 normal 4em/1.5 'Montserrat',sans-serif !important;
+}
+
+.lineTwoIntro {
+  font: 700 normal 4em/1.5 'Montserrat',sans-serif !important;
+}

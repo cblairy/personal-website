@@ -1,19 +1,13 @@
-import bureau from "../../images/bureau.jpeg";
-import morgane from "../../images/morgane.png";
 
 import './styles.scss';
 
-import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
-import { useParallax } from "react-scroll-parallax";
+const BottomSection = () => {
 
-function BottomSection() {
-    
     return (
-        <ParallaxBanner className={"bottomSection"}>
-            <ParallaxBannerLayer image={bureau} expanded={false} speed={0} scale={[1, 1.4]} opacity={[0.3, 1]}/>
-            <ParallaxBannerLayer className="morgane" image={morgane} speed={50} />
-        </ParallaxBanner>
+        <div className={"bottomSection"}>
+            <p>voici un texte</p>
+        </div>
     );
 }
 
