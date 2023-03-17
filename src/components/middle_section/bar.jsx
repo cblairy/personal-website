@@ -16,13 +16,13 @@ function Bar(props) {
       
     return (
     
-        <div onFocus={console.log('prout')} onAnimationEnd={() => props.setShowLogo(!props.showLogo)} id="progress-bar" className='progress-bar' style={{
+        <div onAnimationEnd={() => props.setShowLogo(true)} id="progress-bar" className='progress-bar' style={{
             //display: props.showElement ? "block" : "none",
             animation: props.animation,
           }}>
           <div
             className="progress-bar__filler"
-            style={{ width: "70% "}}
+            style={{ width: props.percent}}
           ></div>
         </div>
      

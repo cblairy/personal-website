@@ -1,5 +1,6 @@
 {
   "name": "corentinblairy.fr",
+  "homepage": "corentinblairy.fr.local/public",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

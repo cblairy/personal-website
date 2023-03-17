@@ -2,22 +2,26 @@ import './styles.scss';
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import Bar from './bar';
-import symfonyLogo from './symfony.png';
+
+import cssLogo from '../../images/icons/css-3.png';
+import sassLogo from '../../images/icons/sass.png';
+import phpLogo from '../../images/icons/php.png';
+import codeIgniterLogo from '../../images/icons/codeigniter.png';
+import nodeLogo from '../../images/icons/node.png';
+import reactLogo from '../../images/icons/react.png';
+import angularLogo from '../../images/icons/angular.png';
+import pythonLogo from '../../images/icons/python.png';
+import djangoLogo from '../../images/icons/django.png';
+
+
+import symfonyLogo from '../../images/icons/symfony.png';
 
 function MiddleSection() {
     const [showElement, setShowElement] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
-   // const [hasIntersected, setHasIntersected] = useState(false);
 
-    const onIntersect = (entry, observer) => {
-      if (!showElement) {
-        // Effect logic here
-        setShowElement(true);
-        observer.unobserve(entry.target);
-      }
-    };
-
-    const [ref, inView, entry] = useInView({
+    // crée un evenement sur l'element passé en ref (30% de l'element visible le declenche)
+    const [ref, inView] = useInView({
       threshold: 0.3,
       showElement,
     });
@@ -36,49 +40,62 @@ function MiddleSection() {
     return (
       <section id="middleSection" className="middleSection" ref={ref}>
         {showElement ? "Cacher l'élément" : "Afficher l'élément"}
-        <div id='divBars'>
-          <div className='divBar'>
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
+        <div id='fullBars'>
+          <div className='divBarLeft'>
+            <div className='barAndLogo'>
+              <img src={phpLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <Bar percent={"85%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
             </div>
 
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
+            <div className='barAndLogo'>
+              <img src={nodeLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
             </div>
 
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromRight 2s ease-in-out" : ""}/>
+            <div className='barAndLogo'>
+              <img src={pythonLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
             </div>
-            
 
+            <div className='barAndLogo'>
+              <img src={cssLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+            </div>
           </div>
-          <div className='divBar divBar2'>
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
-            </div>
 
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
-            </div>
+          <div className='divBarRight'>
+            <div className='barAndLogo'>
+                <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"75%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
 
-            <div className='logoBar'>
-              <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromLeft 2s ease-in-out" : ""}/>
-            </div>
-      
+              <div className='barAndLogo'>
+                <img src={codeIgniterLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"60%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
 
+              <div className='barAndLogo'>
+                <img src={reactLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"75%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
+
+              <div className='barAndLogo'>
+                <img src={angularLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"25%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
+
+              <div className='barAndLogo'>
+                <img src={sassLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"50%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
+
+              <div className='barAndLogo'>
+                <img src={djangoLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+                <Bar percent={"30%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
+              </div>
           </div>
-          
-
-        </div>
         
-        <button onClick={() => setShowElement(true)}>test</button>
-
+        </div>
       </section>
     );
 }
