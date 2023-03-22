@@ -6,16 +6,11 @@ import BottomSection from "./components/bottom_section";
 
 import { ParallaxProvider } from "react-scroll-parallax";
 
-/* 
-        
-        
-        <BottomSection /> */
-
 function App() {
   return (
     <ParallaxProvider class="app"> 
-        <TopSection />
         <Header />
+        <TopSection />
         <MiddleSection />
         <SecondMidSection />
         <BottomSection />

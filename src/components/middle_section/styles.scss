@@ -1,6 +1,8 @@
+$midSection: #003844;
+
 .middleSection {
-  height: 100vh;
-  background: #003844;
+  height: 104vh;
+  background: $midSection;
   display: flex;
   flex-direction: column;
   align-items: center;

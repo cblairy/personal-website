@@ -12,6 +12,7 @@ import reactLogo from '../../images/icons/react.png';
 import angularLogo from '../../images/icons/angular.png';
 import pythonLogo from '../../images/icons/python.png';
 import djangoLogo from '../../images/icons/django.png';
+import javascriptLogo from '../../images/icons/javaScript.png';
 
 
 import symfonyLogo from '../../images/icons/symfony.png';
@@ -38,13 +39,18 @@ function MiddleSection() {
     
       
     return (
-      <section id="middleSection" className="middleSection" ref={ref}>
+      <section id="mid1" className="middleSection" ref={ref}>
         {showElement ? "Cacher l'élément" : "Afficher l'élément"}
         <div id='fullBars'>
           <div className='divBarLeft'>
             <div className='barAndLogo'>
               <img src={phpLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
               <Bar percent={"85%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+            </div>
+
+            <div className='barAndLogo'>
+              <img src={javascriptLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
             </div>
 
             <div className='barAndLogo'>

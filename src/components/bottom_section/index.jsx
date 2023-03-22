@@ -5,7 +5,7 @@ import './styles.scss';
 const BottomSection = () => {
 
     return (
-        <div className={"bottomSection"}>
+        <div id='bot' className={"bottomSection"}>
             <p>voici un texte</p>
         </div>
     );

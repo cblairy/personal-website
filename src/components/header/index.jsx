@@ -3,11 +3,10 @@ import './styles.scss';
 function Header() {
     return (
             <header>
-                <ul id='headerList'>
-                    <li className='itemHeaderList'> A Propos</li>
-                    <li className='itemHeaderList'> Compétences</li>
-                    <li className='itemHeaderList'> Portfolio</li>
-                    <li className='itemHeaderList'> Contact</li>
+                <ul className='headerList'>
+                    <li className='itemHeaderList' ><a href='#mid1'>Compétences</a></li>
+                    <li className='itemHeaderList' ><a href='#mid2'>Portfolio</a></li>
+                    <li className='itemHeaderList' ><a href='#bot'>Contact</a></li>
                 </ul>
             </header>
     );
