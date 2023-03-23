@@ -2,32 +2,53 @@ $test: #c6e0e4;
 
 header {
   position: sticky;
-  background-color: rgba(0, 56, 68, 0);
-  box-shadow: black 0 0 12px -5px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1rem;
-
   top: 0;
   height: 50px;
   z-index: 1000;
+
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: black 0 0 12px -5px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.3rem;
+  color: whitesmoke;
+
+  &.headerIsNotVisible {
+    transform: translateY(-50px);
+    transition: 0.5s ease-in-out;
+  }
+
+  &.headerIsVisible {
+    transition: 0.5s ease-in-out;
+  }
+
 }
 
 .headerList {
   display: flex;
   width: 35%;
+  height: 100%;
   justify-content: space-around;
 }
 
 .itemHeaderList {
   list-style-type: none;
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   & a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
   }
   &:hover {
-    text-decoration: underline;
     transition: 0.4s ease-in-out;
+    box-shadow: black 0 0 12px -5px;
+    background-color: rgba(222, 184, 135, 0.5)
   }
 }

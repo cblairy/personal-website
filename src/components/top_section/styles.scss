@@ -1,6 +1,8 @@
 $key: #55A4E9;
 
 .topSection {
+  position: relative;
+  top: -50px;
     height: 100vh;
     background-color: $key;
 }

@@ -36,7 +36,6 @@ function SecondMidSection() {
                 <div className="cards">
                     <Card data={data1} />
                     <Card data={data2} />
-                    <Card data={data2} />
                 </div>
                 
             </ParallaxBannerLayer>

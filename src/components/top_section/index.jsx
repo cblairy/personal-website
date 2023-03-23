@@ -10,12 +10,11 @@ const TopSection = () => {
 
     return (
         <ParallaxBanner className={"topSection"}>
-            <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.6, 1.4]} opacity={[0.3, 1]}/>
+            <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.7, 1.4]} opacity={[0.3, 1]}/>
             <ParallaxBannerLayer className="myHead" image={myHead} speed={-30} />
             <ParallaxBannerLayer speed={-20}>
                 <div className="content">
                     <Intro />
-                    <p className="subIntro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
                 </div>
             </ParallaxBannerLayer>
         </ParallaxBanner>

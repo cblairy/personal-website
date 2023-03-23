@@ -1,8 +1,10 @@
 $midSection: #003844;
 
 .middleSection {
-  height: 104vh;
+  height: calc(100vh + 60px);
   background: $midSection;
+  margin-top: -50px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
