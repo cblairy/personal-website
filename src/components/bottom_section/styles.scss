@@ -1,4 +1,5 @@
 $bgColorBottom: rgb(221, 219, 219);
+$bgColorForm: whitesmoke;
 
 .bottomSection {
     height: 100vh;
@@ -14,17 +15,19 @@ $bgColorBottom: rgb(221, 219, 219);
 .contactForm {
     width: 50%;
     height: 70%;
+    background-color: $bgColorForm;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: auto;
-    border: 1px black solid;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 
     & img {
         height: 100%;
         width: auto;
-        border-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 }
 
@@ -40,10 +43,10 @@ $bgColorBottom: rgb(221, 219, 219);
 
     & .inputText {
         height: 30px;
-        width: 70%;
+        width: 65%;
         border: none;
         border-bottom: 1px solid black;
-        background-color: $bgColorBottom;
+        background-color: $bgColorForm;
         line-height: 1.5;
         padding: 10px;
         margin-bottom: 20px;
@@ -91,7 +94,7 @@ $bgColorBottom: rgb(221, 219, 219);
 
     &:hover {
         color: brown;
-        transform: translateY(5px);
+        transform: translateY(10px) scale(1.05);
         transition: 0.4s ease-in-out;
     }
 }
@@ -108,7 +111,7 @@ $bgColorBottom: rgb(221, 219, 219);
 
     &:hover {
         color: brown;
-        transform: translateY(-5px);
+        transform: scale(1.05) translateY(-10px);
         transition: 0.4s ease-in-out;
     }
 }

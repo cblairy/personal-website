@@ -1,10 +1,11 @@
-$key: #55A4E9;
+$bgColorTop: #55A4E9;
+$colorText: rgb(48, 162, 197);
 
 .topSection {
   position: relative;
   top: -50px;
     height: 100vh;
-    background-color: $key;
+    background-color: $bgColorTop;
 }
 
 .myHead {
@@ -74,7 +75,7 @@ $key: #55A4E9;
     margin: 0 auto;
     color: white;
     font: 700 normal 3em/1.5 'Montserrat',sans-serif;
-    text-shadow: longshadow(10,darken($key,20%));
+    text-shadow: longshadow(10,darken($colorText, 20%));
     margin: 0;
     padding: 0;
 }}

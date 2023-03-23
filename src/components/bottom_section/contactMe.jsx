@@ -22,13 +22,13 @@ export const ContactMe = () => {
         <img src={devImg} alt="" />
         <div className='inputs'>
             <label></label>
-            <input className='inputText' type="text" name="user_name" placeholder='Nom ou entreprise' />
+            <input required className='inputText' type="text" name="user_name" placeholder='Nom ou entreprise' />
             
             <label></label>
-            <input className='inputText' type="email" name="user_email" placeholder='Email'/>
+            <input required className='inputText' type="email" name="user_email" placeholder='Email'/>
             
             <label></label>
-            <input className='inputText' type="text" name="message" placeholder='Message'/>
+            <input required className='inputText' type="text" name="message" placeholder='Message'/>
             
             
             <div className="sendingButton" >

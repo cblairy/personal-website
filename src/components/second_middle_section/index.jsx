@@ -10,7 +10,7 @@ import Card from "./card.jsx"
 function SecondMidSection() {
     let data1 = [];
     data1["title"] = "Personal website";
-    data1["content"] = "React - react-parallax - javascript - CSS";
+    data1["content"] = "React - react-parallax - EmailJs - Javascript - SCSS";
     data1["href"] = "#";
     data1["gitHref"] = "https://github.com/cblairy/personal-website";
     data1["bgImg"] = personalWebsite;

@@ -49,7 +49,7 @@
 
 .navLogo {
   width: 30px;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   padding: 10px;
 }
 .navigation {
@@ -72,7 +72,7 @@ figure {
 
 figure > * {
   grid-area: 1/1;
-  transition: .4s;
+  transition: .2s;
 }
 
 .figureImg {
@@ -110,8 +110,8 @@ figure:hover figcaption{
     filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
     
     &:hover {
-      transform: scale(1.5)
-      translateY(5px);
+      transform: scale(1.5) translateY(5px);
+      transition: 0.2s ease-in-out;
     }
   }
 }

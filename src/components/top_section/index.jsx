@@ -1,5 +1,5 @@
 import myHead from "../../images/face.png";
-import foreground from "../../images/foreground-photography-1.jpg";
+import foreground from "../../images/foregroundTop.jpg";
 import './styles.scss';
 import Intro from "./intro";
 
