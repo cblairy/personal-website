@@ -11,6 +11,14 @@ $midSection: #003844;
   justify-content: center;
 }
 
+.subIntro {
+  padding: 20px;
+  width: 35%;
+  background-color: rgba(222, 184, 135, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
+}
+
 #fullBars {
   display: flex;
   justify-content: center;
@@ -80,6 +88,8 @@ $midSection: #003844;
   border-radius: 50px;
   margin: 20px 0;
   background-color: rgba(0, 56, 68, 0.7);
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+
 
 }
 
@@ -89,5 +99,7 @@ $midSection: #003844;
   background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
   border-radius: inherit;
   transition: width 2s ease-in-out;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
+
 }
 

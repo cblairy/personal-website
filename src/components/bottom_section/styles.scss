@@ -218,3 +218,41 @@ path.two {
         fill: white;
     }
 }
+
+$mobile: 430px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-screen: 1440px;
+
+@media screen and (max-width: $mobile) {
+  .contactForm {
+    width: 80%;
+
+    & img {
+        display: none;
+    }
+  }
+
+  .navBarEmail, .navBarGithub {
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
+  .element {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
+  .element {
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
+  .element {
+    width: 25%;
+  }
+}

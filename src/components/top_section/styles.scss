@@ -10,8 +10,10 @@ $colorText: rgb(48, 162, 197);
 
 .myHead {
     background-repeat: no-repeat;
+    opacity: 0.9;
     background-size: 100vh !important;
     background-position: left top 370px !important;
+
 }
 
 .content {
@@ -22,18 +24,6 @@ $colorText: rgb(48, 162, 197);
     height: 150vh !important;
     width: 55vw;
   }
-  
-.subIntro {
-  padding: 20px;
-  width: 60%;
-  background-color: rgba(85, 164, 233, 0.6);
-  border-radius: 10px;
-
-  &.isBlink {
-    opacity: 1;
-    animation: blink 1s 5;
-  }
-}
 
 @keyframes blink {
   0% {
@@ -82,6 +72,7 @@ $colorText: rgb(48, 162, 197);
 
 .lineOneIntro {
   font: 700 normal 4em/1.5 'Montserrat',sans-serif !important;
+  
 }
 
 .lineTwoIntro {

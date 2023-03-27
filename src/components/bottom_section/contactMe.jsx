@@ -19,7 +19,7 @@ export const ContactMe = () => {
 
   return (
     <form className='contactForm' ref={form} onSubmit={sendEmail}>
-        <img src={devImg} alt="" />
+        <img src={devImg} alt="page contenant du code" />
         <div className='inputs'>
             <label></label>
             <input required className='inputText' type="text" name="user_name" placeholder='Nom ou entreprise' />

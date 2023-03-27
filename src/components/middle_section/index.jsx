@@ -40,7 +40,7 @@ function MiddleSection() {
       
     return (
       <section id="mid1" className="middleSection" ref={ref}>
-        <p className="subIntro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
+        <p animation={showElement ? "slideInFromBottom 1s ease-out" : ""} className="subIntro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
         <div id='fullBars'>
           <div className='divBarLeft'>
             <div className='barAndLogo'>

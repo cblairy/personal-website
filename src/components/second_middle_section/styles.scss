@@ -24,15 +24,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   
 }
 
 .cardsTitle {
   height: 30%;
+  width: 100%;
   color: whitesmoke;
   font-size: 1.8rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   & h3 {
     padding: 0;
@@ -52,12 +55,13 @@
   transition: transform 0.2s ease-in-out;
   padding: 10px;
 }
-.navigation {
-  height: 15%;
-  width: 100%;
+.navigation {:root {
+  --viewport-width: 0;
+}
 }
 
 figure {
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
   display: grid;
   border-radius: 1rem;
   overflow: hidden;
@@ -88,9 +92,10 @@ figure figcaption {
   font-size: 1.5rem;
   font-weight: bold;
   color: #0000;
-  padding: .75rem;
+  padding: 10px;
   background: var(--c,#0009);
   clip-path: inset(0 0 var(--_i, 100%) 0);
+
   mask:
     linear-gradient(#000 0 0),
     linear-gradient(#000 0 0);
@@ -127,3 +132,70 @@ figure:hover img {
   }
 }
 
+$mobile: 430px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-screen: 1440px;
+
+@media screen and (max-width: $mobile) {
+  .content2midSec {
+    margin-top: 0;
+  }
+
+  .cardsTitle {
+    font-size: 1rem;
+  
+    & h3 {
+      padding: 0;
+      margin: 0;
+    }
+
+    & .line {
+      width: 10%;
+    }
+  }
+
+  .figureImg {
+    max-width: 260px;
+    max-height: 150px;
+
+  }
+
+  figure figcaption {
+    max-width: 260px;
+    max-height: 150px;
+    font-size: 1rem;
+
+    & p {
+      font-size: .7rem;
+    }
+  }
+
+  figure {
+    max-width: 260px;
+    max-height: 150px;
+
+  }
+
+  .navLogo {
+    max-width: 20px;
+  }
+}
+
+@media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
+  .element {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
+  .element {
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
+  .element {
+    width: 25%;
+  }
+}
