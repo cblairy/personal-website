@@ -16,7 +16,7 @@ $colorText: rgb(48, 162, 197);
 
 }
 
-.content {
+.introContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,20 +61,51 @@ $colorText: rgb(48, 162, 197);
   width: 100%;
   display: flex;
   flex-direction: column;
+
   p {
     margin: 0 auto;
     color: white;
-    font: 700 normal 3em/1.5 'Montserrat',sans-serif;
+    font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat',sans-serif;
     text-shadow: longshadow(10,darken($colorText, 20%));
     margin: 0;
     padding: 0;
+
 }}
 
-.lineOneIntro {
-  font: 700 normal 4em/1.5 'Montserrat',sans-serif !important;
-  
+$mobile: 430px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-screen: 1440px;
+
+@media screen and (max-width: $mobile) {
+  .welcome {
+    font-size: 0.5em;
+  }
+
+  .myHead {
+    display: none;
+  }
+
+  .introContent {
+    float: left;
+    width: 95vw;
+  }
 }
 
-.lineTwoIntro {
-  font: 700 normal 4em/1.5 'Montserrat',sans-serif !important;
+@media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
+  .element {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
+  .element {
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
+  .element {
+    width: 25%;
+  }
 }

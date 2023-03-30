@@ -20,8 +20,9 @@ import symfonyLogo from '../../images/icons/symfony.png';
 function MiddleSection() {
     const [showElement, setShowElement] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
+    const [bars, setBars] = useState([]);
 
-    // crée un evenement sur l'element passé en ref (30% de l'element visible le declenche)
+    // creates an event on the element passed in ref (30% of the visible element triggers it)
     const [ref, inView] = useInView({
       threshold: 0.3,
       showElement,
@@ -30,6 +31,7 @@ function MiddleSection() {
 
     useEffect(() => {
       if (inView) {
+        // displays the bar elements according to the view
         setShowElement(true);
         console.log("middle-visible !")
       }
@@ -41,35 +43,35 @@ function MiddleSection() {
     return (
       <section id="mid1" className="middleSection" ref={ref}>
         <p animation={showElement ? "slideInFromBottom 1s ease-out" : ""} className="subIntro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
-        <div id='fullBars'>
-          <div className='divBarLeft'>
+        <div className='fullBars'>
+          <div className='languageBars'>
             <div className='barAndLogo'>
               <img src={phpLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar percent={"85%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+              <Bar percent={"85%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
             <div className='barAndLogo'>
               <img src={javascriptLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
             <div className='barAndLogo'>
               <img src={nodeLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
             <div className='barAndLogo'>
               <img src={pythonLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+              <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
             <div className='barAndLogo'>
               <img src={cssLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
-              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromBottom 1s ease-out" : ""}/>
+              <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
           </div>
 
-          <div className='divBarRight'>
+          <div className='frameworksBars'>
             <div className='barAndLogo'>
                 <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
                 <Bar percent={"75%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>

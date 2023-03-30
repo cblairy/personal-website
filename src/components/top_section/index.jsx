@@ -13,7 +13,7 @@ const TopSection = () => {
             <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.7, 1.4]} opacity={[0.3, 1.1]}/>
             <ParallaxBannerLayer className="myHead" image={myHead} speed={-30} />
             <ParallaxBannerLayer speed={-20}>
-                <div className="content">
+                <div className="introContent">
                     <Intro />
                 </div>
             </ParallaxBannerLayer>

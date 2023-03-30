@@ -7,8 +7,7 @@ import BottomSection from "./components/bottom_section";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 function App() {
-  let viewportWidth = window.innerWidth;
-  document.documentElement.style.setProperty('--viewport-width', `${viewportWidth}px`);
+
 
   return (
     <ParallaxProvider class="app"> 
