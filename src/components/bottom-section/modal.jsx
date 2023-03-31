@@ -15,8 +15,8 @@ const Modal = ({ message, valid, alreadySubmitted }) => {
     };
   }, []);
   return (
-    <div className={`modal ${visible ? "showModal" : ""}`}>
-      <div className={`modal-content ${valid ? "valid" : ""} ${alreadySubmitted ? "alreadySubmitted" : ""}`}>{message}</div>
+    <div className={`modal ${visible ? "show-modal" : ""}`}>
+      <div className={`modal-content ${valid ? "valid" : ""} ${alreadySubmitted ? "already-submitted" : ""}`}>{message}</div>
     </div>
   );
 };

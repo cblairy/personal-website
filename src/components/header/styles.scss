@@ -1,54 +1,87 @@
 $test: #c6e0e4;
 
 header {
-  position: sticky;
-  top: 0;
-  height: 50px;
-  z-index: 1000;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    z-index: 10000;
 
-  background-color: rgba(0, 0, 0, 0);
-  box-shadow: black 0 0 12px -5px;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1.3rem;
-  color: whitesmoke;
-
-  &.headerIsNotVisible {
-    transform: translateY(-50px);
-    transition: 0.5s ease-in-out;
-  }
-
-  &.headerIsVisible {
-    transition: 0.5s ease-in-out;
-  }
-
-}
-
-.headerList {
-  display: flex;
-  width: 35%;
-  height: 100%;
-  justify-content: space-around;
-}
-
-.itemHeaderList {
-  list-style-type: none;
-  width: 100%;
-  height: 100%;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & a {
-    text-decoration: none;
-    color: whitesmoke;
-  }
-  &:hover {
-    transition: 0.4s ease-in-out;
+    background-color: rgba(0, 0, 0, 0);
     box-shadow: black 0 0 12px -5px;
-    background-color: rgba(222, 184, 135, 0.5)
-  }
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: whitesmoke;
+
+    &.header-is-not-visible {
+        transform: translateY(-50px);
+        transition: 0.5s ease-in-out;
+    }
+
+    &.header-is-visible {
+        transition: 0.5s ease-in-out;
+    }
+
+}
+
+.header-list {
+    display: flex;
+    width: 45%;
+    height: 100%;
+}
+
+.item-header-list {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+
+    & a {
+        text-decoration: none;
+        color: whitesmoke;
+        width: 100%;
+        height: 100%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover {
+        transition: 0.4s ease-in-out;
+        box-shadow: black 0 0 12px -5px;
+        background-color: rgba(222, 184, 135, 0.5);
+    }
+}
+
+
+$mobile: 430px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-screen: 1440px;
+
+@media screen and (max-width: $mobile) {
+    .item-header-list {
+      font-size: 0.7rem;
+    }
+}
+
+@media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
+.element {
+  width: 50%;
+}
+}
+
+@media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
+.element {
+  width: 33.33%;
+}
+}
+
+@media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
+.element {
+  width: 25%;
+}
 }

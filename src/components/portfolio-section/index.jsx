@@ -6,7 +6,6 @@ import './styles.scss';
 
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import Card from "./card.jsx"
-import { useRef } from "react";
 
 function SecondMidSection() {
     let data1 = [];
@@ -26,14 +25,13 @@ function SecondMidSection() {
 
 
     return (
-        <ParallaxBanner className={"secondMidSection"}>
-            <a id="mid2"></a>
+        <ParallaxBanner className={"portfolio-section"} id="portfolio">
             <ParallaxBannerLayer image={bureau} expanded={false} speed={-40} scale={[1, 1.3]}/* opacity={[1, 1]}*//>
-            <Parallax className="content2midSec" speed={-10}>
-                <div className="cardsTitle">
-                    <div className="line"></div>
+            <Parallax className="portfolio-content" speed={-10}>
+                <div className="cards-title">
+                    <div></div>
                     <h3>Mes travaux récents</h3>
-                    <div className="line"></div>
+                    <div></div>
                 </div>
 
                 <div className="cards">

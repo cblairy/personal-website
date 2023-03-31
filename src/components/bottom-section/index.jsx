@@ -9,18 +9,18 @@ const BottomSection = () => {
     let email = "corentinblairy1@gmail.com";
 
     return (
-        <div id='bot' className={"bottomSection"}>
-            <nav className="navBarEmail">
-                <div className="navBarLine"></div>
-                <a className="emailContact" href={"mailto:" + email}>corentin@blairy.fr</a>
+        <section id='contact' className={"contact-section"}>
+            <nav className="navbar-email">
+                <div className="navbar-line"></div>
+                <a href={"mailto:" + email}>corentin@blairy.fr</a>
             </nav>
             <ContactMe />
-            <nav className="navBarGithub">
-                <a className="githubLink" href="https://github.com/cblairy" target="_blank">github.com/cblairy</a>
-                <div className="navBarLine"></div>
+            <nav className="navbar-github">
+                <a href="https://github.com/cblairy" target="_blank">github.com/cblairy</a>
+                <div className="navbar-line"></div>
             </nav>
 
-            <nav className="mobileNavLogo">
+            <nav className="mobile-nav-logo">
                 <a href={"mailto:" + email}>
                     <img src={emailLogo} alt="logo email" />
                 </a>
@@ -29,7 +29,7 @@ const BottomSection = () => {
                 </a>
             </nav>
 
-        </div>
+        </section>
     );
 }
 

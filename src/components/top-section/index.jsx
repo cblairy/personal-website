@@ -9,11 +9,11 @@ import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 const TopSection = () => {
 
     return (
-        <ParallaxBanner className={"topSection"}>
+        <ParallaxBanner className={"top-section"}>
             <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.7, 1.4]} opacity={[0.3, 1.1]}/>
-            <ParallaxBannerLayer className="myHead" image={myHead} speed={-30} />
+            <ParallaxBannerLayer className="my-head" image={myHead} speed={-30} />
             <ParallaxBannerLayer speed={-20}>
-                <div className="introContent">
+                <div className="intro-content">
                     <Intro />
                 </div>
             </ParallaxBannerLayer>

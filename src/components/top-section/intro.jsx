@@ -61,7 +61,7 @@ const Intro = (props) => {
           }
         }
       }
-        $('.lineTwoIntro').text(dynamicWords);
+        $('.line-two-intro').text(dynamicWords);
     },speed);
   };
 
@@ -80,7 +80,7 @@ const Intro = (props) => {
       } else {
         partLineOne = wordsLineOne.substring(0, offset);
         offset++;
-        $('.lineOneIntro').text(partLineOne);
+        $('.line-one-intro').text(partLineOne);
       }
     }, 90);
   }
@@ -92,13 +92,13 @@ const Intro = (props) => {
         if(offset2 > wordsLineTwo.length) {
           clearInterval(dynamicIntroLineTwo);
           if(isStop === false){
-            textIntro = document.querySelector(".lineTwoIntro").innerText;
+            textIntro = document.querySelector(".line-two-intro").innerText;
             isStop = true;
           }
         } else {
           partLineTwo = wordsLineTwo.substring(0, offset2);
           offset2++;
-          $('.lineTwoIntro').text(partLineTwo);
+          $('.line-two-intro').text(partLineTwo);
         }
       }
     }, 90);
@@ -116,8 +116,8 @@ const Intro = (props) => {
   return (
     <div className='welcome'>
       <p>Bienvenue,</p>
-      <p className='lineOneIntro'></p>
-      <p className='lineTwoIntro'></p>
+      <p className='line-one-intro'></p>
+      <p className='line-two-intro'></p>
     </div>
   );
 };

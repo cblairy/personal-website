@@ -41,68 +41,67 @@ function MiddleSection() {
     
       
     return (
-      <section id="mid1" className="middleSection" ref={ref}>
-        <p animation={showElement ? "slideInFromBottom 1s ease-out" : ""} className="subIntro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
-        <div className='fullBars'>
-          <div className='languageBars'>
-            <div className='barAndLogo'>
-              <img src={phpLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+      <section id="skills" className="skills-section" ref={ref}>
+        <p animation={showElement ? "slideInFromBottom 1s ease-out" : ""} className="sub-intro">Fraichement diplômé d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre.</p>
+        <div className='all-bars'>
+          <div>
+            <div className='bar-and-logo'>
+              <img src={phpLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
               <Bar percent={"85%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
-            <div className='barAndLogo'>
-              <img src={javascriptLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+            <div className='bar-and-logo'>
+              <img src={javascriptLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
               <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
-            <div className='barAndLogo'>
-              <img src={nodeLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+            <div className='bar-and-logo'>
+              <img src={nodeLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
               <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
-            <div className='barAndLogo'>
-              <img src={pythonLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+            <div className='bar-and-logo'>
+              <img src={pythonLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
               <Bar percent={"60%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
 
-            <div className='barAndLogo'>
-              <img src={cssLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+            <div className='bar-and-logo'>
+              <img src={cssLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
               <Bar percent={"90%"}showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
             </div>
           </div>
 
-          <div className='frameworksBars'>
-            <div className='barAndLogo'>
-                <img src={symfonyLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+          <div>
+            <div className='bar-and-logo'>
+                <img src={symfonyLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"75%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
 
-              <div className='barAndLogo'>
-                <img src={codeIgniterLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <div className='bar-and-logo'>
+                <img src={codeIgniterLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"60%"} showLogo={showLogo} setShowLogo={setShowLogo} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
 
-              <div className='barAndLogo'>
-                <img src={reactLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <div className='bar-and-logo'>
+                <img src={reactLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"75%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
 
-              <div className='barAndLogo'>
-                <img src={angularLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <div className='bar-and-logo'>
+                <img src={angularLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"25%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
 
-              <div className='barAndLogo'>
-                <img src={sassLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <div className='bar-and-logo'>
+                <img src={sassLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"50%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
 
-              <div className='barAndLogo'>
-                <img src={djangoLogo} className={showLogo ? "visible showLogo" : "showLogo"} alt="SymfonyLogo"/>
+              <div className='bar-and-logo'>
+                <img src={djangoLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
                 <Bar percent={"30%"} showElement={showElement} setShowElement={setShowElement} animation={showElement ? "slideInFromTop 1s ease-out" : ""}/>
               </div>
           </div>
-        
         </div>
       </section>
     );

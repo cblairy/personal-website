@@ -6,14 +6,13 @@ const Bar = ({ setShowLogo, animation, percent }) => {
       
     return (
     
-        <div onAnimationEnd={() => setShowLogo(true)} id="progress-bar" className='progress-bar' style={{
+        <div onAnimationEnd={() => setShowLogo(true)} className='progress-bar' style={{
             //display: props.showElement ? "block" : "none",
             animation: animation,
-          }}>
-          <div
-            className="progress-bar__filler"
-            style={{ width: percent}}
-          ></div>
+          }}
+        >
+          <div className="progress-bar__filler" style={{ width: percent }} >
+          </div>
         </div>
      
     );

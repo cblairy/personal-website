@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './styles.scss';
 
 function Header() {
-    const [scrollDirection, setScrollDirection] = useState('none');
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [headerIsVisible, setHeaderIsVisible] = useState(true);
 
@@ -11,10 +10,8 @@ function Header() {
             const currentScrollPos = window.pageYOffset;
 
             if (currentScrollPos > prevScrollPos) {
-                setScrollDirection("down");
                 setHeaderIsVisible(false)
             } else {
-                setScrollDirection("up");
                 setHeaderIsVisible(true)
             }
 
@@ -29,12 +26,11 @@ function Header() {
     
     
     return (
-            <header className={headerIsVisible ? "headerIsVisible" : "headerIsNotVisible"}>
-                <ul className='headerList'>
-                    <li className='itemHeaderList' ><a href='#mid1'>Scroll direction: {scrollDirection}</a></li>
-                    <li className='itemHeaderList' ><a href='#mid1'>Compétences</a></li>
-                    <li className='itemHeaderList' ><a href='#mid2'>Portfolio</a></li>
-                    <li className='itemHeaderList' ><a href='#bot'>Contact</a></li>
+            <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
+                <ul className='header-list'>
+                    <li className='item-header-list' ><a href='#skills'>Compétences</a></li>
+                    <li className='item-header-list' ><a href='#portfolio'>Portfolio</a></li>
+                    <li className='item-header-list' ><a href='#contact'>Contact</a></li>
                 </ul>
             </header>
     );

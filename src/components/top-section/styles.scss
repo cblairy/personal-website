@@ -1,14 +1,14 @@
 $bgColorTop: #55A4E9;
 $colorText: rgb(48, 162, 197);
 
-.topSection {
-  position: relative;
-  top: -50px;
+.top-section {
+    position: relative;
+    top: -50px;
     height: 100vh;
     background-color: $bgColorTop;
 }
 
-.myHead {
+.my-head {
     background-repeat: no-repeat;
     opacity: 0.9;
     background-size: 100vh !important;
@@ -16,7 +16,7 @@ $colorText: rgb(48, 162, 197);
 
 }
 
-.introContent {
+.intro-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,15 +26,15 @@ $colorText: rgb(48, 162, 197);
   }
 
 @keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
   // INTRO PART
@@ -43,34 +43,34 @@ $colorText: rgb(48, 162, 197);
 /// @param {Number} $num [1] - number of shadows to make
 /// @param {Color} $color [white] - color of shadows
 @function longshadow($num,$color: white){
-  $shadow: '';
-  $i: 0;
+    $shadow: '';
+    $i: 0;
 
-  @for $i from 1 through $num{
-    $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
-    @if $i < $num{
-      $shadow: $shadow + ', ';
+    @for $i from 1 through $num{
+        $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
+        @if $i < $num {
+            $shadow: $shadow + ', ';
+        }
     }
-  }
   @return unquote($shadow);
 }
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 
 .welcome {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
-  p {
-    margin: 0 auto;
-    color: white;
-    font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat',sans-serif;
-    text-shadow: longshadow(10,darken($colorText, 20%));
-    margin: 0;
-    padding: 0;
-
-}}
+    p {
+        margin: 0 auto;
+        color: white;
+        font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat',sans-serif;
+        text-shadow: longshadow(10,darken($colorText, 20%));
+        margin: 0;
+        padding: 0;
+    }
+}
 
 $mobile: 430px;
 $tablet: 768px;
@@ -78,34 +78,34 @@ $desktop: 1024px;
 $large-screen: 1440px;
 
 @media screen and (max-width: $mobile) {
-  .welcome {
-    font-size: 0.5em;
-  }
+    .welcome {
+        font-size: 0.5em;
+    }
 
-  .myHead {
-    display: none;
-  }
+    .my-head {
+        display: none;
+    }
 
-  .introContent {
-    float: left;
-    width: 95vw;
-  }
+    .intro-content {
+        float: left;
+        width: 95vw;
+    }
 }
 
 @media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
-  .element {
-    width: 50%;
-  }
+    .element {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
-  .element {
-    width: 33.33%;
-  }
+    .element {
+        width: 33.33%;
+    }
 }
 
 @media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
-  .element {
-    width: 25%;
-  }
+    .element {
+        width: 25%;
+    }
 }
