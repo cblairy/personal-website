@@ -1,6 +1,8 @@
 import { ContactMe } from "./contactMe.jsx";
 import emailLogo from "../../images/icons/email.png";
-import githubLogo from "../../images/icons/github.svg";
+import githubLogo from "../../images/icons/github.png";
+import linkedinLogo from "../../images/icons/linkedin.png";
+
 
 import './styles.scss';
 
@@ -26,6 +28,9 @@ const BottomSection = () => {
                 </a>
                 <a href="https://github.com/cblairy" target="_blank">
                     <img src={githubLogo} alt="logo github" />
+                </a>
+                <a href="https://github.com/cblairy" target="_blank">
+                    <img src={linkedinLogo} alt="logo github" />
                 </a>
             </nav>
 

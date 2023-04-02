@@ -3,26 +3,38 @@ import bewebcademy from "../../images/bewebcademy.png";
 import personalWebsite from "../../images/personal-website.png";
 
 import './styles.scss';
+import data from '../../data.json';
 
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import Card from "./card.jsx"
-
-function SecondMidSection() {
-    let data1 = [];
-    data1["title"] = "Personal website";
-    data1["content"] = "React - react-parallax - EmailJs - Javascript - SCSS";
-    data1["href"] = "#";
-    data1["gitHref"] = "https://github.com/cblairy/personal-website";
-    data1["bgImg"] = personalWebsite;
-
-    let data2 = [];
-    data2["title"] = "Bewebcademy";
-    data2["content"] = "micro-services - nodeJs - mondeDB - RabbitMQ - React";
-    data2["href"] = "https://bewebcademy.vercel.app/";
-    data2["gitHref"] = "https://github.com/cblairy/bewebCademy";
-    data2["bgImg"] = bewebcademy;
+import { useRef, useEffect, useState } from "react";
 
 
+function PortfolioSection(props) {
+    const cardsData = [
+        { cardRef: useRef(null), figureIsActive: useState(false), data: data.data1, bgImg: personalWebsite },
+        { cardRef: useRef(null), figureIsActive: useState(false), data: data.data2, bgImg: bewebcademy }
+    ];
+
+    useEffect(() => {
+        /**** JUST FOR MOBILE ****/
+        function handleClickOutside(event) {
+            cardsData.forEach((card) => {
+
+                if (!card.cardRef.current.contains(event.target))
+                    card.figureIsActive[1](false);
+            })
+        }
+
+        if (window.innerWidth <= 430){
+            document.addEventListener('touchstart', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('touchstart', handleClickOutside);
+        };
+
+    }, [cardsData])
 
     return (
         <ParallaxBanner className={"portfolio-section"} id="portfolio">
@@ -35,13 +47,20 @@ function SecondMidSection() {
                 </div>
 
                 <div className="cards">
-                    <Card data={data1} />
-                    <Card data={data2} />
+                    {cardsData.map((card) => (
+                        <Card
+                            key={card.data.id}
+                            ref={card.cardRef}
+                            figureIsActive={card.figureIsActive}
+                            data={card.data}
+                            bgImg={card.bgImg}
+                        />
+                    ))}
+                    
                 </div>
-                
             </Parallax>
         </ParallaxBanner>
     );
 }
 
-export default SecondMidSection;
+export default PortfolioSection;

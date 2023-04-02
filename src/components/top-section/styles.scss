@@ -1,5 +1,5 @@
 $bgColorTop: #55A4E9;
-$colorText: rgb(48, 162, 197);
+$colorText: darkblue;
 
 .top-section {
     position: relative;
@@ -21,7 +21,7 @@ $colorText: rgb(48, 162, 197);
     flex-direction: column;
     justify-content: center;
     float: right;
-    height: 150vh !important;
+    height: 100%;
     width: 55vw;
   }
 
@@ -37,22 +37,20 @@ $colorText: rgb(48, 162, 197);
     }
 }
 
-  // INTRO PART
-
-//// Make long shadows
-/// @param {Number} $num [1] - number of shadows to make
-/// @param {Color} $color [white] - color of shadows
+/******** INTRO PART ********/
 @function longshadow($num,$color: white){
     $shadow: '';
     $i: 0;
 
     @for $i from 1 through $num{
         $shadow: $shadow + (1 * $i) + 'px' + ' ' + (1 * ($i * 2)) + 'px' + ' ' + $color;
+
         @if $i < $num {
             $shadow: $shadow + ', ';
         }
     }
-  @return unquote($shadow);
+
+    @return unquote($shadow);
 }
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
@@ -66,7 +64,7 @@ $colorText: rgb(48, 162, 197);
         margin: 0 auto;
         color: white;
         font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat',sans-serif;
-        text-shadow: longshadow(10,darken($colorText, 20%));
+        text-shadow: longshadow(8, $colorText);
         margin: 0;
         padding: 0;
     }
@@ -78,34 +76,38 @@ $desktop: 1024px;
 $large-screen: 1440px;
 
 @media screen and (max-width: $mobile) {
-    .welcome {
-        font-size: 0.5em;
-    }
-
-    .my-head {
-        display: none;
-    }
-
     .intro-content {
-        float: left;
+        float: none;
+        margin: 0 auto;
         width: 95vw;
+    }
+    
+    .welcome {
+        display: flex;
+        
+        & > p {
+            font: 700 normal 2rem/1.5 'Montserrat',sans-serif;
+            margin: 10px 0px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        & > p:nth-child(3) {
+            height: 100px;
+            width: 350px;
+        }
     }
 }
 
 @media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
-    .element {
-        width: 50%;
-    }
+
 }
 
 @media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
-    .element {
-        width: 33.33%;
-    }
+
 }
 
 @media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
-    .element {
-        width: 25%;
-    }
+
 }

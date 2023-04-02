@@ -29,12 +29,15 @@
     & h3 {
         padding: 0;
         margin: 0;
+        //min-width: 45vw;
+        text-align: center;
+        white-space: nowrap;
     }
 
     & > div {
         border-top: solid 1px whitesmoke;
         background-color: antiquewhite;
-        width: 200px;
+        width: 20vw;
         margin: 0px 20px;
     }
 }
@@ -86,7 +89,7 @@ figure {
         font-family: sans-serif;
         font-size: 1.5rem;
         font-weight: bold;
-        color: #0000;
+        color: #FFF;
         padding: 10px;
         background: var(--c,#0009);
         //clip-path: inset(0 0 var(--_i, 100%) 0);
@@ -99,9 +102,14 @@ figure {
             padding: 10px;
             margin: 0;
         }
+
+        & > nav {
+            visibility: hidden;
+        }
     }
 
     &:hover {
+
         & img {
             transform: scale(1.2);
         }
@@ -109,7 +117,11 @@ figure {
         & figcaption {
             --_i: -1%;
             opacity: 1;
-            z-index: 2000;
+            z-index: 0;
+
+            & > nav {
+                visibility: visible;
+            }
         
             & .nav-logo {
                 filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
@@ -166,6 +178,33 @@ $large-screen: 1440px;
             max-width: 260px;
             max-height: 150px;
         }
+
+        &.active {
+
+            & img {
+                transform: scale(1.2);
+            }
+    
+            & figcaption {
+                display: grid;
+                --_i: -1%;
+                opacity: 1;
+                z-index: 0;
+
+                & > nav {
+                    visibility: visible;
+                }
+            
+                & .nav-logo {
+                    filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
+                    
+                    &:hover {
+                        transform: scale(1.5) translateY(5px);
+                        transition: 0.2s ease-in-out;
+                    }
+                }
+            }
+        }
     }
 
     .nav-logo {
@@ -174,19 +213,13 @@ $large-screen: 1440px;
 }
 
 @media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
-  .element {
-    width: 50%;
-  }
+
 }
 
 @media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
-  .element {
-    width: 33.33%;
-  }
+
 }
 
 @media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
-  .element {
-    width: 25%;
-  }
+
 }

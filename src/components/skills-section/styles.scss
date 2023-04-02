@@ -1,105 +1,95 @@
-$midSection: #003844;
+$bgColorSkillsSection: #003844;
 
 .skills-section {
-  height: calc(100vh + 60px);
-  width: 100vw;
-  background: $midSection;
-  margin-top: -50px;
+    height: calc(100vh + 60px);
+    width: 100vw;
+    background: $bgColorSkillsSection;
+    margin-top: -50px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sub-intro {
-  padding: 20px;
-  width: 600px;
-  background-color: rgba(222, 184, 135, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
-  margin: 40px 0px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 600px;
+    background-color: rgba(222, 184, 135, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+    margin: 40px 0px;
 }
 
 .all-bars {
-  height: 70%;
-  width: 65%;
-  display: flex;
-
-  & > div {
+    width: 65%;
     display: flex;
-    flex-direction: column;
-    width: 35vw;
-    height: 200px;
+    flex: 1;
 
-    & .bar-and-logo {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 50px;
+    & > div {
+        display: flex;
+        flex-direction: column;
+        width: 35vw;
+        height: 200px;
     }
-  }
+}
+
+.bar-and-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
 }
 
 .show-logo {
-  width: 30px;
-  height: 30px;
-  margin-top: 13px;
-  margin-right: 10px;
-  visibility: hidden;
-  opacity: 0;
+    width: 30px;
+    height: 30px;
+    margin-top: 13px;
+    margin-right: 10px;
+    visibility: hidden;
+    opacity: 0;
 
-  &.visible {
-    visibility: visible;
-    transition: 2s;
-    opacity: 1;
-  }
-  
+    &.visible {
+        visibility: visible;
+        transition: 2s;
+        opacity: 1;
+    }
 }
 
 /******** PROGRESS BAR ********/
 
 @keyframes slideInFromTop {
-  from {
-    transform: translateY(-250%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+    from {
+        transform: translateY(-250%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
 
-@keyframes slideInFromBottom {
-  from {
-    transform: translateY(250%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
 
 .progress-bar {
-  width: 70%;
-  height: 20px;
-  background-color: #e0e0e0;
-  border-radius: 50px;
-  margin: 20px 0;
-  background-color: rgba(0, 56, 68, 0.7);
-  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    margin: 20px 0;
+    background-color: rgba(0, 56, 68, 0.7);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
 
 }
 
 .progress-bar__filler {
-  height: 100%;
-  //background-image: linear-gradient(to right, #ff69b4, #bbbb4a, #87cefa);
-  background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
-  border-radius: inherit;
-  transition: width 2s ease-in-out;
-  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
+    border-radius: inherit;
+    transition: width 2s ease-in-out;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
 
 }
+
 
 /******** MEDIA QUERIES ********/
 
@@ -109,35 +99,42 @@ $desktop: 1024px;
 $large-screen: 1440px;
 
 @media screen and (max-width: $mobile) {
-  .sub-intro {
-    width: 200px;
-    font-size: 0.7rem;
-  }
-
-  .all-bars {
-    flex-direction: column;
-
-    & > div {
-      width: 80vw;
+    .sub-intro {
+        width: 90vw;
+        font-size: 0.7rem;
     }
-  }
+
+    .all-bars {
+        flex-direction: column;
+        flex: 1;
+        width: 95vw;
+
+        & > div {
+            width: 100%;
+            flex: 1;
+        }
+    }
+
+    .progress-bar {
+        width: 80%;
+    }
 
 }
 
 @media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {
-  .element {
-    width: 50%;
-  }
+    .element {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: ($tablet + 1)) and (max-width: $desktop) {
-  .element {
-    width: 33.33%;
-  }
+    .element {
+        width: 33.33%;
+    }
 }
 
 @media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
-  .element {
-    width: 25%;
-  }
+    .element {
+        width: 25%;
+    }
 }

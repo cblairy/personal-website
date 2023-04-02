@@ -4,19 +4,19 @@ import './styles.scss';
 import Intro from "./intro";
 
 
-import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
-const TopSection = () => {
+const TopSection = (props) => {
 
     return (
         <ParallaxBanner className={"top-section"}>
             <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.7, 1.4]} opacity={[0.3, 1.1]}/>
             <ParallaxBannerLayer className="my-head" image={myHead} speed={-30} />
-            <ParallaxBannerLayer speed={-20}>
+            <Parallax speed={-20}>
                 <div className="intro-content">
-                    <Intro />
+                    <Intro isLoading={props.isLoading} />
                 </div>
-            </ParallaxBannerLayer>
+            </Parallax>
         </ParallaxBanner>
     );
 }

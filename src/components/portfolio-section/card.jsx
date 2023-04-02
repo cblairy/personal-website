@@ -1,16 +1,20 @@
+import { useEffect, useState, useRef, forwardRef } from "react";
+import React from "react";
 import githubLogo from "../../images/icons/github.svg";
 import webLogo from "../../images/icons/web.svg";
 
-function Card(props) {
+const Card = React.forwardRef((props, ref) => {
+    const figureIsActive = props.figureIsActive;
+    console.log(props.figureIsActive[1])
       
     return (
-        <figure>
-            <img src={props.data["bgImg"]} alt="" />
+        <figure ref={ref} className={props.figureIsActive[0] ? "active" : ""} onClick={() => props.figureIsActive[1](true)} >
+            <img src={props.bgImg} alt="" />
             <figcaption>
-                <h3>{props.data["title"]}</h3>
+                <h3>{props.data.title}</h3>
                 <p>{props.data["content"]}</p>
 
-                <nav className="navigation">
+                <nav>
                     <a href={props.data["gitHref"]} target="_blank">
                         <img className="nav-logo" src={githubLogo} alt="logo github" />
                     </a>
@@ -22,6 +26,6 @@ function Card(props) {
             </figcaption>
         </figure>
     );
-}
+})
 
 export default Card;

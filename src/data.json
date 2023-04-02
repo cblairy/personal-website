@@ -1,0 +1,16 @@
+{
+    "data1": {
+        "id": 1,
+        "title": "Personal website",
+        "content": "React - react-parallax - EmailJs - Javascript - SCSS",
+        "href": "#",
+        "gitHref": "https://github.com/cblairy/personal-website"
+    },
+    "data2": {
+        "id": 2,
+        "title": "Bewebcademy",
+        "content": "micro-services - nodeJs - mondeDB - RabbitMQ - React",
+        "href": "https://bewebcademy.vercel.app/",
+        "gitHref": "https://github.com/cblairy/bewebCademy"
+    }
+}
