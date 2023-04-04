@@ -8,7 +8,7 @@ const Intro = (props) => {
         'Back-End.',
         'Python.'
     ],
-    wordsLineOne = "je m'appelle Corentin Blairy.",
+    wordsLineOne = "Je m'appelle Corentin Blairy.",
     wordsLineTwo = "Je suis developpeur ",
     partLineOne,
     partLineTwo,
@@ -20,13 +20,13 @@ const Intro = (props) => {
     len = words.length,
     forwards = true,
     skip_count = 0,
-    skip_delay = 18,
-    speed = 100,
+    skip_delay = 25,
+    speed = 70,
     isStop = false,
     lineOneIsEnd = false,
     textIntro = "";
 
-    // gestion de mots dynamiques en intro
+    /******** DYNAMIC WORD MANAGEMENT IN INTRO ********/
     let wordflick = function(){
         setInterval(function(){
 
@@ -54,7 +54,7 @@ const Intro = (props) => {
                     }
                 }
 
-                // ajouter ou retirer une lettre du mot en cours
+                /******** ADD OR REMOVE A LETTER FROM THE CURRENT WORD ********/
                 dynamicWords = textIntro + " "+ words[i].substring(0, offset3);
 
                 if (skip_count === 0) {
@@ -70,7 +70,7 @@ const Intro = (props) => {
         },speed);
     };
 
-    // 1ere ligne d'intro
+    /******** FIRST LINE INTRO ********/
     function dynamicIntroLineOne(){
         setInterval(function(){
 
@@ -89,10 +89,10 @@ const Intro = (props) => {
                 offset++;
                 $('.line-one-intro').text(partLineOne);
             }
-        }, 90);
+        }, speed);
     }
 
-    // 2eme ligne d'intro
+    /******** 2ND LINE INTRO ********/
     function dynamicIntroLineTwo(){
         setInterval(function(){
 
@@ -112,11 +112,10 @@ const Intro = (props) => {
                     $('.line-two-intro').text(partLineTwo);
                 }
             }
-        }, 50);
+        }, speed);
     };
 
-   
-
+   /******** STARTS THE TEXT WHEN THE PAGE IS LOADED ********/
     useEffect(() => {
         if (!props.isLoading) {
             dynamicIntroLineOne();
@@ -124,7 +123,7 @@ const Intro = (props) => {
             wordflick(); 
         }
 
-    }, [props.isLoading])
+    }, [props.isLoading, dynamicIntroLineOne, dynamicIntroLineTwo, wordflick]);
 
     return (
         <div className='welcome'>

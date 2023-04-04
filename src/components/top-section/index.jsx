@@ -1,15 +1,17 @@
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+
 import myHead from "../../images/face.png";
 import foreground from "../../images/foregroundTop.jpg";
-import './styles.scss';
+
 import Intro from "./intro";
 
+import './styles.scss';
 
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
 const TopSection = (props) => {
 
     return (
-        <ParallaxBanner className={"top-section"}>
+        <ParallaxBanner id="top" className={"top-section"}>
             <ParallaxBannerLayer image={foreground} expanded={false} speed={-10} scale={[0.7, 1.4]} opacity={[0.3, 1.1]}/>
             <ParallaxBannerLayer className="my-head" image={myHead} speed={-30} />
             <Parallax speed={-20}>
@@ -17,6 +19,7 @@ const TopSection = (props) => {
                     <Intro isLoading={props.isLoading} />
                 </div>
             </Parallax>
+                <a className="scroll-arrow-top" href="#skills"><span></span></a>
         </ParallaxBanner>
     );
 }

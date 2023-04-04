@@ -1,23 +1,77 @@
+import React, { useRef, useEffect, useState } from "react";
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+import { useInView } from "react-intersection-observer";
+
+import Card from "./card.jsx";
+import Modal from "../modal";
+import data from '../../data.json';
+
 import bureau from "../../images/bureau.jpeg";
 import bewebcademy from "../../images/bewebcademy.png";
 import personalWebsite from "../../images/personal-website.png";
 
 import './styles.scss';
-import data from '../../data.json';
-
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
-import Card from "./card.jsx"
-import { useRef, useEffect, useState } from "react";
 
 
-function PortfolioSection(props) {
+const PortfolioSection = React.forwardRef((props, ref) => {
+    const [isDisableLink, setIsDisabledLink] = useState(false);
+    const isVisibleModal = useState(false);
+    const [isVisibleSection, setIsVisibleSection] = useState(false);
+    const showModal = true;
+
+    const { ref: inViewRef, inView } = useInView({
+        threshold: 0.8,
+        isVisibleSection,
+    });
+
     const cardsData = [
-        { cardRef: useRef(null), figureIsActive: useState(false), data: data.data1, bgImg: personalWebsite },
-        { cardRef: useRef(null), figureIsActive: useState(false), data: data.data2, bgImg: bewebcademy }
+        { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data1, bgImg: personalWebsite },
+        { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data2, bgImg: bewebcademy },
     ];
 
+    /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
-        /**** JUST FOR MOBILE ****/
+        if (inView && !props.isLoading) 
+            setIsVisibleSection(true);    
+    }, [inView, props.isLoading]);
+
+    /***** DISPLAY CARDS *****/
+    const [activeIndex, setActiveIndex] = useState(0);
+    const delay = 250;
+
+    function nextCard() {
+        setTimeout(() => {
+            setActiveIndex(activeIndex + 1);
+        }, delay);
+    }
+
+    useEffect(() => {
+        if (isVisibleSection){
+            if (activeIndex < cardsData.length){
+
+                const interval = setInterval(() => {
+                    nextCard();
+                }, delay * 2);
+
+                for (let i = 0; i < cardsData.length; i++) {
+                    const card = cardsData[i];
+                    
+                    if (i === activeIndex) {
+                        card.figureIsVisible[1](true);
+                    }
+                }
+
+                return () => {
+                    clearInterval(interval);
+
+                };
+            }
+        }
+    }, [isVisibleSection, activeIndex]);
+
+
+    useEffect(() => {
+        /******** JUST FOR MOBILE (hover --> click) ********/
         function handleClickOutside(event) {
             cardsData.forEach((card) => {
 
@@ -29,7 +83,7 @@ function PortfolioSection(props) {
         if (window.innerWidth <= 430){
             document.addEventListener('touchstart', handleClickOutside)
         }
-
+        
         return () => {
             document.removeEventListener('touchstart', handleClickOutside);
         };
@@ -37,21 +91,23 @@ function PortfolioSection(props) {
     }, [cardsData])
 
     return (
-        <ParallaxBanner className={"portfolio-section"} id="portfolio">
-            <ParallaxBannerLayer image={bureau} expanded={false} speed={-40} scale={[1, 1.3]}/* opacity={[1, 1]}*//>
-            <Parallax className="portfolio-content" speed={-10}>
-                <div className="cards-title">
+        <ParallaxBanner className={"portfolio-section"} id="portfolio" >
+            <ParallaxBannerLayer image={bureau} expanded={false} speed={-50} scale={[1, 1.3]}/* opacity={[1, 1]}*//>
+            <Parallax className="portfolio-content" speed={-10} >
+                <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} ref={inViewRef} >
                     <div></div>
                     <h3>Mes travaux récents</h3>
                     <div></div>
                 </div>
 
-                <div className="cards">
+                <div className="cards" >
                     {cardsData.map((card) => (
                         <Card
+                            link={card.data.title === "Personal website" ? {showModal, setIsDisabledLink} : null}
                             key={card.data.id}
                             ref={card.cardRef}
                             figureIsActive={card.figureIsActive}
+                            figureIsVisible={card.figureIsVisible}
                             data={card.data}
                             bgImg={card.bgImg}
                         />
@@ -59,8 +115,16 @@ function PortfolioSection(props) {
                     
                 </div>
             </Parallax>
+
+            {isDisableLink && (
+                <Modal
+                    message="Merci d'avoir visité mon site! 🥰"
+                    valid={true}
+                    visible={isVisibleModal}
+                />
+            )}
         </ParallaxBanner>
     );
-}
+})
 
 export default PortfolioSection;

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Modal from "./modal";
+import Modal from "../modal";
 
 import devImg from "../../images/devCode.jpg";
 
@@ -18,9 +18,10 @@ export const ContactMe = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
+
         if (localStorage.getItem("contactFormSubmitted")) {
-          setFormAlreadySubmitted(true);
-          //alert("formulaire deja soumis")
+            setFormAlreadySubmitted(true);
+
         } else {
             let isEmailValid = handleEmailClick();
 

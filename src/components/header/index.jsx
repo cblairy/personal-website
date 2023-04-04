@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import './styles.scss';
 
 function Header() {
@@ -24,13 +25,15 @@ function Header() {
     }, [prevScrollPos]);
 
     
+
+    
     
     return (
             <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
                 <ul className='header-list'>
-                    <li className='item-header-list' ><a href='#skills'>Compétences</a></li>
-                    <li className='item-header-list' ><a href='#portfolio'>Portfolio</a></li>
-                    <li className='item-header-list' ><a href='#contact'>Contact</a></li>
+                    <li><a href='#skills'>Compétences</a></li>
+                    <li><a href='#portfolio'>Portfolio</a></li>
+                    <li><a href='#contact'>Contact</a></li>
                 </ul>
             </header>
     );

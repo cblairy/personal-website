@@ -21,7 +21,10 @@
     height: 30%;
     width: 100%;
     color: whitesmoke;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    opacity: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +32,6 @@
     & h3 {
         padding: 0;
         margin: 0;
-        //min-width: 45vw;
         text-align: center;
         white-space: nowrap;
     }
@@ -39,6 +41,12 @@
         background-color: antiquewhite;
         width: 20vw;
         margin: 0px 20px;
+    }
+
+    &.visible-section {
+        opacity: 1;
+        animation: slideInFromTop 1s ease-out forwards;
+
     }
 }
 
@@ -52,8 +60,12 @@
 
 .nav-logo {
     width: 30px;
-    transition: transform 0.2s ease-in-out;
     padding: 10px;
+
+    -webkit-transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 
 
@@ -67,6 +79,13 @@ figure {
     width: 350px;
     height: 200px;
     cursor: pointer;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        transition: 1.5s;
+        transition-delay: 0.8s;
+    }
 
     & h3 {
         margin: 0;
@@ -91,11 +110,14 @@ figure {
         font-weight: bold;
         color: #FFF;
         padding: 10px;
-        background: var(--c,#0009);
-        //clip-path: inset(0 0 var(--_i, 100%) 0);
+        background: #0009;
         opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-        background-image: linear-gradient(to bottom, transparent, var(--c, #0009));
+        background-image: linear-gradient(to bottom, transparent, #0009);
+
+        -webkit-transition: opacity 0.2s ease-out;
+        -moz-transition: opacity 0.2s ease-out;
+        -o-transition: opacity 0.2s ease-out;
+        transition: opacity 0.2s ease-out;
     
         & p {
             font-size: 1rem;
@@ -111,6 +133,9 @@ figure {
     &:hover {
 
         & img {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
             transform: scale(1.2);
         }
 
@@ -127,13 +152,32 @@ figure {
                 filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
                 
                 &:hover {
-                    transform: scale(1.5) translateY(5px);
+                    -webkit-transform: scale(1.2) translateY(-5px);
+                    -moz-transform: scale(1.2) translateY(-5px);
+                    -o-transform: scale(1.2) translateY(-5px);
+                    transform: scale(1.2) translateY(-5px);
+
+                    -webkit-transition: 0.2s ease-in-out;
+                    -moz-transition: 0.2s ease-in-out;
+                    -o-transition: 0.2s ease-in-out;
                     transition: 0.2s ease-in-out;
                 }
             }
         }
     }
 }
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
 
 
 /******** MEDIA QUERIES *******/
@@ -153,10 +197,6 @@ $large-screen: 1440px;
         & h3 {
             padding: 0;
             margin: 0;
-        }
-
-        & .line {
-            width: 10%;
         }
     }
 
@@ -182,6 +222,9 @@ $large-screen: 1440px;
         &.active {
 
             & img {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
                 transform: scale(1.2);
             }
     
@@ -199,7 +242,14 @@ $large-screen: 1440px;
                     filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
                     
                     &:hover {
+                        -webkit-transform: scale(1.5) translateY(5px);
+                        -moz-transform: scale(1.5) translateY(5px);
+                        -o-transform: scale(1.5) translateY(5px);
                         transform: scale(1.5) translateY(5px);
+
+                        -webkit-transition: 0.2s ease-in-out;
+                        -moz-transition: 0.2s ease-in-out;
+                        -o-transition: 0.2s ease-in-out;
                         transition: 0.2s ease-in-out;
                     }
                 }

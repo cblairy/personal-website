@@ -1,12 +1,15 @@
 import './styles.scss';
 
-const Bar = ({ setShowLogo, animation, percent }) => {
+const Bar = ({ setShowLogo, showSection, percent }) => {
+
     function handleShowLogo() {
-        setShowLogo(true)
+        if(setShowLogo){
+            setShowLogo(true);
+        }
     }
-    console.log(setShowLogo)
+    
     return (
-        <div onAnimationEnd={() => handleShowLogo} className='progress-bar' style={{ animation: animation }}>
+        <div className={`progress-bar ${showSection ? "visible" : ""}`} onAnimationEnd={handleShowLogo}>
             <div className="progress-bar__filler" style={{ width: percent }} >
             </div>
         </div>

@@ -1,5 +1,6 @@
 $bgColorTop: #55A4E9;
-$colorText: darkblue;
+$colorText: #045ba7;
+
 
 .top-section {
     position: relative;
@@ -11,8 +12,8 @@ $colorText: darkblue;
 .my-head {
     background-repeat: no-repeat;
     opacity: 0.9;
-    background-size: 100vh !important;
-    background-position: left top 370px !important;
+    background-size: 96vh !important;
+    background-position: left top 400px !important;
 
 }
 
@@ -22,21 +23,10 @@ $colorText: darkblue;
     justify-content: center;
     float: right;
     height: 100%;
-    width: 55vw;
-  }
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+    width: 57vw;
 }
 
+  
 /******** INTRO PART ********/
 @function longshadow($num,$color: white){
     $shadow: '';
@@ -70,6 +60,90 @@ $colorText: darkblue;
     }
 }
 
+/******** SCROLL ARROW ********/
+
+.scroll-arrow-top {
+    position: absolute;
+    top: 90vh;
+    left: 49%;
+    height: 60px;
+    width: 60px;
+  
+
+    & span {
+        position: absolute;
+        top: -10px;
+        left: 30%;
+        width: 30px;
+        height: 30px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+
+        -webkit-animation: top-arrow 1.5s infinite;
+        animation: top-arrow 1.5s infinite;
+        box-sizing: border-box;
+    }
+}
+
+@-webkit-keyframes top-arrow {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(-20, -20);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+}
+  
+@-moz-keyframes top-arrow {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(-20, -20);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+}
+
+@-o-keyframes top-arrow {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(-20, -20);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+}
+
+@keyframes top-arrow {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+}
+
+
+/******** MEDIA QUERIES ********/
+
 $mobile: 430px;
 $tablet: 768px;
 $desktop: 1024px;
@@ -97,6 +171,10 @@ $large-screen: 1440px;
             height: 100px;
             width: 350px;
         }
+    }
+
+    .scroll-arrow-top {
+        display: none;
     }
 }
 

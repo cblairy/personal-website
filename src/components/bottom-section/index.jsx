@@ -1,17 +1,18 @@
 import { ContactMe } from "./contactMe.jsx";
+
 import emailLogo from "../../images/icons/email.png";
 import githubLogo from "../../images/icons/github.png";
 import linkedinLogo from "../../images/icons/linkedin.png";
 
-
 import './styles.scss';
-
 
 const BottomSection = () => {
     let email = "corentinblairy1@gmail.com";
 
     return (
         <section id='contact' className={"contact-section"}>
+            <a className="scroll-arrow-bottom" href="#top"><span></span></a>
+
             <nav className="navbar-email">
                 <div className="navbar-line"></div>
                 <a href={"mailto:" + email}>corentin@blairy.fr</a>
