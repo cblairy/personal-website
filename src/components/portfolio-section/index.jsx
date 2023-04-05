@@ -20,7 +20,7 @@ const PortfolioSection = React.forwardRef((props, ref) => {
     const showModal = true;
 
     const { ref: inViewRef, inView } = useInView({
-        threshold: 0.8,
+        threshold: 0.65,
         isVisibleSection,
     });
 

@@ -41,7 +41,6 @@ function SkillsSection(props) {
             setShowSection(true);
         }
 
-        console.log(window.innerHeight, window.devicePixelRatio)
     }, [inView, props.isLoading]);
 
 
