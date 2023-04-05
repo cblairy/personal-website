@@ -6,9 +6,9 @@ import Card from "./card.jsx";
 import Modal from "../modal";
 import data from '../../data.json';
 
-import bureau from "../../images/bureau.jpeg";
-import bewebcademy from "../../images/bewebcademy.png";
-import personalWebsite from "../../images/personal-website.png";
+import bureau from "../../assets/images/bureau.jpeg";
+import bewebcademy from "../../assets/images/bewebcademy.png";
+import personalWebsite from "../../assets/images/personal-website.png";
 
 import './styles.scss';
 
@@ -92,7 +92,7 @@ const PortfolioSection = React.forwardRef((props, ref) => {
 
     return (
         <ParallaxBanner className={"portfolio-section"} id="portfolio" >
-            <ParallaxBannerLayer image={bureau} expanded={false} speed={-50} scale={[1, 1.3]}/* opacity={[1, 1]}*//>
+            <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]}/* opacity={[1, 1]}*//>
             <Parallax className="portfolio-content" speed={-10} >
                 <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} ref={inViewRef} >
                     <div></div>

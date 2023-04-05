@@ -1,7 +1,7 @@
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
-import myHead from "../../images/face.png";
-import foreground from "../../images/foregroundTop.jpg";
+import myHead from "../../assets/images/face.png";
+import foreground from "../../assets/images/foregroundTop.jpg";
 
 import Intro from "./intro";
 

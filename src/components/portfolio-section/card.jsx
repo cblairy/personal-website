@@ -1,7 +1,7 @@
 import React from "react";
 
-import githubLogo from "../../images/icons/github.svg";
-import webLogo from "../../images/icons/web.svg";
+import githubLogo from "../../assets/images/icons/github.svg";
+import webLogo from "../../assets/images/icons/web.svg";
 
 const Card = React.forwardRef((props, ref) => {
 

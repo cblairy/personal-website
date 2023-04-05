@@ -1,8 +1,8 @@
 import { ContactMe } from "./contactMe.jsx";
 
-import emailLogo from "../../images/icons/email.png";
-import githubLogo from "../../images/icons/github.png";
-import linkedinLogo from "../../images/icons/linkedin.png";
+import emailLogo from "../../assets/images/icons/email.png";
+import githubLogo from "../../assets/images/icons/github.png";
+import linkedinLogo from "../../assets/images/icons/linkedin.png";
 
 import './styles.scss';
 
@@ -11,29 +11,32 @@ const BottomSection = () => {
 
     return (
         <section id='contact' className={"contact-section"}>
-            <a className="scroll-arrow-bottom" href="#top"><span></span></a>
-
+            
             <nav className="navbar-email">
                 <div className="navbar-line"></div>
                 <a href={"mailto:" + email}>corentin@blairy.fr</a>
             </nav>
-            <ContactMe />
+            <div>
+                <a className="scroll-arrow-bottom" href="#top"><span></span></a>
+                <ContactMe />
+                <nav className="mobile-nav-logo">
+                    <a href={"mailto:" + email}>
+                        <img src={emailLogo} alt="logo email" />
+                    </a>
+                    <a href="https://github.com/cblairy" target="_blank">
+                        <img src={githubLogo} alt="logo github" />
+                    </a>
+                    <a href="https://github.com/cblairy" target="_blank">
+                        <img src={linkedinLogo} alt="logo github" />
+                    </a>
+                </nav>
+            </div>
             <nav className="navbar-github">
                 <a href="https://github.com/cblairy" target="_blank">github.com/cblairy</a>
                 <div className="navbar-line"></div>
             </nav>
 
-            <nav className="mobile-nav-logo">
-                <a href={"mailto:" + email}>
-                    <img src={emailLogo} alt="logo email" />
-                </a>
-                <a href="https://github.com/cblairy" target="_blank">
-                    <img src={githubLogo} alt="logo github" />
-                </a>
-                <a href="https://github.com/cblairy" target="_blank">
-                    <img src={linkedinLogo} alt="logo github" />
-                </a>
-            </nav>
+            
 
         </section>
     );

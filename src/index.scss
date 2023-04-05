@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    src: url('./assets/fonts/poppins/Poppins-BlackItalic.woff2') format('woff2'),
+         url('./assets/fonts/poppins/Poppins-BlackItalic.woff') format('woff');
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
