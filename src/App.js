@@ -5,7 +5,7 @@ import Header from "./components/header";
 import TopSection from "./components/top-section";
 import SkillsSection from "./components/skills-section";
 import PortfolioSection from "./components/portfolio-section";
-import BottomSection from "./components/bottom-section";
+import BottomSection from "./components/contact-section";
 
 import "./index.scss";
 
@@ -32,11 +32,6 @@ function App() {
         window.scrollTo({ top: sectionTop, behavior: 'smooth' });
     }
       
-    function handleClick(event) {
-        event.preventDefault();
-        const targetId = event.currentTarget.getAttribute('href');
-        scrollToSection(targetId);
-    }
 
     useEffect(() => {
         /******** Disable mouse and keyboard events while loading ********/
@@ -55,6 +50,12 @@ function App() {
         disableEvents();
 
         /******** Smooth scroll for all nav links ********/
+        function handleClick(event) {
+            event.preventDefault();
+            const targetId = event.currentTarget.getAttribute('href');
+            scrollToSection(targetId);
+        }
+
         const links = document.querySelectorAll('a[href^="#"]');
         links.forEach(link => {
             link.addEventListener('click', handleClick);

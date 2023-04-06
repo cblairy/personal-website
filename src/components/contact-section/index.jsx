@@ -23,16 +23,16 @@ const BottomSection = () => {
                     <a href={"mailto:" + email}>
                         <img src={emailLogo} alt="logo email" />
                     </a>
-                    <a href="https://github.com/cblairy" target="_blank">
+                    <a href="https://github.com/cblairy" target="_blank" rel="noreferrer noopener">
                         <img src={githubLogo} alt="logo github" />
                     </a>
-                    <a href="https://github.com/cblairy" target="_blank">
+                    <a href="https://github.com/cblairy" target="_blank" rel="noreferrer noopener">
                         <img src={linkedinLogo} alt="logo github" />
                     </a>
                 </nav>
             </div>
             <nav className="navbar-github">
-                <a href="https://github.com/cblairy" target="_blank">github.com/cblairy</a>
+                <a href="https://github.com/cblairy" target="_blank" rel="noreferrer noopener">github.com/cblairy</a>
                 <div className="navbar-line"></div>
             </nav>
 

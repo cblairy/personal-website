@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 
@@ -39,22 +39,27 @@ const PortfolioSection = React.forwardRef((props, ref) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const delay = 250;
 
-    function nextCard() {
-        setTimeout(() => {
-            setActiveIndex(activeIndex + 1);
-        }, delay);
-    }
+    
+
+    const cardsDataMemo = useMemo(() => {return cardsData}, []);
+
 
     useEffect(() => {
+        function nextCard() {
+            setTimeout(() => {
+                setActiveIndex(activeIndex + 1);
+            }, delay);
+        }
+
         if (isVisibleSection){
-            if (activeIndex < cardsData.length){
+            if (activeIndex < cardsDataMemo.length){
 
                 const interval = setInterval(() => {
                     nextCard();
                 }, delay * 2);
 
-                for (let i = 0; i < cardsData.length; i++) {
-                    const card = cardsData[i];
+                for (let i = 0; i < cardsDataMemo.length; i++) {
+                    const card = cardsDataMemo[i];
                     
                     if (i === activeIndex) {
                         card.figureIsVisible[1](true);
@@ -67,13 +72,13 @@ const PortfolioSection = React.forwardRef((props, ref) => {
                 };
             }
         }
-    }, [isVisibleSection, activeIndex]);
+    }, [isVisibleSection, activeIndex, cardsDataMemo]);
 
 
     useEffect(() => {
         /******** JUST FOR MOBILE (hover --> click) ********/
         function handleClickOutside(event) {
-            cardsData.forEach((card) => {
+            cardsDataMemo.forEach((card) => {
 
                 if (!card.cardRef.current.contains(event.target))
                     card.figureIsActive[1](false);
@@ -88,7 +93,7 @@ const PortfolioSection = React.forwardRef((props, ref) => {
             document.removeEventListener('touchstart', handleClickOutside);
         };
 
-    }, [cardsData])
+    }, [cardsDataMemo])
 
     return (
         <ParallaxBanner className={"portfolio-section"} id="portfolio" >

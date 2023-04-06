@@ -27,7 +27,6 @@ function SkillsSection(props) {
     const [showSection, setShowSection] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
     const [_mobile_visibleBars, set_mobile_visibleBars] = useState("");
-    const [_mobile_btnClicked, set_mobile_btnClicked] = useState("");
 
     /******** creates an event on the element passed in ref (40% of the visible element triggers it) ********/
     const [ref, inView] = useInView({
@@ -49,10 +48,8 @@ function SkillsSection(props) {
 
         if (_mobile_visibleBars === divId){
             set_mobile_visibleBars("");
-            set_mobile_btnClicked("");
         } else {
             set_mobile_visibleBars(divId); 
-            set_mobile_btnClicked(divId)
         }
     };
 

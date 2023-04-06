@@ -6,7 +6,7 @@ import webLogo from "../../assets/images/icons/web.svg";
 const Card = React.forwardRef((props, ref) => {
 
     const handleClick = (e) => {
-        if (props.link.showModal) {
+        if (props.link !== null && props.link.showModal) {
             e.preventDefault();
             props.link.setIsDisabledLink(true);
         }
@@ -20,11 +20,11 @@ const Card = React.forwardRef((props, ref) => {
                 <p>{props.data["content"]}</p>
 
                 <nav>
-                    <a href={props.data["gitHref"]} target="_blank">
+                    <a href={props.data["gitHref"]} target="_blank" rel="noreferrer noopener">
                         <img className="nav-logo" src={githubLogo} alt="logo github" />
                     </a>
 
-                    <a href={props.data["href"]} target="_blank" onClick={handleClick}>
+                    <a href={props.data["href"]} target="_blank" rel="noreferrer noopener" onClick={handleClick}>
                         <img className="nav-logo" src={webLogo} alt="logo github" />
                     </a>
                 </nav>
