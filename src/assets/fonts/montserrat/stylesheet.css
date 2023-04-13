@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Montserrat Thin';
+    src: url('MontserratThin-Black.woff2') format('woff2'),
+        url('MontserratThin-Black.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

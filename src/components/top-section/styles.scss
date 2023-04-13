@@ -1,5 +1,6 @@
 $bgColorTop: #55A4E9;
-$colorText: #045ba7;
+$colorText: rgb(40, 177, 111);
+$firstColor: rgb(40, 208, 126);
 
 
 .top-section {
@@ -11,7 +12,6 @@ $colorText: #045ba7;
 
 .my-head {
     background-repeat: no-repeat;
-    opacity: 0.9;
     background-size: 96vh !important;
     background-position: left top 400px !important;
 
@@ -43,20 +43,30 @@ $colorText: #045ba7;
     @return unquote($shadow);
 }
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 
 .welcome {
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    p {
+    & > p {
         margin: 0 auto;
         color: white;
-        font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat',sans-serif;
-        text-shadow: longshadow(8, $colorText);
+        font: 700 normal calc(0.1rem + 2vw)/1.5 'Montserrat Thin Black',sans-serif;
+        text-shadow: longshadow(7, $colorText);
+        letter-spacing: -1px;
         margin: 0;
         padding: 0;
+
+        &:nth-child(2) {
+          font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat Thin Black',sans-serif;
+
+        }
+
+        &:nth-child(3) {
+          font: 700 normal calc(0.5rem + 3vw)/1.5 'Montserrat Thin Black',sans-serif;
+
+        }
     }
 }
 

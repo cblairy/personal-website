@@ -1,7 +1,6 @@
 .portfolio-section {
     height: calc(100vh + 60px);
     width: 100%;
-    color: #ac2b2b;
   
     display: flex;
     flex-direction: column;
@@ -106,7 +105,8 @@ figure {
         align-items: start;
         text-align: center;
         font-family: sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
         font-weight: bold;
         color: #FFF;
         padding: 10px;
@@ -149,7 +149,7 @@ figure {
             }
         
             & .nav-logo {
-                filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
+                filter: invert(73%) sepia(43%) saturate(725%) hue-rotate(92deg) brightness(85%) contrast(93%);
                 
                 &:hover {
                     -webkit-transform: scale(1.2) translateY(-5px);

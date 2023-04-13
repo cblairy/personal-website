@@ -154,7 +154,7 @@ function SkillsSection(props) {
 
     return (
         <section id="skills" className="skills-section" ref={ref}>
-            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance pour un bachelor devOps CDA pour la rentrée de Septembre !</p>
+            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance pour un bachelor devOps Concepteur Développeur d'Applications (CDA) pour la rentrée de Septembre !</p>
             <div className={`skills-title ${showSection ? "visible" : ""}`}>
                 <div></div>
                 <h3>Mes maitrises</h3>

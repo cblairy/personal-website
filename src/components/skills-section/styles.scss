@@ -1,4 +1,6 @@
-$bgColorSkillsSection: #003844;
+$bgColorSkillsSection: #1F252D;
+$firstColor: rgb(40, 208, 126);
+$secondColor: rgb(22, 27, 33);
 
 .skills-section {
     height: calc(100vh + 60px);
@@ -16,11 +18,12 @@ $bgColorSkillsSection: #003844;
 
     padding: 20px;
     width: 600px;
-    background-color: rgba(222, 184, 135, 0.9);
+    background-color: rgb(40, 208, 126);
     border-radius: 10px;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10px 1px rgba(22, 27, 33, 0.5);
     margin: 40px 0;
     opacity: 0;
+    border: 1px solid $secondColor;
 
     &.visible {
         animation: slideInFromTopInFirst 0.8s ease-out forwards;
@@ -114,7 +117,7 @@ $bgColorSkillsSection: #003844;
                 top: 0;
                 height: 100%;
                 content: '';
-                background: burlywood;
+                background: $firstColor;
                 width: 120%;
                 left: -10%;
                 transform: skew(30deg);
@@ -165,8 +168,8 @@ $bgColorSkillsSection: #003844;
     background-color: #e0e0e0;
     border-radius: 50px;
     margin: 20px 0;
-    background-color: rgba(0, 56, 68, 0.7);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+    background-color: $bgColorSkillsSection;
+    box-shadow: 0 0 20px 2px #161B21;
     opacity: 0;
 
     &.visible {
@@ -177,10 +180,11 @@ $bgColorSkillsSection: #003844;
 
 .progress-bar__filler {
     height: 100%;
-    background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
+    background-color: $firstColor;
+    //background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
     border-radius: inherit;
     transition: width 2s ease-in-out;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px $bgColorSkillsSection;
 
 }
 
