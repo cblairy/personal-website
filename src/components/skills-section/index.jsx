@@ -167,7 +167,7 @@ function SkillsSection(props) {
             <div className='all-bars'>
 
                 {divs.map((div) => (
-                    <div key={div.id}>
+                    <div key={div.id} className={_mobile_visibleBars === div.id ? "button-clicked" : ""}>
                         <button onClick={() => toggleVisibleBars(div.id)} className={`${_mobile_visibleBars === div.id ? "is-clicked" : ""} ${showSection ? "visible" : ""}`}>
                             <span>{div.id}</span>
                         </button>
