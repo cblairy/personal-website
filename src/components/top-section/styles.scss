@@ -8,6 +8,17 @@ $firstColor: rgb(40, 208, 126);
     top: -50px;
     height: 100vh;
     background-color: $bgColorTop;
+
+    & > div:nth-child(1) {
+      background-color: $firstColor;
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      z-index: 1;
+      padding: 5px;
+      font-size: large;
+      border-radius: 5px;
+    }
 }
 
 .my-head {
@@ -23,7 +34,7 @@ $firstColor: rgb(40, 208, 126);
     justify-content: center;
     float: right;
     height: 100%;
-    width: 57vw;
+    width: 60vw;
 }
 
   

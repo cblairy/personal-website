@@ -9,7 +9,7 @@ const Intro = (props) => {
         let words = [
             'Web.',
             'Junior.',
-            'Back-End.',
+            'Full-Stack.',
             'Python.'
         ],
         wordsLineOne = "Je m'appelle Corentin Blairy.",

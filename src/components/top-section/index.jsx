@@ -12,6 +12,7 @@ const TopSection = (props) => {
 
     return (
         <ParallaxBanner id="top" className={"top-section"}>
+            <div>⚠️🏗️ Cette page est encore en construction, les images, couleurs, fonds et typo ne sont pas définitifs 🏗️⚠️</div>
             <ParallaxBannerLayer image={foreground} expanded={false} scale={[1.15, 1]}  opacity={[0.3, 1.1]}/>
             <ParallaxBannerLayer className="my-head" image={myHead} speed={-10} />
             <Parallax speed={-30}>
