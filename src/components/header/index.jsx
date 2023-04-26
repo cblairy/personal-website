@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
+import InternalLink from '../internalLink';
 import './styles.scss';
 
-function Header() {
+function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLinkClick}) {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [headerIsVisible, setHeaderIsVisible] = useState(true);
 
@@ -19,21 +20,19 @@ function Header() {
             setPrevScrollPos(currentScrollPos)
 
         }
+
         window.addEventListener("scroll", handleScroll);
         
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [prevScrollPos]);
-
-    
-
-    
+    }, [prevScrollPos]); 
     
     return (
             <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
                 <ul className='header-list'>
-                    <li><a href='#skills'>Compétences</a></li>
-                    <li><a href='#portfolio'>Portfolio</a></li>
-                    <li><a href='#contact'>Contact</a></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(skillsSectionRef)} content="Compétences" /></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(portfolioSectionRef)} content="Portfolio" /></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(contactSectionRef)} content="Contact" /></li>
+
                 </ul>
             </header>
     );

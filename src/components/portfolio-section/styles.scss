@@ -1,11 +1,13 @@
 .portfolio-section {
     height: calc(100vh + 60px);
+    width: 100vw;
+
+}
+
+.parallax-portfolio-section {
+    height: 100%;
     width: 100%;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .portfolio-content {

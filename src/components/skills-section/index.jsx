@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from 'react-intersection-observer';
 
 import Bar from './bar';
@@ -27,14 +27,14 @@ function SkillsSection(props) {
     const [showSection, setShowSection] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
     const [_mobile_visibleBars, set_mobile_visibleBars] = useState("");
-
+    const ref = props.sectionRef
     /******** creates an event on the element passed in ref (40% of the visible element triggers it) ********/
-    const [ref, inView] = useInView({
+    const [refView, inView] = useInView({
         threshold: 0.25,
         showSection,
     });
 
-    /******** displays the bar elements according to the view ans the loading of the page ********/
+    /******** displays bars elements according to the view ans the loading of the page ********/
     useEffect(() => {
         if (inView && !props.isLoading) {
             setShowSection(true);
@@ -43,7 +43,7 @@ function SkillsSection(props) {
     }, [inView, props.isLoading]);
 
 
-    /******** MOBILE BUTTONS ********/
+    /******** HTML FOR MOBILE BUTTONS ********/
     const toggleVisibleBars = (divId) => {
 
         if (_mobile_visibleBars === divId){
@@ -152,8 +152,9 @@ function SkillsSection(props) {
         },
     ];
 
+
     return (
-        <section id="skills" className="skills-section" ref={ref}>
+        <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
             <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance pour un bachelor devOps Concepteur Développeur d'Applications (CDA) pour la rentrée de Septembre !</p>
             <div className={`skills-title ${showSection ? "visible" : ""}`}>
                 <div></div>

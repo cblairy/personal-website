@@ -14,20 +14,22 @@ import './styles.scss';
 
 
 const PortfolioSection = React.forwardRef((props, ref) => {
+
     const [isDisableLink, setIsDisabledLink] = useState(false);
     const isVisibleModal = useState(false);
     const [isVisibleSection, setIsVisibleSection] = useState(false);
     const showModal = true;
-
     const { ref: inViewRef, inView } = useInView({
-        threshold: 0.65,
+        threshold: 0.25,
         isVisibleSection,
     });
-
     const cardsData = [
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data1, bgImg: personalWebsite },
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data2, bgImg: bewebcademy },
     ];
+    const [activeIndex, setActiveIndex] = useState(0);
+    const delay = 250;
+    const cardsDataMemo = useMemo(() => {return cardsData}, []);
 
     /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
@@ -36,12 +38,6 @@ const PortfolioSection = React.forwardRef((props, ref) => {
     }, [inView, props.isLoading]);
 
     /***** DISPLAY CARDS *****/
-    const [activeIndex, setActiveIndex] = useState(0);
-    const delay = 250;
-
-    
-
-    const cardsDataMemo = useMemo(() => {return cardsData}, []);
 
 
     useEffect(() => {
@@ -96,39 +92,41 @@ const PortfolioSection = React.forwardRef((props, ref) => {
     }, [cardsDataMemo])
 
     return (
-        <ParallaxBanner className={"portfolio-section"} id="portfolio" >
-            <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]}/* opacity={[1, 1]}*//>
-            <Parallax className="portfolio-content" speed={-10} >
-                <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} ref={inViewRef} >
-                    <div></div>
-                    <h3>Mes travaux récents</h3>
-                    <div></div>
-                </div>
+        <section className={"portfolio-section"} ref={(el) => {props.sectionRef.current = el; inViewRef(el);}}>
+            <ParallaxBanner  className={"parallax-portfolio-section"} ref={(el) => {console.log(el)}}>
+                <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]} /* opacity={[1, 1]}*//>
+                <Parallax className="portfolio-content" speed={-10} >
+                    <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} >
+                        <div></div>
+                        <h3>Mes travaux récents</h3>
+                        <div></div>
+                    </div>
 
-                <div className="cards" >
-                    {cardsData.map((card) => (
-                        <Card
-                            link={card.data.title === "Personal website" ? {showModal, setIsDisabledLink} : null}
-                            key={card.data.id}
-                            ref={card.cardRef}
-                            figureIsActive={card.figureIsActive}
-                            figureIsVisible={card.figureIsVisible}
-                            data={card.data}
-                            bgImg={card.bgImg}
-                        />
-                    ))}
-                    
-                </div>
-            </Parallax>
+                    <div className="cards" >
+                        {cardsData.map((card) => (
+                            <Card
+                                link={card.data.title === "Personal website" ? {showModal, setIsDisabledLink} : null}
+                                key={card.data.id}
+                                ref={card.cardRef}
+                                figureIsActive={card.figureIsActive}
+                                figureIsVisible={card.figureIsVisible}
+                                data={card.data}
+                                bgImg={card.bgImg}
+                            />
+                        ))}
+                        
+                    </div>
+                </Parallax>
 
-            {isDisableLink && (
-                <Modal
-                    message="Merci d'avoir visité mon site! 🥰"
-                    valid={true}
-                    visible={isVisibleModal}
-                />
-            )}
-        </ParallaxBanner>
+                {isDisableLink && (
+                    <Modal
+                        message="Merci d'avoir visité mon site! 🥰"
+                        valid={true}
+                        visible={isVisibleModal}
+                    />
+                )}
+            </ParallaxBanner>
+        </section>
     );
 })
 
