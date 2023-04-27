@@ -4,23 +4,24 @@ import myHead from "../../assets/images/face2.png";
 import foreground from "../../assets/images/foregroundTop.jpg";
 
 import Intro from "./intro";
+import InternalLink from "../internalLink";
 
 import './styles.scss';
 
 
-const TopSection = (props) => {
+const TopSection = ({ isLoading, skillsSectionRef, onLinkClick }) => {
 
     return (
         <ParallaxBanner id="top" className={"top-section"}>
             <div>⚠️🏗️ Cette page est encore en construction, les images, couleurs, fonds et typo ne sont également pas définitifs 🏗️⚠️</div>
             <ParallaxBannerLayer image={foreground} expanded={false} scale={[1.15, 1]}  opacity={[0.3, 1.1]}/>
             <ParallaxBannerLayer className="my-head" image={myHead} speed={-10} />
-            <Parallax speed={-20}>
+            <Parallax speed={-25}>
                 <div className="intro-content">
-                    <Intro isLoading={props.isLoading} />
+                    <Intro isLoading={isLoading} />
                 </div>
             </Parallax>
-                <a className="scroll-arrow-top" href="#skills"><span></span></a>
+            <InternalLink className="scroll-arrow-top" onLinkClick={() => onLinkClick(skillsSectionRef)} content={<span></span>}/>
         </ParallaxBanner>
     );
 }

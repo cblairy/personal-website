@@ -13,7 +13,7 @@ import personalWebsite from "../../assets/images/personal-website.png";
 import './styles.scss';
 
 
-const PortfolioSection = React.forwardRef((props, ref) => {
+function PortfolioSection({ isLoading, sectionRef}) {
 
     const [isDisableLink, setIsDisabledLink] = useState(false);
     const isVisibleModal = useState(false);
@@ -33,9 +33,9 @@ const PortfolioSection = React.forwardRef((props, ref) => {
 
     /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
-        if (inView && !props.isLoading) 
+        if (inView && !isLoading) 
             setIsVisibleSection(true);    
-    }, [inView, props.isLoading]);
+    }, [inView, isLoading]);
 
     /***** DISPLAY CARDS *****/
 
@@ -92,7 +92,7 @@ const PortfolioSection = React.forwardRef((props, ref) => {
     }, [cardsDataMemo])
 
     return (
-        <section className={"portfolio-section"} ref={(el) => {props.sectionRef.current = el; inViewRef(el);}}>
+        <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewRef(el);}}>
             <ParallaxBanner  className={"parallax-portfolio-section"} ref={(el) => {console.log(el)}}>
                 <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]} /* opacity={[1, 1]}*//>
                 <Parallax className="portfolio-content" speed={-10} >
@@ -128,6 +128,6 @@ const PortfolioSection = React.forwardRef((props, ref) => {
             </ParallaxBanner>
         </section>
     );
-})
+}
 
 export default PortfolioSection;

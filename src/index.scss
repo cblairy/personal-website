@@ -59,7 +59,11 @@ h1, h2, h3, li  {
 
 ::-o-scrollbar-thumb {
     background-color: rgba(190, 172, 172, 0.7);  
-    -webkit-border-radius: 1ex;
+    border-radius: 1ex;
+}
+
+.internal-link:hover {
+    cursor: pointer;
 }
 
 /******** LOADER ********/

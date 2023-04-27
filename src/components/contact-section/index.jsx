@@ -2,13 +2,15 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
 import { ContactMe } from "./contactMe.jsx";
+import InternalLink from "../internalLink";
+
 import emailLogo from "../../assets/images/icons/email.png";
 import githubLogo from "../../assets/images/icons/github.png";
 import linkedinLogo from "../../assets/images/icons/linkedin.png";
 
 import './styles.scss';
 
-const ContactSection = (props) => {
+const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
     const email = "corentinblairy1@gmail.com";
     const [showSection, setShowSection] = useState(false);
     const [refView, inView] = useInView({
@@ -17,23 +19,23 @@ const ContactSection = (props) => {
     });
 
     useEffect(() => {
-        if (inView && !props.isLoading) {
+        if (inView && !isLoading) {
             setShowSection(true);
         }
 
-    }, [inView, props.isLoading]);
+    }, [inView, isLoading]);
 
     return (
-        <section className="contact-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
+        <section className="contact-section" ref={(el) => {sectionRef.current = el; refView(el);}}>
             <div className="title-contact">
-                <a className="scroll-arrow-bottom" href="#top"><span></span></a>
+                <InternalLink className="scroll-arrow-bottom" onLinkClick={() => onLinkClick(startRef)} content={<span></span>}/>
 
                 <div className={`cards-title ${email ? "visible-section" : ""}`} >
                     <div></div>
                     <h3>Contactez moi</h3>
                     <div></div>
                 </div>
-            </div>
+                </div>
 
             <div className={"contact-form-section"}>
                 <nav className="navbar-email">

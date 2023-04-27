@@ -47,9 +47,9 @@ function App() {
         disableEvents();
     }, [isLoading]);
 
-    
+    /******** Smooth scroll for all nav links ********/
     const handleLinkClick = (ref) => {
-        ref.current.scrollIntoView({ behavior: "smooth" });
+        ref.current.scrollIntoView({ behavior: "smooth", duration: 100 });
     };
 
     return (
@@ -63,10 +63,10 @@ function App() {
                     contactSectionRef={contactSectionRef}
                     portfolioSectionRef={portfolioSectionRef}
                 />
-                <TopSection isLoading={!isAnimationDone} />
+                <TopSection isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)}/>
                 <SkillsSection isLoading={!isAnimationDone} sectionRef={skillsSectionRef}/>
                 <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef}/>
-                <BottomSection isLoading={!isAnimationDone} sectionRef={contactSectionRef}/>
+                <BottomSection isLoading={!isAnimationDone} sectionRef={contactSectionRef} startRef={startRef} onLinkClick={(ref) => handleLinkClick(ref)}/>
             </ParallaxProvider>
             
         </div>   
