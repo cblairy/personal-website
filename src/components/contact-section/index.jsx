@@ -7,6 +7,7 @@ import InternalLink from "../internalLink";
 import emailLogo from "../../assets/images/icons/email.png";
 import githubLogo from "../../assets/images/icons/github.png";
 import linkedinLogo from "../../assets/images/icons/linkedin.png";
+import condingameLogo from "../../assets/images/icons/codingame.png";
 
 import './styles.scss';
 
@@ -46,13 +47,16 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
                     <ContactMe />
                     <nav className="mobile-nav-logo">
                         <a href={"mailto:" + email}>
-                            <img src={emailLogo} alt="logo email" />
+                            <img src={emailLogo} alt="logo gmail" />
                         </a>
                         <a href="https://github.com/cblairy" target="_blank" rel="noreferrer noopener">
                             <img src={githubLogo} alt="logo github" />
                         </a>
-                        <a href="https://github.com/cblairy" target="_blank" rel="noreferrer noopener">
-                            <img src={linkedinLogo} alt="logo github" />
+                        <a href="https://www.linkedin.com/in/corentin-blairy/" target="_blank" rel="noreferrer noopener">
+                            <img src={linkedinLogo} alt="logo linkedin" />
+                        </a>
+                        <a href="https://www.codingame.com/profile/8a01a236c25123cc0a65a1532aa8e6663436294" target="_blank" rel="noreferrer noopener">
+                            <img src={condingameLogo} alt="logo codingame" />
                         </a>
                     </nav>
                 </div>
