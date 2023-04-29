@@ -5,7 +5,7 @@ import Header from "./components/header";
 import TopSection from "./components/top-section";
 import SkillsSection from "./components/skills-section";
 import PortfolioSection from "./components/portfolio-section";
-import BottomSection from "./components/contact-section";
+import ContactSection from "./components/contact-section";
 
 import "./index.scss";
 
@@ -16,6 +16,8 @@ function App() {
     const contactSectionRef = useRef(null);
     const portfolioSectionRef = useRef(null);
     const startRef = useRef(null);
+    const [bodyStyle, setBodyStyle] = useState({});
+
 
     useEffect(() => {
         startRef.current.scrollIntoView();
@@ -30,30 +32,34 @@ function App() {
         setIsAnimationDone(true);
     }
 
+    /******** Disable mouse and keyboard events while loading ********/
     useEffect(() => {
-        /******** Disable mouse and keyboard events while loading ********/
         const disableEvents = () => {
 
             if (isLoading) {
-                document.body.style.pointerEvents = "none";
-                document.body.style.overflow = "hidden";
+                setBodyStyle({
+                    pointerEvents: 'none',
+                    overflow: 'hidden',
+                });
 
             } else {
-                document.body.style.pointerEvents = "auto";
-                document.body.style.overflow = "auto";
-
+                setBodyStyle({
+                    pointerEvents: 'auto',
+                    overflow: 'auto',
+                });
             }
         };
+
         disableEvents();
     }, [isLoading]);
 
     /******** Smooth scroll for all nav links ********/
     const handleLinkClick = (ref) => {
-        ref.current.scrollIntoView({ behavior: "smooth", duration: 100 });
+        ref.current.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
-        <div className="app" onLoad={handleload} ref={startRef}>
+        <div className="app" ref={startRef} style={bodyStyle}>
             <div className={`loader ${isLoading ? "" : "loaded"} ${isAnimationDone ? "animationDone" : ""}`} onAnimationEnd={handleAnimationEnd} ><span>chargement...</span></div>
             
             <ParallaxProvider > 
@@ -63,10 +69,10 @@ function App() {
                     contactSectionRef={contactSectionRef}
                     portfolioSectionRef={portfolioSectionRef}
                 />
-                <TopSection isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)}/>
+                <TopSection onLoad={handleload} isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)} />
                 <SkillsSection isLoading={!isAnimationDone} sectionRef={skillsSectionRef}/>
-                <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef}/>
-                <BottomSection isLoading={!isAnimationDone} sectionRef={contactSectionRef} startRef={startRef} onLinkClick={(ref) => handleLinkClick(ref)}/>
+                <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef} startRef={startRef} />
+                <ContactSection isLoading={!isAnimationDone} sectionRef={contactSectionRef} startRef={startRef} onLinkClick={(ref) => handleLinkClick(ref)} />
             </ParallaxProvider>
             
         </div>   

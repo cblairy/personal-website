@@ -20,6 +20,7 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
     });
 
     useEffect(() => {
+        
         if (inView && !isLoading) {
             setShowSection(true);
         }

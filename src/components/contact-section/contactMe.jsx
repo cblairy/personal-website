@@ -9,9 +9,10 @@ export const ContactMe = () => {
     const [submitted, setSubmitted] = useState(false);
     const [formAlreadySubmitted, setFormAlreadySubmitted] = useState(false);
     const [submittedError, setSubmittedError] = useState(false);
-
+    const [active, setActive] = useState(false);
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
+    
     const handleEmailChange = (event) => {
       setEmail(event.target.value);
     };
@@ -64,8 +65,6 @@ export const ContactMe = () => {
             return true;
         }
     };
-
-    const [active, setActive] = useState(false);
 
     function handleClick() {
         setActive(true);

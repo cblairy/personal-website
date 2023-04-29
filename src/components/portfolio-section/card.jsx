@@ -3,34 +3,38 @@ import React from "react";
 import githubLogo from "../../assets/images/icons/github.svg";
 import webLogo from "../../assets/images/icons/web.svg";
 
-const Card = React.forwardRef((props, ref) => {
+function Card({ figureIsActive, figureIsVisible, data, bgImg, link, cardRef }) {
 
     const handleClick = (e) => {
-        if (props.link !== null && props.link.showModal) {
+        if (link !== null && link.showModal) {
             e.preventDefault();
-            props.link.setIsDisabledLink(true);
+            link.setIsDisabledLink(true);
         }
-      };
-
+    };
+      
     return (
-        <figure ref={ref} className={ `${props.figureIsActive[0] ? "active" : ""} ${props.figureIsVisible[0] ? "visible" : ""} `} onClick={() => props.figureIsActive[1](true)} >
-            <img src={props.bgImg} alt="" />
+        <figure 
+            ref={cardRef} 
+            className={ `${figureIsActive[0] ? "active" : ""} ${figureIsVisible[0] ? "visible" : ""} `} 
+            onClick={() => figureIsActive[1](true)} 
+        >
+            <img src={bgImg} alt="" />
             <figcaption>
-                <h3>{props.data.title}</h3>
-                <p>{props.data["content"]}</p>
+                <h3>{data.title}</h3>
+                <p>{data["content"]}</p>
 
                 <nav>
-                    <a href={props.data["gitHref"]} target="_blank" rel="noreferrer noopener">
+                    <a href={data["gitHref"]} target="_blank" rel="noreferrer noopener">
                         <img className="nav-logo" src={githubLogo} alt="logo github" />
                     </a>
 
-                    <a href={props.data["href"]} target="_blank" rel="noreferrer noopener" onClick={handleClick}>
+                    <a href={data["href"]} target="_blank" rel="noreferrer noopener" onClick={handleClick}>
                         <img className="nav-logo" src={webLogo} alt="logo github" />
                     </a>
                 </nav>
             </figcaption>
         </figure>
     );
-})
+}
 
 export default Card;

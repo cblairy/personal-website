@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 
 import Bar from './bar';
@@ -27,7 +27,7 @@ function SkillsSection(props) {
     const [showSection, setShowSection] = useState(false);
     const [showLogo, setShowLogo] = useState(false);
     const [_mobile_visibleBars, set_mobile_visibleBars] = useState("");
-    const ref = props.sectionRef
+
     /******** creates an event on the element passed in ref (40% of the visible element triggers it) ********/
     const [refView, inView] = useInView({
         threshold: 0.25,

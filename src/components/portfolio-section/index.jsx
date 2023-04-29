@@ -13,8 +13,7 @@ import personalWebsite from "../../assets/images/personal-website.png";
 import './styles.scss';
 
 
-function PortfolioSection({ isLoading, sectionRef}) {
-
+function PortfolioSection({ isLoading, sectionRef, startRef }) {
     const [isDisableLink, setIsDisabledLink] = useState(false);
     const isVisibleModal = useState(false);
     const [isVisibleSection, setIsVisibleSection] = useState(false);
@@ -29,7 +28,9 @@ function PortfolioSection({ isLoading, sectionRef}) {
     ];
     const [activeIndex, setActiveIndex] = useState(0);
     const delay = 250;
-    const cardsDataMemo = useMemo(() => {return cardsData}, []);
+    const cardsDataMemo = useMemo(() => cardsData.map(el => {
+        return el
+    }), [cardsData]);
 
     /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
@@ -38,8 +39,6 @@ function PortfolioSection({ isLoading, sectionRef}) {
     }, [inView, isLoading]);
 
     /***** DISPLAY CARDS *****/
-
-
     useEffect(() => {
         function nextCard() {
             setTimeout(() => {
@@ -81,19 +80,21 @@ function PortfolioSection({ isLoading, sectionRef}) {
             })
         }
 
+        const domRef = startRef.current
         if (window.innerWidth <= 430){
-            document.addEventListener('touchstart', handleClickOutside)
+            
+            domRef.addEventListener('touchstart', handleClickOutside)
         }
         
         return () => {
-            document.removeEventListener('touchstart', handleClickOutside);
+            domRef.removeEventListener('touchstart', handleClickOutside);
         };
 
-    }, [cardsDataMemo])
+    }, [cardsDataMemo, startRef])
 
     return (
         <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewRef(el);}}>
-            <ParallaxBanner  className={"parallax-portfolio-section"} ref={(el) => {console.log(el)}}>
+            <ParallaxBanner  className={"parallax-portfolio-section"} >
                 <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]} /* opacity={[1, 1]}*//>
                 <Parallax className="portfolio-content" speed={-10} >
                     <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} >
@@ -107,7 +108,7 @@ function PortfolioSection({ isLoading, sectionRef}) {
                             <Card
                                 link={card.data.title === "Personal website" ? {showModal, setIsDisabledLink} : null}
                                 key={card.data.id}
-                                ref={card.cardRef}
+                                cardRef={card.cardRef}
                                 figureIsActive={card.figureIsActive}
                                 figureIsVisible={card.figureIsVisible}
                                 data={card.data}

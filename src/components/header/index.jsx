@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import InternalLink from '../internalLink';
 import './styles.scss';
 
-function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLinkClick}) {
+function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLinkClick }) {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [headerIsVisible, setHeaderIsVisible] = useState(true);
 
@@ -13,6 +13,7 @@ function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLi
 
             if (currentScrollPos > prevScrollPos) {
                 setHeaderIsVisible(false)
+
             } else {
                 setHeaderIsVisible(true)
             }
