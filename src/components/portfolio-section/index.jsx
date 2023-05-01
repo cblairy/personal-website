@@ -26,8 +26,8 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
         threshold: 0.94,
     });
     const [isReverseScale, setReverseScale] = useState(false);
-    const normalScale = [1.3, 0.8]; 
-    const reversedScale = [0.8, 1.3]; 
+    const normalScale = [1.3, 1]; 
+    const reversedScale = [1, 1.3]; 
     const cardsData = [
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data1, bgImg: personalWebsite },
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data2, bgImg: bewebcademy },
