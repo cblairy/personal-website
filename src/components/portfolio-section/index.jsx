@@ -18,10 +18,16 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
     const isVisibleModal = useState(false);
     const [isVisibleSection, setIsVisibleSection] = useState(false);
     const showModal = true;
-    const { ref: inViewRef, inView } = useInView({
+    const { ref: inViewRef, inView: inViewSection } = useInView({
         threshold: 0.25,
         isVisibleSection,
     });
+    const { ref: inViewScaleRef, inView: inViewScale } = useInView({
+        threshold: 0.94,
+    });
+    const [isReverseScale, setReverseScale] = useState(false);
+    const normalScale = [1.3, 0.8]; 
+    const reversedScale = [0.8, 1.3]; 
     const cardsData = [
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data1, bgImg: personalWebsite },
         { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data2, bgImg: bewebcademy },
@@ -32,11 +38,15 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
         return el
     }), [cardsData]);
 
+    
     /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
-        if (inView && !isLoading) 
-            setIsVisibleSection(true);    
-    }, [inView, isLoading]);
+        if (inViewSection && !isLoading) 
+            setIsVisibleSection(true); 
+        if (inViewScale)
+            setReverseScale(!isReverseScale)
+        
+    }, [inViewSection, isLoading, inViewScale]);
 
     /***** DISPLAY CARDS *****/
     useEffect(() => {
@@ -92,10 +102,12 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
 
     }, [cardsDataMemo, startRef])
 
+    
+
     return (
-        <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewRef(el);}}>
+        <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewRef(el); inViewScaleRef(el);}}>
             <ParallaxBanner  className={"parallax-portfolio-section"} >
-                <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={[1, 1.6]} /* opacity={[1, 1]}*//>
+                <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={isReverseScale ? reversedScale : normalScale} /* opacity={[1, 1]}*//>
                 <Parallax className="portfolio-content" speed={-10} >
                     <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} >
                         <div></div>

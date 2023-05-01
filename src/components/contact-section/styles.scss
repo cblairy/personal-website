@@ -3,8 +3,9 @@ $bgColorBottom: #161B21;
 $bgColorForm: #1F252D;
 $errorColor: red;
 $firstColor: rgb(40, 208, 126);
-$colorShadowButtonHover: rgb(50, 135, 94);
-$colorArrowsButton: rgb(50, 135, 94);
+$colorShadowButton: rgb(50, 135, 94);
+$colorShadowButtonHover: rgb(44, 108, 26);
+$colorArrowsButton: rgb(44, 108, 26);
 
 .contact-section {
     height: 100vh;
@@ -305,7 +306,7 @@ $colorArrowsButton: rgb(50, 135, 94);
     align-items: center;
     color: white;
     background: $firstColor;
-    box-shadow: 6px 6px 0 $bgColorBottom;
+    box-shadow: 6px 6px 0 $colorShadowButton;
     border: none;
     transition: 1s;
 
