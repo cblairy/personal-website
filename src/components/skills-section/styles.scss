@@ -3,9 +3,8 @@ $firstColor: rgb(40, 208, 126);
 $secondColor: rgb(22, 27, 33);
 
 .skills-section {
-    height: calc(100vh + 60px);
+    height: 100vh;
     background: $bgColorSkillsSection;
-    margin-top: -50px;
 
     display: flex;
     flex-direction: column;

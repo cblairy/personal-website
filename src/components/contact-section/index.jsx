@@ -1,5 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import { Parallax } from "react-scroll-parallax";
 
 import { ContactMe } from "./contactMe.jsx";
 import InternalLink from "../internalLink";
@@ -32,20 +33,38 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
             <div className="title-contact">
                 <InternalLink className="scroll-arrow-bottom" onLinkClick={() => onLinkClick(startRef)} content={<span></span>}/>
 
-                <div className={`cards-title ${email ? "visible-section" : ""}`} >
-                    <div></div>
-                    <h3>Contactez moi</h3>
-                    <div></div>
-                </div>
-                </div>
+                {/** TITLE PARALLAX */}
+                <Parallax
+                    scaleY={[0.7, 1.3]}
+                    opacity={[0, 2]}
+                    translateY={['-100px', '50px']}
+                    rotateY={['-120deg', '60deg']}
+                >
 
+                    <div className={`cards-title ${email ? "visible-section" : ""}`} >
+                        <div></div>
+                        <h3>Contactez moi</h3>
+                        <div></div>
+                    </div>
+
+                </Parallax>
+                
+            </div>
+            
             <div className={"contact-form-section"}>
                 <nav className="navbar-email">
                     <a href={"mailto:" + email}>corentin@blairy.fr</a>
                     <div className="navbar-line right"></div>
                 </nav>
                 <div>
-                    <ContactMe />
+                    {/** FORM PARALLAX */}
+                    <Parallax
+                        scale={[0.6, 1.4]}
+                        opacity={[0,2]}
+                        rotateX={['-100deg', '100deg']}
+                    >
+                        <ContactMe />
+                    </Parallax>
                     <nav className="mobile-nav-logo">
                         <a href={"mailto:" + email}>
                             <img src={emailLogo} alt="logo gmail" />

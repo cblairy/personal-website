@@ -26,7 +26,7 @@ function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLi
         
         return () => window.removeEventListener('scroll', handleScroll);
     }, [prevScrollPos]); 
-    
+    console.log(headerIsVisible)
     return (
             <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
                 <ul className='header-list'>
