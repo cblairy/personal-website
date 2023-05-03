@@ -1,14 +1,19 @@
 $bgColorSkillsSection: #1F252D;
-$firstColor: rgb(40, 208, 126);
+$firstColor: #239fcc;
 $secondColor: rgb(22, 27, 33);
 
 .skills-section {
+    position: relative;
     height: 100vh;
     background: $bgColorSkillsSection;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);;
+    z-index: 10;
+
+    
 }
 
 .sub-intro {
@@ -16,8 +21,8 @@ $secondColor: rgb(22, 27, 33);
     text-align: justify;
 
     padding: 20px;
-    width: 600px;
-    background-color: rgb(40, 208, 126);
+    width: 1000px;
+    background-color: $firstColor;
     border-radius: 10px;
     box-shadow: inset 0 0 10px 1px rgba(22, 27, 33, 0.5);
     margin: 40px 0;
@@ -168,7 +173,7 @@ $secondColor: rgb(22, 27, 33);
     border-radius: 50px;
     margin: 20px 0;
     background-color: $bgColorSkillsSection;
-    box-shadow: 0 0 20px 2px #161B21;
+    box-shadow: 0 0 10px 1px #00000034;
     opacity: 0;
 
     &.visible {
@@ -180,10 +185,10 @@ $secondColor: rgb(22, 27, 33);
 .progress-bar__filler {
     height: 100%;
     background-color: $firstColor;
-    //background-image: linear-gradient(to right, #006C67, #F4C095, #20A4F3);
+    background-image: linear-gradient(to right, #85c7e1, #20A4F3);
     border-radius: inherit;
     transition: width 2s ease-in-out;
-    box-shadow: inset 0 0 10px $bgColorSkillsSection;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.242);;
 
 }
 
@@ -260,7 +265,7 @@ $large-screen: 1440px;
     .sub-intro {
         text-align: center;
         width: 90vw;
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-top: 0;
     }
 
@@ -310,7 +315,7 @@ $large-screen: 1440px;
     }
 
     .skills-title {
-        font-size: 1rem;
+        font-size: 0.8rem;
       
         & h3 {
             padding: 0;

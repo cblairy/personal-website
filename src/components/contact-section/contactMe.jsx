@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Modal from "../modal";
 
-import devImg from "../../assets/images/imgBottom.jpg";
+import devImg from "../../assets/images/collaboration.jpg";
 
 export const ContactMe = () => {
     const form = useRef();

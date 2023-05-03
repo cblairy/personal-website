@@ -1,30 +1,28 @@
-$bgColorTop: #55A4E9;
-$colorText: rgb(40, 177, 111);
-$firstColor: rgb(40, 208, 126);
-
+$bgColorTop: #0d1e36;
+$colorText: rgb(27, 157, 205);
+$sizeShadow: 7;
 
 .top-section {
-    
     height: 100vh;
     background-color: $bgColorTop;
-
-    & > div:nth-child(1) {
-      background-color: $firstColor;
-      position: absolute;
-      top: 10%;
-      left: 5%;
-      z-index: 1;
-      padding: 5px;
-      font-size: large;
-      border-radius: 5px;
-    }
+    display: flex;
 }
 
-.me {
-    background-repeat: no-repeat;
-    background-size: 96vh !important;
-    background-position: left top 400px !important;
+.img-parallax {
+    max-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 0;
+    margin-left: 5vw;
 
+    & .face {
+        max-width: 35vw;;
+        min-width: 280px;
+        left: 5vw;
+        z-index: 0;
+    
+  }
 }
 
 .intro-content {
@@ -63,7 +61,7 @@ $firstColor: rgb(40, 208, 126);
         margin: 0 auto;
         color: white;
         font: 700 normal calc(0.1rem + 2vw)/1.5 'Montserrat Thin Black',sans-serif;
-        text-shadow: longshadow(7, $colorText);
+        text-shadow: longshadow($sizeShadow, $colorText);
         letter-spacing: -1px;
         margin: 0;
         padding: 0;
@@ -170,6 +168,21 @@ $desktop: 1024px;
 $large-screen: 1440px;
 
 @media screen and (max-width: $mobile) {
+    $sizeShadow: 3;
+
+    .top-section {
+        flex-direction: column;
+    }
+
+    .img-parallax {
+        opacity: 0.2;
+        z-index: 0;
+
+        & .face {
+          max-width: 90vw;
+        }
+    }
+
     .intro-content {
         float: none;
         margin: 0 auto;
@@ -207,5 +220,5 @@ $large-screen: 1440px;
 }
 
 @media screen and (min-width: ($desktop + 1)) and (max-width: $large-screen) {
-
+  $sizeShadow: 3;
 }

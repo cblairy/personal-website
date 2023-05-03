@@ -59,7 +59,7 @@ function App() {
     };
 
     return (
-        <div className="app" ref={startRef} style={bodyStyle}>
+        <div className="app" ref={startRef} style={bodyStyle} onLoad={handleload}>
             <div className={`loader ${isLoading ? "" : "loaded"} ${isAnimationDone ? "animationDone" : ""}`} onAnimationEnd={handleAnimationEnd} ><span>chargement...</span></div>
             
             <ParallaxProvider > 
@@ -69,7 +69,7 @@ function App() {
                     contactSectionRef={contactSectionRef}
                     portfolioSectionRef={portfolioSectionRef}
                 />
-                <TopSection onLoad={handleload} isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)} />
+                <TopSection isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)} />
                 <SkillsSection isLoading={!isAnimationDone} sectionRef={skillsSectionRef}/>
                 <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef} startRef={startRef} />
                 <ContactSection isLoading={!isAnimationDone} sectionRef={contactSectionRef} startRef={startRef} onLinkClick={(ref) => handleLinkClick(ref)} />

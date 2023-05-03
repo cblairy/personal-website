@@ -1,4 +1,4 @@
-$firstColor: rgb(40, 208, 126);;
+$firstColor: rgb(115, 205, 238);;
 
 header {
     position: fixed;
@@ -65,7 +65,7 @@ header {
     
         &:hover {
             box-shadow: black 0 0 12px -5px;
-            background-color: rgba(38, 145, 93, 0.7);
+            background-color: rgba(115, 205, 238, 0.3);
             font-size: large;
             letter-spacing: 6px;
 
@@ -88,7 +88,16 @@ $large-screen: 1440px;
         padding: 0;
 
         & > li {
-            font-size: 0.7rem;
+            font-size: 0.5rem;
+
+            &:active {
+                background-color: $firstColor;
+                
+                -webkit-transition: 0;
+                -moz-transition: 0;
+                -o-transition: 0;
+                transition: 0;
+            }
         }
     }
 }

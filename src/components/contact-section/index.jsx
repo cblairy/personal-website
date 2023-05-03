@@ -30,25 +30,23 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
 
     return (
         <section className="contact-section" ref={(el) => {sectionRef.current = el; refView(el);}}>
-            <div className="title-contact">
+            <div className="title-contact-section">
                 <InternalLink className="scroll-arrow-bottom" onLinkClick={() => onLinkClick(startRef)} content={<span></span>}/>
 
                 {/** TITLE PARALLAX */}
                 <Parallax
-                    scaleY={[0.7, 1.3]}
                     opacity={[0, 2]}
-                    translateY={['-100px', '50px']}
-                    rotateY={['-120deg', '60deg']}
+                    translateY={['-70px', '20px']}
+                    rotateX={['-100deg', '20deg']}
                 >
 
-                    <div className={`cards-title ${email ? "visible-section" : ""}`} >
+                    <div className='contact-title' >
                         <div></div>
                         <h3>Contactez moi</h3>
                         <div></div>
                     </div>
 
                 </Parallax>
-                
             </div>
             
             <div className={"contact-form-section"}>

@@ -67,8 +67,9 @@ h1, h2, h3, li  {
 
 /******** LOADER ********/
 
-$color-background: #F9E4B7;
-$color-loader: #ce4233;
+$color-loader-background: #0d1e36;
+$color-loader: rgb(255, 255, 255);
+$color-loader2: rgb(27, 157, 205);
 
 .loader {
 
@@ -77,7 +78,7 @@ $color-loader: #ce4233;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: $color-background;
+    background-color: $color-loader-background;
     position: fixed; 
 
     & > span {
@@ -101,7 +102,7 @@ $color-loader: #ce4233;
             display: block;
             width: 15px;
             height: 15px;
-            background: $color-loader;
+            background: $color-loader2;
             position: absolute;
             animation: load .7s infinite alternate ease-in-out;
         }
@@ -209,6 +210,7 @@ $color-loader: #ce4233;
     margin-right: 60px;
     margin-bottom: 30px;
     color: white;
+    z-index: 20;
 
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;

@@ -1,39 +1,68 @@
-
-$bgColorBottom: #161B21;
+$bgColorBottom:#0d1e36;
 $bgColorForm: #1F252D;
+$colorTitle: white;
 $errorColor: red;
-$firstColor: rgb(40, 208, 126);
-$colorShadowButton: rgb(50, 135, 94);
-$colorShadowButtonHover: rgb(44, 108, 26);
-$colorArrowsButton: rgb(44, 108, 26);
+$firstColor: rgb(27, 157, 205);
+$colorShadowButton: #ffffff;
+$colorShadowButtonHover: #a0dff7;
+$colorArrowsButton: rgb(27, 157, 205);
 
 .contact-section {
+    position: relative;
     height: 100vh;
     width: 100%;
     background-color: $bgColorBottom;
-
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
 }
 
-.title-contact {
-    height: 20%;
+.title-contact-section {
+    height: auto;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+}
 
+.contact-title {
+    margin: 0 auto;
+    width: 100%;
+    color: $colorTitle;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-top: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & h3 {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    & > div {
+        border-top: solid 1px whitesmoke;
+        background-color: antiquewhite;
+        width: 20vw;
+        margin: 0px 20px;
+    }
 }
 
 .contact-form-section {
-    height: 80%;
     display: flex;
     overflow: hidden;
 
     & > div {
         flex: 1 0;
-        margin-top: 10vh;
+        margin-top: 5vh;
         
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 }
 
@@ -42,6 +71,7 @@ $colorArrowsButton: rgb(44, 108, 26);
     margin: auto;
     height: 60px;
     width: 60px;
+    margin-top: 3vh;
   
     & span {
         margin-top: 40px;
@@ -91,8 +121,7 @@ $colorArrowsButton: rgb(44, 108, 26);
 /******** FORM ********/
 
 .contact-form {
-    width: 50%;
-    height: 60%;
+    width: 70%;
     min-height: 400px;
     min-width: 600px;
     background-color: $bgColorForm;
@@ -106,7 +135,6 @@ $colorArrowsButton: rgb(44, 108, 26);
 
     & img {
         height: 100%;
-        max-width: 400px;
         min-width: 200px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -479,6 +507,10 @@ $large-screen: 1440px;
 
     .contact-form-section {
         flex-direction: column;
+    }
+
+    .contact-title {
+        font-size: 0.8rem;
     }
 
     .contact-form {

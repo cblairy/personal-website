@@ -151,7 +151,7 @@ figure {
             }
         
             & .nav-logo {
-                filter: invert(73%) sepia(43%) saturate(725%) hue-rotate(92deg) brightness(85%) contrast(93%);
+                filter: invert(70%) sepia(31%) saturate(5681%) hue-rotate(161deg) brightness(85%) contrast(85%);
                 
                 &:hover {
                     -webkit-transform: scale(1.2) translateY(-5px);
@@ -194,7 +194,7 @@ $large-screen: 1440px;
     }
 
     .cards-title {
-        font-size: 1rem;
+        font-size: 0.8rem;
       
         & h3 {
             padding: 0;
@@ -241,19 +241,7 @@ $large-screen: 1440px;
                 }
             
                 & .nav-logo {
-                    filter: invert(16%) sepia(91%) saturate(2184%) hue-rotate(344deg) brightness(103%) contrast(87%);
-                    
-                    &:hover {
-                        -webkit-transform: scale(1.5) translateY(5px);
-                        -moz-transform: scale(1.5) translateY(5px);
-                        -o-transform: scale(1.5) translateY(5px);
-                        transform: scale(1.5) translateY(5px);
-
-                        -webkit-transition: 0.2s ease-in-out;
-                        -moz-transition: 0.2s ease-in-out;
-                        -o-transition: 0.2s ease-in-out;
-                        transition: 0.2s ease-in-out;
-                    }
+                      
                 }
             }
         }

@@ -155,7 +155,7 @@ function SkillsSection(props) {
 
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
-            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un titre RNCP "developpeur web et web mobile" en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance pour un bachelor devOps Concepteur Développeur d'Applications (CDA) pour la rentrée de Septembre !</p>
+            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un Bac+2 en developpement web mobile en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance (1 à 3 ans) pour un bachelor CDA (Concepteur Développeur d'Applications) pour la rentrée de Septembre !</p>
             <div className={`skills-title ${showSection ? "visible" : ""}`}>
                 <div></div>
                 <h3>Mes maitrises</h3>
