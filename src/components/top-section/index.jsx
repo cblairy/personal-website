@@ -3,7 +3,7 @@ import { Parallax } from "react-scroll-parallax";
 import me from "../../assets/images/tchouixfinal3.png";
 
 import Intro from "./intro";
-import InternalLink from "../internalLink";
+import InternalLink from "../basics/internalLink";
 
 import './styles.scss';
 

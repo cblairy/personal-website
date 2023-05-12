@@ -1,0 +1,22 @@
+{
+    "header": { 
+        "1": "Compétences", 
+        "2": "portfolio",
+        "3": "contact" 
+    },
+    
+    "topSection": {
+        "1": "Bienvenue,",
+        "2": "Je m'appelle Corentin.",
+        "3": "Je suis developpeur",
+        "words": {
+            "1": "Web.",
+            "2": "Junior.",
+            "3": "Full-Stack.",
+            "4": "Python."
+        }
+        
+    },
+
+    "warning": "Cette page est actuellement en cours de développement"
+}

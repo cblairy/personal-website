@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 
 import { ContactMe } from "./contactMe.jsx";
-import InternalLink from "../internalLink";
+import InternalLink from "../basics/internalLink.jsx";
 
 import emailLogo from "../../assets/images/icons/email.png";
 import githubLogo from "../../assets/images/icons/github.png";

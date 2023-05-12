@@ -1,0 +1,23 @@
+{
+    "header": { 
+        "1": "Skills", 
+        "2": "portfolio",
+        "3": "contact" 
+    },
+    
+    "topSection": {
+        "1": "Hi,",
+        "2": "I'm Corentin.",
+        "3": "I'm",
+        "words": {
+            "1": "Web developer.",
+            "2": "Junior developer.",
+            "3": "Full-Stack developer.",
+            "4": "Python developer."
+        }
+        
+    },
+
+    "warning": "This page is currently under development. "
+
+}

@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import InternalLink from '../internalLink';
+import Language from "../basics/language";
+import InternalLink from '../basics/internalLink';
 import './styles.scss';
 
 function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLinkClick }) {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [headerIsVisible, setHeaderIsVisible] = useState(true);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,13 +29,15 @@ function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLi
         
         return () => window.removeEventListener('scroll', handleScroll);
     }, [prevScrollPos]); 
-    console.log(headerIsVisible)
+
     return (
             <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
+                <Language />
+
                 <ul className='header-list'>
-                    <li><InternalLink onLinkClick={() => onLinkClick(skillsSectionRef)} content="Compétences" /></li>
-                    <li><InternalLink onLinkClick={() => onLinkClick(portfolioSectionRef)} content="Portfolio" /></li>
-                    <li><InternalLink onLinkClick={() => onLinkClick(contactSectionRef)} content="Contact" /></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(skillsSectionRef)} content={t('header.1')} /></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(portfolioSectionRef)} content={t('header.2')} /></li>
+                    <li><InternalLink onLinkClick={() => onLinkClick(contactSectionRef)} content={t('header.3')} /></li>
 
                 </ul>
             </header>

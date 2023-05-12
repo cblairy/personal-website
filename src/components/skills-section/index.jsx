@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
 
 import Bar from './bar';
 
@@ -25,8 +26,8 @@ import './styles.scss';
 
 function SkillsSection(props) {
     const [showSection, setShowSection] = useState(false);
-    const [showLogo, setShowLogo] = useState(false);
-    const [_mobile_visibleBars, set_mobile_visibleBars] = useState("");
+    const [visibleBars, setVisibleBars] = useState("");
+    const { t } = useTranslation();
 
     /******** creates an event on the element passed in ref (40% of the visible element triggers it) ********/
     const [refView, inView] = useInView({
@@ -46,10 +47,10 @@ function SkillsSection(props) {
     /******** HTML FOR MOBILE BUTTONS ********/
     const toggleVisibleBars = (divId) => {
 
-        if (_mobile_visibleBars === divId){
-            set_mobile_visibleBars("");
+        if (visibleBars === divId){
+            setVisibleBars("");
         } else {
-            set_mobile_visibleBars(divId); 
+            setVisibleBars(divId); 
         }
     };
 
@@ -57,27 +58,27 @@ function SkillsSection(props) {
         { id: "langages", content: 
             <div>
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={phpLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                    <Bar percent={"85%"} showSection={showSection} setShowLogo={setShowLogo} />
+                    <img src={phpLogo} className="skills-logo" alt="phpLogo"/>
+                    <Bar percent={"85%"} showSection={showSection}  />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={javascriptLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={javascriptLogo} className="skills-logo" alt="jsLogo"/>
                     <Bar percent={"75%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={cssLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={cssLogo} className="skills-logo" alt="cssLogo"/>
                     <Bar percent={"85%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={pythonLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={pythonLogo} className="skills-logo" alt="pythonLogo"/>
                     <Bar percent={"55%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={javaLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={javaLogo} className="skills-logo" alt="javaLogo"/>
                     <Bar percent={"20%"} showSection={showSection}/>
                 </div>
             </div> 
@@ -86,32 +87,32 @@ function SkillsSection(props) {
         { id: "frameworks", content: 
             <div>
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={symfonyLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={symfonyLogo} className="skills-logo" alt="SymfonyLogo"/>
                     <Bar percent={"75%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={codeIgniterLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={codeIgniterLogo} className="skills-logo" alt="codeIgniterLogo"/>
                     <Bar percent={"60%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={reactLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={reactLogo} className="skills-logo" alt="reactLogo"/>
                     <Bar percent={"75%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={angularLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={angularLogo} className="skills-logo" alt="angularLogo"/>
                     <Bar percent={"25%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={sassLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={sassLogo} className="skills-logo" alt="sassLogo"/>
                     <Bar percent={"50%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={djangoLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={djangoLogo} className="skills-logo" alt="djangoLogo"/>
                     <Bar percent={"30%"} showSection={showSection} />
                 </div>
             </div>
@@ -120,32 +121,32 @@ function SkillsSection(props) {
         { id: "environnements", content: 
             <div>
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={linuxLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={linuxLogo} className="skills-logo" alt="linuxLogo"/>
                     <Bar percent={"75%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={dockerLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={dockerLogo} className="skills-logo" alt="dockerLogo"/>
                     <Bar percent={"70%"} showSection={showSection}/>
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={gitLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={gitLogo} className="skills-logo" alt="gitLogo"/>
                     <Bar percent={"85%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={mySqlLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={mySqlLogo} className="skills-logo" alt="mySqlLogo"/>
                     <Bar percent={"70%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={mongoDbLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={mongoDbLogo} className="skills-logo" alt="mongoDbLogo"/>
                     <Bar percent={"60%"} showSection={showSection} />
                 </div>
 
                 <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                    <img src={nodeLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
+                    <img src={nodeLogo} className="skills-logo" alt="nodeLogo"/>
                     <Bar percent={"65%"} showSection={showSection}/>
                 </div>
             </div>
@@ -155,125 +156,26 @@ function SkillsSection(props) {
 
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
-            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Fraichement diplômé 🎓 d'un Bac+2 en developpement web mobile en Mars 2023, je me concentre actuellement sur la recherche 🔍 d'une alternance (1 à 3 ans) pour un bachelor CDA (Concepteur Développeur d'Applications) pour la rentrée de Septembre !</p>
+            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓<br/><span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span></p>
             <div className={`skills-title ${showSection ? "visible" : ""}`}>
                 <div></div>
                 <h3>Mes maitrises</h3>
                 <div></div>
             </div>
             
-            {/******** START CONDITION (MOBILE / DESKTOP) ********/}
-
-            {window.innerWidth <= 430 || window.innerHeight < 800 ? 
             <div className='all-bars'>
 
                 {divs.map((div) => (
-                    <div key={div.id} className={_mobile_visibleBars === div.id ? "button-clicked" : ""}>
-                        <button onClick={() => toggleVisibleBars(div.id)} className={`${_mobile_visibleBars === div.id ? "is-clicked" : ""} ${showSection ? "visible" : ""}`}>
+                    <div key={div.id} className={visibleBars === div.id ? "button-clicked" : ""}>
+                        <button onClick={() => toggleVisibleBars(div.id)} className={`${visibleBars === div.id ? "is-clicked" : ""} ${showSection ? "visible" : ""}`}>
                             <span>{div.id}</span>
                         </button>
-                        {_mobile_visibleBars === div.id && <div>{div.content}</div>}
+                        {visibleBars === div.id && <div>{div.content}</div>}
                     </div>
 
                 ))}
-
             </div>
-            /******** CONDITION FOR DESKTOP ********/
-            : 
-            <div className='all-bars'>     
-                <div>
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={phpLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"85%"} showSection={showSection} setShowLogo={setShowLogo} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={javascriptLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"75%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={cssLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"85%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={pythonLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"55%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={javaLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"20%"} showSection={showSection}/>
-                    </div>
-                </div>
-
-                <div>
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={symfonyLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"75%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={codeIgniterLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"60%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={reactLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"75%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={angularLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"25%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={sassLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"50%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={djangoLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"30%"} showSection={showSection} />
-                    </div>
-                </div>
-                
-                <div>
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={linuxLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"75%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={dockerLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"70%"} showSection={showSection}/>
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={gitLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"85%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={mySqlLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"70%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={mongoDbLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"60%"} showSection={showSection} />
-                    </div>
-
-                    <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
-                        <img src={nodeLogo} className={`show-logo ${showLogo ? "visible" : "show-logo"}`} alt="SymfonyLogo"/>
-                        <Bar percent={"65%"} showSection={showSection}/>
-                    </div>
-                </div>
-            </div>
-            /******** END CONDITION ********/
-            } 
+            
         </section>
     );
 }

@@ -1,137 +1,102 @@
-import React, { useEffect } from 'react';
-import $ from 'jquery';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const Intro = (props) => {
-    
+const Intro = ({ isLoading }) => {
+    const { t } = useTranslation();
 
-   /******** STARTS THE TEXT WHEN THE PAGE IS LOADED ********/
+    const words = useMemo(() => [
+        t('topSection.words.1'),
+        t('topSection.words.2'),
+        t('topSection.words.3'),
+        t('topSection.words.4'),
+    ], [t]);
+    const wordsLineOne = t('topSection.2');
+    const wordsLineTwo = t('topSection.3');
+
+    const [lineOne, setLineOne] = useState('');
+    const [lineTwo, setLineTwo] = useState('');
+    const [wordIndex, setWordIndex] = useState(0);
+    const [letterIndex, setLetterIndex] = useState(0);
+    const [isUp, setIsUp] = useState(true);
+
+    /******** DYNAMICALLY WRITTEN WORDS ********/
     useEffect(() => {
-        let words = [
-            'Web.',
-            'Junior.',
-            'Full-Stack.',
-            'Python.'
-        ],
-        wordsLineOne = "Je m'appelle Corentin Blairy.",
-        wordsLineTwo = "Je suis developpeur ",
-        partLineOne,
-        partLineTwo,
-        dynamicWords,
-        i = 0,
-        offset = 0,
-        offset2 = 0,
-        offset3 = 0,
-        len = words.length,
-        forwards = true,
-        skip_count = 0,
-        skip_delay = 25,
-        speed = 70,
-        isStop = false,
-        lineOneIsEnd = false,
-        textIntro = "";
-    
-        /******** DYNAMIC WORD MANAGEMENT IN INTRO ********/
-        let wordflick = function(){
-            setInterval(function(){
-    
-                if(isStop) {
-    
-                    if (forwards) {
-                      
-                        if(offset3 >= words[i].length){
-                            ++skip_count;
-    
-                            if (skip_count === skip_delay) {
-                                forwards = false;
-                                skip_count = 0;
-                            }
-                        }
-                    } else {
-                        if(offset3 === 0){
-                            forwards = true;
-                            i++;
-                            offset3 = 0;
-    
-                            if(i >= len){
-                                i=0;
-                            } 
-                        }
-                    }
-    
-                    /******** ADD OR REMOVE A LETTER FROM THE CURRENT WORD ********/
-                    dynamicWords = textIntro + " "+ words[i].substring(0, offset3);
-    
-                    if (skip_count === 0) {
-                        if (forwards) {
-                            offset3++;
-                        } else {
-                            offset3--;
-                        }
-                    }
-                }
-    
-                $('.line-two-intro').text(dynamicWords);
-            },speed);
-        };
-    
-        /******** FIRST LINE INTRO ********/
-        function dynamicIntroLineOne(){
-            setInterval(function(){
-    
-                if(offset > wordsLineOne.length) {
-    
-                    if(lineOneIsEnd === false){
-                        setTimeout(() => {
-                            lineOneIsEnd = true;
-                        }, 1000);
-                      
-                        clearInterval(dynamicIntroLineOne);
-                    }
-    
-                } else {
-                    partLineOne = wordsLineOne.substring(0, offset);
-                    offset++;
-                    $('.line-one-intro').text(partLineOne);
-                }
-            }, speed);
-        }
-    
-        /******** 2ND LINE INTRO ********/
-        function dynamicIntroLineTwo(){
-            setInterval(function(){
-    
-                if(lineOneIsEnd) {
-    
-                    if(offset2 > wordsLineTwo.length) {
-                        clearInterval(dynamicIntroLineTwo);
-    
-                        if(isStop === false){
-                            textIntro = document.querySelector(".line-two-intro").innerText;
-                            isStop = true;
-                        }
-    
-                    } else {
-                        partLineTwo = wordsLineTwo.substring(0, offset2);
-                        offset2++;
-                        $('.line-two-intro').text(partLineTwo);
-                    }
-                }
-            }, speed);
-        };
+        if (lineTwo.length === wordsLineTwo.length){
 
-        if (!props.isLoading) {
-            dynamicIntroLineOne();
-            dynamicIntroLineTwo();
-            wordflick(); 
+            const intervalId = setInterval(() => {
+                if (letterIndex === words[wordIndex].length && isUp){
+                    setTimeout(() => {
+                        setIsUp(false);
+                    }, 700);
+                }
+
+                else if (letterIndex === 0 && !isUp) {
+                    setIsUp(true);
+                    
+                    if (wordIndex === words.length - 1) 
+                        setWordIndex(0)
+    
+                    else if (letterIndex === 0)
+                        setWordIndex(wordIndex + 1);
+                }
+
+                setLetterIndex((letterIndex) => letterIndex + (isUp ? 1 : -1));
+            }, 100);
+            return () => clearInterval(intervalId);
         }
 
-    }, [props.isLoading]);
+    }, [isUp, letterIndex, wordIndex, words, lineTwo, wordsLineTwo]);
+
+    /******** FIRST SENTENCE ********/
+    useEffect(() => {
+        if (!isLoading) {
+
+            const intervalId = setInterval(() => {
+                if (lineOne.length === wordsLineOne.length)
+                    clearInterval(intervalId);
+
+                else
+                    setLineOne((prevLineOne) => wordsLineOne.substring(0, prevLineOne.length + 1));
+
+            }, 80);
+
+            return () => clearInterval(intervalId);
+        }
+
+    }, [isLoading, wordsLineOne, lineOne]);
+
+    /******** SECOND SENTENCE ********/
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            const continueExecution = () => {
+                if (lineTwo.length === wordsLineTwo.length) 
+                    clearInterval(intervalId);
+
+                else
+                    setLineTwo((prevLineTwo) => wordsLineTwo.substring(0, prevLineTwo.length + 1));
+            }
+
+            if (lineOne.length !== wordsLineOne.length)
+                return;
+
+            else {
+                const timeoutId = setTimeout(() => {
+                    continueExecution();
+                }, 1000);
+              
+                return () => clearTimeout(timeoutId);
+            }    
+        }, 80);
+    
+        return () => clearInterval(intervalId);
+
+    }, [lineOne, wordsLineTwo, lineTwo, wordsLineOne]);
 
     return (
-        <div className='welcome'>
-            <p>Bienvenue,</p>
-            <p className='line-one-intro'></p>
-            <p className='line-two-intro'></p>
+        <div className="welcome">
+        <p>{t('topSection.1')}</p>
+        <p className="line-one-intro">{lineOne}</p>
+        <p className="line-two-intro">{`${lineTwo} ${words[wordIndex].substring(0, letterIndex)}`}</p>
         </div>
     );
 };

@@ -129,8 +129,7 @@ $colorArrowsButton: rgb(27, 157, 205);
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    box-shadow: 0 0 20px 5px rgba(228, 231, 228, 0.15);
-    border: 0.5px solid whitesmoke;
+    box-shadow: 0 0 15px rgba(228, 231, 228, 0.15);
     border-radius: 10px;
 
     & img {
@@ -138,6 +137,7 @@ $colorArrowsButton: rgb(27, 157, 205);
         min-width: 200px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
+
     }
 }
 

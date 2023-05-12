@@ -1,5 +1,6 @@
 import { ParallaxProvider } from "react-scroll-parallax";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from 'react-i18next';
 
 import Header from "./components/header";
 import TopSection from "./components/top-section";
@@ -18,6 +19,7 @@ function App() {
     const startRef = useRef(null);
     const [bodyStyle, setBodyStyle] = useState({});
 
+    const { t } = useTranslation();
 
     useEffect(() => {
         startRef.current.scrollIntoView();
@@ -69,6 +71,7 @@ function App() {
                     contactSectionRef={contactSectionRef}
                     portfolioSectionRef={portfolioSectionRef}
                 />
+                <p className="warning" >{t('warning')}</p>
                 <TopSection isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)} />
                 <SkillsSection isLoading={!isAnimationDone} sectionRef={skillsSectionRef}/>
                 <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef} startRef={startRef} />

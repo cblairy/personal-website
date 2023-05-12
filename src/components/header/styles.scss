@@ -11,7 +11,7 @@ header {
     box-shadow: black 0 0 12px -5px;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1rem;
     text-transform: uppercase;
@@ -76,6 +76,28 @@ header {
         }
     }
 }
+
+/******** TRANSLATIONS ********/
+.translation-buttons {
+    margin-left: 3vw;
+
+    & > button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin: 0 10px;
+
+        &:active {
+            transform: scale(0.9);
+        }
+
+        & img {
+            width: 40px;
+        }
+    }
+}
+
+/******** MEDIA QUERIES ********/
 
 $mobile: 430px;
 $tablet: 768px;

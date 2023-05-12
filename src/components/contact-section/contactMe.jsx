@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Modal from "../modal";
+import Modal from "../basics/modal";
 
 import devImg from "../../assets/images/collaboration.jpg";
 

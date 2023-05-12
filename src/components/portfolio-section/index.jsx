@@ -3,7 +3,7 @@ import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-para
 import { useInView } from "react-intersection-observer";
 
 import Card from "./card.jsx";
-import Modal from "../modal";
+import Modal from "../basics/modal.jsx";
 import data from '../../data.json';
 
 import bureau from "../../assets/images/bureau.jpeg";

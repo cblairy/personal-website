@@ -4,14 +4,13 @@ $secondColor: rgb(22, 27, 33);
 
 .skills-section {
     position: relative;
-    height: 100vh;
     background: $bgColorSkillsSection;
-
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);;
-    z-index: 10;
+    z-index: 1;
 
     
 }
@@ -22,12 +21,17 @@ $secondColor: rgb(22, 27, 33);
 
     padding: 20px;
     width: 1000px;
-    background-color: $firstColor;
     border-radius: 10px;
-    box-shadow: inset 0 0 10px 1px rgba(22, 27, 33, 0.5);
-    margin: 40px 0;
+    box-shadow: 0 0 10px 1px rgba(22, 27, 33, 0.5);
     opacity: 0;
     border: 1px solid $secondColor;
+    color: whitesmoke;
+    font-size: 1.5em;
+
+    & > span {
+        display: block;
+        text-align: center;
+    }
 
     &.visible {
         animation: slideInFromTopInFirst 0.8s ease-out forwards;
@@ -69,30 +73,37 @@ $secondColor: rgb(22, 27, 33);
 .all-bars {
     max-width: 70%;
     display: inline-flex;
+    flex-direction: column;
     flex-wrap: wrap;
     overflow: hidden;
-    flex: 1;
 
     & > div {
         display: flex;
         flex-direction: column;
-        min-height: 300px;
-        max-height: 400px;
         box-sizing: border-box;
-        width: 35vw;
-        flex: 1;
-        height: auto;
-        padding: 20px;
+        padding: 10px;
+        width: 65vw;
 
-        &:first-child {
-            flex-basis: 100%;
+        &:nth-child(1) > button.visible {
+            animation: slideInFromTop 1s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+        
+        &:nth-child(2) > button.visible {
+            animation: slideInFromTop 1s ease-out forwards;
+            animation-delay: 2.4s;
+        }
+
+        &:nth-child(3) > button.visible {
+            animation: slideInFromTop 1s ease-out forwards;
+            animation-delay: 3s;
         }
 
         & > button {
             text-transform: uppercase;
             letter-spacing: 0.05rem;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.5rem;
             border-radius: 0.5rem;
             overflow: hidden;
             background: whitesmoke;
@@ -100,18 +111,25 @@ $secondColor: rgb(22, 27, 33);
             cursor: pointer;
             border: none;
             padding: 1.5rem 3rem;
-            margin: 10px;
             font-family: inherit;
             position: relative;
-            box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 7px rgba(0, 0, 0, 1);
             color: white;
-            opacity: 0;
+            width: 50%;
+            margin: auto ;
+            margin-bottom: 30px;
+            margin-top: 30px;
+
+
+            &:hover {
+                box-shadow: 0 0 3px rgb(255, 255, 255);
+            }
             
             &.is-clicked {
                 color: black;
     
                 &::before {
-                    transform: translate3d(100%,0,0);
+                    transform: translate3d(100%, 0, 0);
                     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.8);
                 }
             }
@@ -142,26 +160,38 @@ $secondColor: rgb(22, 27, 33);
     justify-content: center;
     width: 100%;
     height: 50px;
-    visibility: hidden;
 
-    &.visible {
-        visibility: visible;
+    &.visible:nth-child(1) {
+        animation: slideInFromTop 0.2s ease forwards;
+    }
+
+    &.visible:nth-child(2) {
+        animation: slideInFromTop 0.3s ease forwards;
+    }
+
+    &.visible:nth-child(3) {
+        animation: slideInFromTop 0.4s ease forwards;
+    }
+
+    &.visible:nth-child(4) {
+        animation: slideInFromTop 0.5s ease forwards;
+    }
+
+    &.visible:nth-child(5) {
+        animation: slideInFromTop 0.6s ease forwards;
+    }
+
+    &.visible:nth-child(6) {
+        animation: slideInFromTop 0.7s ease forwards;
     }
 }
 
-.show-logo {
+.skills-logo {
     width: 30px;
     height: 30px;
     margin-top: 13px;
     margin-right: 10px;
-    visibility: hidden;
-    opacity: 0;
 
-    &.visible {
-        visibility: visible;
-        transition: 2s;
-        opacity: 1;
-    }
 }
 
 /******** PROGRESS BAR ********/
@@ -173,13 +203,8 @@ $secondColor: rgb(22, 27, 33);
     border-radius: 50px;
     margin: 20px 0;
     background-color: $bgColorSkillsSection;
-    box-shadow: 0 0 10px 1px #00000034;
-    opacity: 0;
+    box-shadow: 0 0 10px 1px #ffffff34;
 
-    &.visible {
-        animation: slideInFromTop 1s ease-out forwards;
-        animation-delay: 1.8s;
-    }
 }
 
 .progress-bar__filler {
@@ -269,6 +294,7 @@ $large-screen: 1440px;
         margin-top: 0;
     }
 
+
     .all-bars {
         flex-direction: column;
         flex: 0;
@@ -281,8 +307,11 @@ $large-screen: 1440px;
             flex: 0;
             min-height: 0;
 
-            &:first-child {
-                flex-basis: 0%;
+            & > button {
+                width: 90%;
+                font-size: 1rem;
+                margin-top: 5px;
+                margin-bottom: 5px;
             }
 
             &:nth-child(1) > button.visible {
@@ -300,18 +329,12 @@ $large-screen: 1440px;
                 animation-delay: 3s;
             }
         }
-
-        
+ 
     }
-
 
     .progress-bar {
         width: 80%;
 
-        &.visible {
-            animation: slideInFromTop 0.2s ease-out forwards;
-            animation-delay: 0s;
-        }
     }
 
     .skills-title {
