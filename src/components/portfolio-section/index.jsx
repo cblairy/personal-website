@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 import Card from "./card.jsx";
 import Modal from "../basics/modal.jsx";
-import data from '../../data.json';
+import data from './data.json';
 
 import bureau from "../../assets/images/bureau.jpeg";
 import bewebcademy from "../../assets/images/bewebcademy.png";
@@ -12,73 +12,46 @@ import personalWebsite from "../../assets/images/personal-website.png";
 
 import './styles.scss';
 
-
 function PortfolioSection({ isLoading, sectionRef, startRef }) {
     const [isDisableLink, setIsDisabledLink] = useState(false);
     const isVisibleModal = useState(false);
-    const [isVisibleSection, setIsVisibleSection] = useState(false);
     const showModal = true;
     const { ref: inViewRef, inView: inViewSection } = useInView({
-        threshold: 0.25,
-        isVisibleSection,
+        threshold: 0.01,
     });
     const { ref: inViewScaleRef, inView: inViewScale } = useInView({
         threshold: 0.94,
     });
     const [isReverseScale, setReverseScale] = useState(false);
     const normalScale = [1.3, 1]; 
-    const reversedScale = [1, 1.3]; 
+    const reversedScale = [1, 1.3];
+
+    /******** ADD CARD HERE ********/
     const cardsData = [
-        { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data1, bgImg: personalWebsite },
-        { cardRef: useRef(null), figureIsActive: useState(false), figureIsVisible: useState(false), data: data.data2, bgImg: bewebcademy },
+        { 
+            cardRef: useRef(null),
+            figureIsActive: useState(false),
+            data: data.data1,
+            bgImg: personalWebsite 
+        },
+        { 
+            cardRef: useRef(null),
+            figureIsActive: useState(false),
+            data: data.data2,
+            bgImg: bewebcademy
+        },
     ];
-    const [activeIndex, setActiveIndex] = useState(0);
-    const delay = 250;
+
     const cardsDataMemo = useMemo(() => cardsData.map(el => {
         return el
     }), [cardsData]);
-
     
     /******** DISPLAY WITH EFFECT ACCORDING TO THE VIEW ********/
     useEffect(() => {
-        if (inViewSection && !isLoading) 
-            setIsVisibleSection(true); 
         if (inViewScale)
             setReverseScale(!isReverseScale)
         
     }, [inViewSection, isLoading, inViewScale]);
-
-    /***** DISPLAY CARDS *****/
-    useEffect(() => {
-        function nextCard() {
-            setTimeout(() => {
-                setActiveIndex(activeIndex + 1);
-            }, delay);
-        }
-
-        if (isVisibleSection){
-            if (activeIndex < cardsDataMemo.length){
-
-                const interval = setInterval(() => {
-                    nextCard();
-                }, delay * 2);
-
-                for (let i = 0; i < cardsDataMemo.length; i++) {
-                    const card = cardsDataMemo[i];
-                    
-                    if (i === activeIndex) {
-                        card.figureIsVisible[1](true);
-                    }
-                }
-
-                return () => {
-                    clearInterval(interval);
-
-                };
-            }
-        }
-    }, [isVisibleSection, activeIndex, cardsDataMemo]);
-
 
     useEffect(() => {
         /******** JUST FOR MOBILE (hover --> click) ********/
@@ -102,16 +75,14 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
 
     }, [cardsDataMemo, startRef])
 
-    
-
     return (
-        <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewRef(el); inViewScaleRef(el);}}>
+        <section className={"portfolio-section"} ref={(el) => {sectionRef.current = el; inViewScaleRef(el);}}>
             <ParallaxBanner  className={"parallax-portfolio-section"} >
                 <ParallaxBannerLayer image={bureau} expanded={false} speed={-10} scale={isReverseScale ? reversedScale : normalScale} /* opacity={[1, 1]}*//>
                 <Parallax className="portfolio-content" speed={-10} >
-                    <div className={`cards-title ${isVisibleSection ? "visible-section" : ""}`} >
+                    <div ref={inViewRef} className={`cards-title ${inViewSection ? "visible-section" : ""}`} >
                         <div></div>
-                        <h3>Mes travaux récents</h3>
+                        <h3 >Mes travaux récents</h3>
                         <div></div>
                     </div>
 
@@ -122,7 +93,6 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
                                 key={card.data.id}
                                 cardRef={card.cardRef}
                                 figureIsActive={card.figureIsActive}
-                                figureIsVisible={card.figureIsVisible}
                                 data={card.data}
                                 bgImg={card.bgImg}
                             />

@@ -1,9 +1,14 @@
 import React from "react";
+import { useInView } from "react-intersection-observer";
 
 import githubLogo from "../../assets/images/icons/github.svg";
 import webLogo from "../../assets/images/icons/web.svg";
 
-function Card({ figureIsActive, figureIsVisible, data, bgImg, link, cardRef }) {
+function Card({ figureIsActive, data, bgImg, link, cardRef }) {
+
+    const { ref, inView } = useInView({
+        threshold: 0.8,
+    });
 
     const handleClick = (e) => {
         if (link !== null && link.showModal) {
@@ -11,15 +16,17 @@ function Card({ figureIsActive, figureIsVisible, data, bgImg, link, cardRef }) {
             link.setIsDisabledLink(true);
         }
     };
-      
+    console.log(ref)
+
+    console.log(inView)
     return (
         <figure 
             ref={cardRef} 
-            className={ `${figureIsActive[0] ? "active" : ""} ${figureIsVisible[0] ? "visible" : ""} `} 
+            className={`${figureIsActive[0] ? "active" : ""}${inView ? "visible" : ""}`} 
             onClick={() => figureIsActive[1](true)} 
         >
             <img src={bgImg} alt="" />
-            <figcaption>
+            <figcaption ref={ref}>
                 <h3>{data.title}</h3>
                 <p>{data["content"]}</p>
 

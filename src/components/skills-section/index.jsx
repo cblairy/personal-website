@@ -59,8 +59,6 @@ function SkillsSection(props) {
         }
     };
 
-    console.log(refViewButton1)
-console.log(inView)
 
     const divs = [
         { id: "langages", ref: refViewButton1, inView: inViewButton1, content: 
@@ -161,8 +159,6 @@ console.log(inView)
         },
     ];
 
-
-console.log(divs[0].inView)
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
             <p className={`sub-intro ${inView ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓<br/><span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span></p>

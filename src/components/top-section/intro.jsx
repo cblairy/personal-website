@@ -82,7 +82,6 @@ const Intro = ({ isLoading }) => {
             else {
                 const timeoutId = setTimeout(() => {
                     continueExecution();
-                    console.log('test')
                 }, 1500);
               
                 return () => clearTimeout(timeoutId);

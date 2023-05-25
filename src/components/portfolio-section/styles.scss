@@ -46,7 +46,7 @@
 
     &.visible-section {
         opacity: 1;
-        animation: slideInFromTop 1s ease-out forwards;
+        animation: rotateTitle 1s ease-out forwards;
 
     }
 }
@@ -80,12 +80,21 @@ figure {
     width: 350px;
     height: 200px;
     cursor: pointer;
+    transition: all 1s ease;
     opacity: 0;
 
+    &:nth-child(even) {
+        transform: rotate3d(2, 4, -2, 0.4turn);
+    }
+
+    &:nth-child(odd) {
+        transform: rotate3d(1, 4, -2, 0.4turn);
+    }
+    
     &.visible {
         opacity: 1;
-        transition: 1.5s;
-        transition-delay: 0.8s;
+        transition: 1s;
+        transform: rotate(0deg);
     }
 
     & h3 {
@@ -116,10 +125,7 @@ figure {
         opacity: 0;
         background-image: linear-gradient(to bottom, transparent, #0009);
 
-        -webkit-transition: opacity 0.2s ease-out;
-        -moz-transition: opacity 0.2s ease-out;
-        -o-transition: opacity 0.2s ease-out;
-        transition: opacity 0.2s ease-out;
+        
     
         & p {
             font-size: 1rem;
@@ -177,6 +183,52 @@ figure {
     to {
         transform: translateY(0%);
         opacity: 1;
+    }
+}
+
+@-webkit-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+
+@-moz-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+
+@-o-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+@keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
     }
 }
 
