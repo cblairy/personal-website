@@ -50,8 +50,7 @@ $secondColor: rgb(22, 27, 33);
     opacity: 0;
 
     &.visible {
-        animation: slideInFromTop 1s ease-out forwards;
-        animation-delay: 1s;
+        animation: rotateTitle 1s ease-out forwards;
     }
 
 
@@ -83,21 +82,28 @@ $secondColor: rgb(22, 27, 33);
         box-sizing: border-box;
         padding: 10px;
         width: 65vw;
+        max-height: 150px;
 
-        &:nth-child(1) > button.visible {
-            animation: slideInFromTop 1s ease-out forwards;
-            animation-delay: 1.8s;
+        &.button-clicked {
+            -webkit-transition: max-height 0.7s; 
+            -moz-transition: max-height 0.7s; 
+            -ms-transition: max-height 0.7s; 
+            -o-transition: max-height 0.7s; 
+            transition: max-height 0.7s;  
+
+            overflow: hidden;
+            max-height: 500px;
+
+        }
+
+        &:nth-child(even) > button.visible {
+            animation: slideInFromRight 1s ease-out forwards;
         }
         
-        &:nth-child(2) > button.visible {
-            animation: slideInFromTop 1s ease-out forwards;
-            animation-delay: 2.4s;
+        &:nth-child(odd) > button.visible {
+            animation: slideInFromLeft 1s ease-out forwards;
         }
 
-        &:nth-child(3) > button.visible {
-            animation: slideInFromTop 1s ease-out forwards;
-            animation-delay: 3s;
-        }
 
         & > button {
             text-transform: uppercase;
@@ -116,10 +122,9 @@ $secondColor: rgb(22, 27, 33);
             box-shadow: 0 0 7px rgba(0, 0, 0, 1);
             color: white;
             width: 50%;
-            margin: auto ;
-            margin-bottom: 30px;
-            margin-top: 30px;
-
+            min-height: 100px;
+            margin: 0px auto 20px auto;
+            opacity: 0;
 
             &:hover {
                 box-shadow: 0 0 3px rgb(255, 255, 255);
@@ -154,36 +159,12 @@ $secondColor: rgb(22, 27, 33);
     }
 }
 
-
 .bar-and-logo {
     display: flex;
     justify-content: center;
     width: 100%;
     height: 50px;
 
-    &.visible:nth-child(1) {
-        animation: slideInFromTop 0.2s ease forwards;
-    }
-
-    &.visible:nth-child(2) {
-        animation: slideInFromTop 0.3s ease forwards;
-    }
-
-    &.visible:nth-child(3) {
-        animation: slideInFromTop 0.4s ease forwards;
-    }
-
-    &.visible:nth-child(4) {
-        animation: slideInFromTop 0.5s ease forwards;
-    }
-
-    &.visible:nth-child(5) {
-        animation: slideInFromTop 0.6s ease forwards;
-    }
-
-    &.visible:nth-child(6) {
-        animation: slideInFromTop 0.7s ease forwards;
-    }
 }
 
 .skills-logo {
@@ -213,8 +194,143 @@ $secondColor: rgb(22, 27, 33);
     background-image: linear-gradient(to right, #85c7e1, #20A4F3);
     border-radius: inherit;
     transition: width 2s ease-in-out;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.242);;
+    box-shadow: inset 0 0 3px rgb(0, 0, 0);;
 
+}
+
+
+@-webkit-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+
+@-moz-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+
+@-o-keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+@keyframes rotateTitle {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+@-webkit-keyframes slideInFromRight {
+    from {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInFromRight {
+    from {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes slideInFromRight {
+    from {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slideInFromLeft {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInFromLeft {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes slideInFromLeft {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes slideInFromTop {

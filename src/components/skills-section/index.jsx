@@ -25,24 +25,29 @@ import javaLogo from '../../assets/images/icons/java.png';
 import './styles.scss';
 
 function SkillsSection(props) {
-    const [showSection, setShowSection] = useState(false);
     const [visibleBars, setVisibleBars] = useState("");
     const { t } = useTranslation();
 
     /******** creates an event on the element passed in ref (40% of the visible element triggers it) ********/
     const [refView, inView] = useInView({
-        threshold: 0.25,
-        showSection,
+        threshold: 0.05,
     });
 
-    /******** displays bars elements according to the view ans the loading of the page ********/
-    useEffect(() => {
-        if (inView && !props.isLoading) {
-            setShowSection(true);
-        }
+    const [refViewTitleSkills, inViewTitleSkills] = useInView({
+        threshold: 0.05,
+    });
 
-    }, [inView, props.isLoading]);
+    const [refViewButton1, inViewButton1] = useInView({
+        threshold: 0,
+    });
 
+    const [refViewButton2, inViewButton2] = useInView({
+        threshold: 0,
+    });
+
+    const [refViewButton3, inViewButton3] = useInView({
+        threshold: 0,
+    });
 
     /******** HTML FOR MOBILE BUTTONS ********/
     const toggleVisibleBars = (divId) => {
@@ -54,110 +59,114 @@ function SkillsSection(props) {
         }
     };
 
+    console.log(refViewButton1)
+console.log(inView)
+
     const divs = [
-        { id: "langages", content: 
+        { id: "langages", ref: refViewButton1, inView: inViewButton1, content: 
             <div>
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={phpLogo} className="skills-logo" alt="phpLogo"/>
-                    <Bar percent={"85%"} showSection={showSection}  />
+                    <Bar percent={"80%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={javascriptLogo} className="skills-logo" alt="jsLogo"/>
-                    <Bar percent={"75%"} showSection={showSection}/>
+                    <Bar percent={"75%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={cssLogo} className="skills-logo" alt="cssLogo"/>
-                    <Bar percent={"85%"} showSection={showSection}/>
+                    <Bar percent={"85%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={pythonLogo} className="skills-logo" alt="pythonLogo"/>
-                    <Bar percent={"55%"} showSection={showSection}/>
+                    <Bar percent={"55%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={javaLogo} className="skills-logo" alt="javaLogo"/>
-                    <Bar percent={"20%"} showSection={showSection}/>
+                    <Bar percent={"50%"}/>
                 </div>
             </div> 
         },
 
-        { id: "frameworks", content: 
+        { id: "frameworks", ref: refViewButton2, inView: inViewButton2, content: 
             <div>
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={symfonyLogo} className="skills-logo" alt="SymfonyLogo"/>
-                    <Bar percent={"75%"} showSection={showSection}/>
+                    <Bar percent={"75%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={codeIgniterLogo} className="skills-logo" alt="codeIgniterLogo"/>
-                    <Bar percent={"60%"} showSection={showSection}/>
+                    <Bar percent={"30%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={reactLogo} className="skills-logo" alt="reactLogo"/>
-                    <Bar percent={"75%"} showSection={showSection} />
+                    <Bar percent={"85%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={angularLogo} className="skills-logo" alt="angularLogo"/>
-                    <Bar percent={"25%"} showSection={showSection} />
+                    <Bar percent={"25%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={sassLogo} className="skills-logo" alt="sassLogo"/>
-                    <Bar percent={"50%"} showSection={showSection} />
+                    <Bar percent={"60%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={djangoLogo} className="skills-logo" alt="djangoLogo"/>
-                    <Bar percent={"30%"} showSection={showSection} />
+                    <Bar percent={"30%"} />
                 </div>
             </div>
         },
 
-        { id: "environnements", content: 
+        { id: "environnements", ref: refViewButton3, inView: inViewButton3, content: 
             <div>
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={linuxLogo} className="skills-logo" alt="linuxLogo"/>
-                    <Bar percent={"75%"} showSection={showSection}/>
+                    <Bar percent={"75%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={dockerLogo} className="skills-logo" alt="dockerLogo"/>
-                    <Bar percent={"70%"} showSection={showSection}/>
+                    <Bar percent={"60%"}/>
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={gitLogo} className="skills-logo" alt="gitLogo"/>
-                    <Bar percent={"85%"} showSection={showSection} />
+                    <Bar percent={"85%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={mySqlLogo} className="skills-logo" alt="mySqlLogo"/>
-                    <Bar percent={"70%"} showSection={showSection} />
+                    <Bar percent={"70%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={mongoDbLogo} className="skills-logo" alt="mongoDbLogo"/>
-                    <Bar percent={"60%"} showSection={showSection} />
+                    <Bar percent={"70%"} />
                 </div>
 
-                <div className={`bar-and-logo ${showSection ? "visible" : ""}`}>
+                <div className="bar-and-logo">
                     <img src={nodeLogo} className="skills-logo" alt="nodeLogo"/>
-                    <Bar percent={"65%"} showSection={showSection}/>
+                    <Bar percent={"65%"}/>
                 </div>
             </div>
         },
     ];
 
 
+console.log(divs[0].inView)
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
-            <p className={`sub-intro ${showSection ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓<br/><span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span></p>
-            <div className={`skills-title ${showSection ? "visible" : ""}`}>
+            <p className={`sub-intro ${inView ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓<br/><span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span></p>
+            <div className={`skills-title ${inViewTitleSkills ? "visible" : ""}`} ref={refViewTitleSkills}>
                 <div></div>
                 <h3>Mes maitrises</h3>
                 <div></div>
@@ -165,9 +174,9 @@ function SkillsSection(props) {
             
             <div className='all-bars'>
 
-                {divs.map((div) => (
+                {divs.map((div) => ( 
                     <div key={div.id} className={visibleBars === div.id ? "button-clicked" : ""}>
-                        <button onClick={() => toggleVisibleBars(div.id)} className={`${visibleBars === div.id ? "is-clicked" : ""} ${showSection ? "visible" : ""}`}>
+                        <button onClick={() => toggleVisibleBars(div.id)} ref={div.ref} className={`${visibleBars === div.id ? "is-clicked" : ""} ${div.inView ? "visible" : ""}`}>
                             <span>{div.id}</span>
                         </button>
                         {visibleBars === div.id && <div>{div.content}</div>}

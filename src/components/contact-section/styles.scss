@@ -26,12 +26,11 @@ $colorArrowsButton: rgb(27, 157, 205);
 }
 
 .contact-title {
-    margin: 0 auto;
     width: 100%;
     color: $colorTitle;
     text-transform: uppercase;
     font-size: 1.5rem;
-    margin-top: 10vh;
+    margin-top: 5vh;
 
     display: flex;
     align-items: center;
@@ -53,6 +52,7 @@ $colorArrowsButton: rgb(27, 157, 205);
 }
 
 .contact-form-section {
+    padding-top: 4vh;
     display: flex;
     overflow: hidden;
 
@@ -214,10 +214,10 @@ $colorArrowsButton: rgb(27, 157, 205);
         -o-transform: skewY(-10deg);
         transform: skewY(-10deg);
 
-        -webkit-transition: 0.4s ease-in-out;
-        -moz-transition: 0.4s ease-in-out;
-        -o-transition: 0.4s ease-in-out;
-        transition: 0.4s ease-in-out;
+        -webkit-transition: 0.7s ease-in-out;
+        -moz-transition: 0.7s ease-in-out;
+        -o-transition: 0.7s ease-in-out;
+        transition: 0.7s ease-in-out;
     
         &:hover {
             color: whitesmoke;
@@ -227,10 +227,10 @@ $colorArrowsButton: rgb(27, 157, 205);
             -o-transform: scale(1.1) translateY(-15px);
             transform: scale(1.1) translateY(-15px);
 
-            -webkit-transition: 0.4s ease-in-out;
-            -moz-transition: 0.4s ease-in-out;
-            -o-transition: 0.4s ease-in-out;
-            transition: 0.4s ease-in-out;
+            -webkit-transition: 0.2s ease-in-out;
+            -moz-transition: 0.2s ease-in-out;
+            -o-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
         }
     }
 }
@@ -244,10 +244,10 @@ $colorArrowsButton: rgb(27, 157, 205);
         -o-transform: scale(-1) skewY(10deg);
         transform: scale(-1) skewY(10deg);
 
-        -webkit-transition: 0.4s ease-in-out;
-        -moz-transition: 0.4s ease-in-out;
-        -o-transition: 0.4s ease-in-out;
-        transition: 0.4s ease-in-out;
+        -webkit-transition: 0.7s ease-in-out;
+        -moz-transition: 0.7s ease-in-out;
+        -o-transition: 0.7s ease-in-out;
+        transition: 0.7s ease-in-out;
     
         &:hover {
             color: whitesmoke;
@@ -258,10 +258,10 @@ $colorArrowsButton: rgb(27, 157, 205);
             transform: scale(-1.1);
             padding-top: 15px;
 
-            -webkit-transition: 0.4s ease-in-out;
-            -moz-transition: 0.4s ease-in-out;
-            -o-transition: 0.4s ease-in-out;
-            transition: 0.4s ease-in-out;
+            -webkit-transition: 0.2s ease-in-out;
+            -moz-transition: 0.2s ease-in-out;
+            -o-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
 
         }
     }
