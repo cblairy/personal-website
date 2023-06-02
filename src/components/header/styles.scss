@@ -1,4 +1,4 @@
-$firstColor: rgb(115, 205, 238);;
+$firstColor: #0d1e36;
 
 header {
     position: fixed;
@@ -7,7 +7,6 @@ header {
     z-index: 100;
     width: 100%;
 
-    background-color: rgba(0, 0, 0, 0);
     box-shadow: black 0 0 12px -5px;
 
     display: flex;
@@ -48,9 +47,9 @@ header {
         height: 100%;
 
         -webkit-transition: 0.2s ease-in-out;
-            -moz-transition: 0.2s ease-in-out;
-            -o-transition: 0.2s ease-in-out;
-            transition: 0.2s ease-in-out;
+        -moz-transition: 0.2s ease-in-out;
+        -o-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
   
         & a {
             text-decoration: none;
@@ -62,24 +61,25 @@ header {
             justify-content: center;
             align-items: center;
         }
-    
+        
         &:hover {
             box-shadow: black 0 0 12px -5px;
-            background-color: rgba(115, 205, 238, 0.3);
-            font-size: large;
             letter-spacing: 6px;
-
+            scale: 1.05;
+    
             -webkit-transition: 0.2s ease-in-out;
             -moz-transition: 0.2s ease-in-out;
             -o-transition: 0.2s ease-in-out;
             transition: 0.2s ease-in-out;
         }
+        
     }
 }
 
 /******** TRANSLATIONS ********/
 .translation-buttons {
     margin-left: 3vw;
+    min-width: 140px;
 
     & > button {
         cursor: pointer;
@@ -98,7 +98,6 @@ header {
 }
 
 /******** MEDIA QUERIES ********/
-
 $mobile: 430px;
 $tablet: 768px;
 $desktop: 1024px;
@@ -108,20 +107,49 @@ $large-screen: 1440px;
     .header-list {
         width: 100%;
         padding: 0;
+        margin: 0;
 
         & > li {
             font-size: 0.5rem;
+            letter-spacing: 2px;
 
-            &:active {
-                background-color: $firstColor;
-                
-                -webkit-transition: 0;
-                -moz-transition: 0;
-                -o-transition: 0;
-                transition: 0;
+            &:hover {
+                scale: 1;
+                letter-spacing: 2px;
             }
         }
     }
+
+    /* BURGER ICON */
+    .burger-icon {
+        margin: 30px;
+
+        & span {
+            display: block;
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.824);
+            margin: 6px 0;
+        }
+    }
+
+    .side-nav {
+        height: 50px;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        background-color: $firstColor;
+        transition: left 0.5s ease;
+
+        &.active {
+            left: 0%;
+        }
+    }
+
+    
 }
 
 @media screen and (min-width: ($mobile + 1)) and (max-width: $tablet) {

@@ -2,13 +2,22 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Language from "../basics/language";
+import Burger from "./burger";
 import InternalLink from '../basics/internalLink';
 import './styles.scss';
 
 function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLinkClick }) {
+    const [isActiveBurger, setIsActiveBurger] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [headerIsVisible, setHeaderIsVisible] = useState(true);
     const { t } = useTranslation();
+    const headerLinks = {"content": 
+        <ul className='header-list'>
+            <li><InternalLink onLinkClick={() => onLinkClick(skillsSectionRef)} setIsActiveBurger={setIsActiveBurger} content={t('header.1')} /></li>
+            <li><InternalLink onLinkClick={() => onLinkClick(portfolioSectionRef)} setIsActiveBurger={setIsActiveBurger} content={t('header.2')} /></li>
+            <li><InternalLink onLinkClick={() => onLinkClick(contactSectionRef)} setIsActiveBurger={setIsActiveBurger} content={t('header.3')} /></li>
+        </ul>
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +31,6 @@ function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLi
             }
 
             setPrevScrollPos(currentScrollPos)
-
         }
 
         window.addEventListener("scroll", handleScroll);
@@ -34,12 +42,11 @@ function Header({ skillsSectionRef, portfolioSectionRef, contactSectionRef, onLi
             <header className={headerIsVisible ? "header-is-visible" : "header-is-not-visible"}>
                 <Language />
 
-                <ul className='header-list'>
-                    <li><InternalLink onLinkClick={() => onLinkClick(skillsSectionRef)} content={t('header.1')} /></li>
-                    <li><InternalLink onLinkClick={() => onLinkClick(portfolioSectionRef)} content={t('header.2')} /></li>
-                    <li><InternalLink onLinkClick={() => onLinkClick(contactSectionRef)} content={t('header.3')} /></li>
-
-                </ul>
+                {window.innerWidth < 431 ? (
+                    <Burger content={headerLinks.content} isActiveBurger={isActiveBurger} setIsActiveBurger={setIsActiveBurger} />
+                ) : (
+                    headerLinks.content
+                )}
             </header>
     );
 }

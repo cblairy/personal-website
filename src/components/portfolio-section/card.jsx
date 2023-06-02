@@ -7,7 +7,7 @@ import webLogo from "../../assets/images/icons/web.svg";
 function Card({ figureIsActive, data, bgImg, link, cardRef }) {
 
     const { ref, inView } = useInView({
-        threshold: 0.8,
+        threshold: 0,
     });
 
     const handleClick = (e) => {
@@ -16,9 +16,7 @@ function Card({ figureIsActive, data, bgImg, link, cardRef }) {
             link.setIsDisabledLink(true);
         }
     };
-    console.log(ref)
 
-    console.log(inView)
     return (
         <figure 
             ref={cardRef} 

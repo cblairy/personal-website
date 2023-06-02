@@ -1,8 +1,9 @@
 
-const InternalLink = ({ content, onLinkClick, className }) => {
+const InternalLink = ({ content, onLinkClick, className, setIsActiveBurger }) => {
 
     const handleClick = () => {
         onLinkClick();
+        setIsActiveBurger(false);
     }
 
     return (
