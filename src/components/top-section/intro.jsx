@@ -8,7 +8,6 @@ const Intro = ({ isLoading }) => {
         t('topSection.words.1'),
         t('topSection.words.2'),
         t('topSection.words.3'),
-        t('topSection.words.4'),
     ], [t]);
     const wordsLineOne = t('topSection.2');
     const wordsLineTwo = t('topSection.3');

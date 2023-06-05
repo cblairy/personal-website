@@ -32,21 +32,11 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
         <section className="contact-section" ref={(el) => {sectionRef.current = el; refView(el);}}>
             <div className="title-contact-section">
                 <InternalLink className="scroll-arrow-bottom" onLinkClick={() => onLinkClick(startRef)} content={<span></span>}/>
-
-                {/** TITLE PARALLAX */}
-                <Parallax
-                    opacity={[0, 2]}
-                    translateY={['-70px', '20px']}
-                    rotateX={['-100deg', '20deg']}
-                >
-
-                    <div className='contact-title' >
-                        <div></div>
-                        <h3>Contactez moi</h3>
-                        <div></div>
-                    </div>
-
-                </Parallax>
+                <div className='contact-title' >
+                    <div></div>
+                    <h3>Contactez moi</h3>
+                    <div></div>
+                </div>
             </div>
             
             <div className={"contact-form-section"}>

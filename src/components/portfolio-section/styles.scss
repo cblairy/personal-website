@@ -1,5 +1,5 @@
 .portfolio-section {
-    height: calc(100vh + 60px);
+    height: calc(100dvh);
     width: 100vw;
 
 }
@@ -82,18 +82,10 @@ figure {
     cursor: pointer;
     transition: all 1s ease;
     opacity: 0;
-
-    &:nth-child(even) {
-        transform: rotate3d(2, 4, -2, 0.4turn);
-    }
-
-    &:nth-child(odd) {
-        transform: rotate3d(1, 4, -2, 0.4turn);
-    }
     
     &.visible {
         opacity: 1;
-        transition: 1s;
+        transition: opacity 2s;
         transform: rotate(0deg);
     }
 

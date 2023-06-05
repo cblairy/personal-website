@@ -9,7 +9,7 @@ $colorArrowsButton: rgb(27, 157, 205);
 
 .contact-section {
     position: relative;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
     background-color: $bgColorBottom;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.53);;
@@ -121,9 +121,9 @@ $colorArrowsButton: rgb(27, 157, 205);
 /******** FORM ********/
 
 .contact-form {
-    width: 70%;
     min-height: 400px;
     min-width: 600px;
+    max-width: 60%;
     background-color: $bgColorForm;
     display: flex;
     align-items: center;

@@ -3,13 +3,13 @@ $colorText: rgb(27, 157, 205);
 $sizeShadow: 7;
 
 .top-section {
-    height: 100vh;
+    height: 100dvh;
     background-color: $bgColorTop;
     display: flex;
 }
 
 .img-parallax {
-    max-height: 100vh;
+    max-height: 100dvh;
     display: flex;
     align-items: flex-end;
     justify-content: center;

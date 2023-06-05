@@ -17,7 +17,7 @@ $secondColor: rgb(22, 27, 33);
 
 .sub-intro {
     box-sizing: border-box;
-    text-align: justify;
+    text-align: center;
 
     padding: 20px;
     width: 1000px;
@@ -34,7 +34,15 @@ $secondColor: rgb(22, 27, 33);
     }
 
     &.visible {
-        animation: slideInFromTopInFirst 0.8s ease-out forwards;
+        transition: opacity 1s ease;
+        -moz-transition: opacity 2s ease;
+        opacity: 1;
+    }
+
+    > div {
+        border-top: solid 1px $firstColor;
+        max-width: 30%;
+        margin: 10px auto;
     }
 }
 
@@ -97,11 +105,11 @@ $secondColor: rgb(22, 27, 33);
         }
 
         &:nth-child(even) > button.visible {
-            animation: slideInFromRight 1s ease-out forwards;
+            animation: slideInFromRight 0.5s ease-in forwards;
         }
         
         &:nth-child(odd) > button.visible {
-            animation: slideInFromLeft 1s ease-out forwards;
+            animation: slideInFromLeft 0.5s ease-in forwards;
         }
 
 
@@ -116,7 +124,7 @@ $secondColor: rgb(22, 27, 33);
             pointer-events: auto;
             cursor: pointer;
             border: none;
-            padding: 1.5rem 3rem;
+            padding: 1.5rem;
             font-family: inherit;
             position: relative;
             box-shadow: 0 0 7px rgba(0, 0, 0, 1);
@@ -247,7 +255,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-webkit-keyframes slideInFromRight {
     from {
-        transform: translateY(20%);
+        transform: translateY(5%);
         opacity: 0;
     }
     to {
@@ -258,7 +266,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-moz-keyframes slideInFromRight {
     from {
-        transform: translateY(20%);
+        transform: translateY(5%);
         opacity: 0;
     }
     to {
@@ -269,7 +277,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-o-keyframes slideInFromRight {
     from {
-        transform: translateY(20%);
+        transform: translateY(5%);
         opacity: 0;
     }
     to {
@@ -280,7 +288,7 @@ $secondColor: rgb(22, 27, 33);
 
 @keyframes slideInFromRight {
     from {
-        transform: translateX(20%);
+        transform: translateX(5%);
         opacity: 0;
     }
     to {
@@ -291,7 +299,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-webkit-keyframes slideInFromLeft {
     from {
-        transform: translateY(-20%);
+        transform: translateY(-5%);
         opacity: 0;
     }
     to {
@@ -302,7 +310,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-moz-keyframes slideInFromLeft {
     from {
-        transform: translateY(-20%);
+        transform: translateY(-5%);
         opacity: 0;
     }
     to {
@@ -313,7 +321,7 @@ $secondColor: rgb(22, 27, 33);
 
 @-o-keyframes slideInFromLeft {
     from {
-        transform: translateY(-20%);
+        transform: translateY(-5%);
         opacity: 0;
     }
     to {
@@ -324,7 +332,7 @@ $secondColor: rgb(22, 27, 33);
 
 @keyframes slideInFromLeft {
     from {
-        transform: translateX(-20%);
+        transform: translateX(-5%);
         opacity: 0;
     }
     to {
@@ -332,63 +340,6 @@ $secondColor: rgb(22, 27, 33);
         opacity: 1;
     }
 }
-
-@-webkit-keyframes slideInFromTop {
-    from {
-        transform: translateY(-250%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes slideInFromTop {
-    from {
-        transform: translateY(-250%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
-@-o-keyframes slideInFromTop {
-    from {
-        transform: translateY(-250%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromTop {
-    from {
-        transform: translateY(-250%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
-
-@keyframes slideInFromTopInFirst {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
 
 /******** MEDIA QUERIES ********/
 
@@ -428,24 +379,9 @@ $large-screen: 1440px;
                 font-size: 1rem;
                 margin-top: 5px;
                 margin-bottom: 5px;
+                min-height: 70px;
             }
-
-            &:nth-child(1) > button.visible {
-                animation: slideInFromTop 1s ease-out forwards;
-                animation-delay: 1.8s;
-            }
-            
-            &:nth-child(2) > button.visible {
-                animation: slideInFromTop 1s ease-out forwards;
-                animation-delay: 2.4s;
-            }
-
-            &:nth-child(3) > button.visible {
-                animation: slideInFromTop 1s ease-out forwards;
-                animation-delay: 3s;
-            }
-        }
- 
+        } 
     }
 
     .progress-bar {
@@ -462,9 +398,6 @@ $large-screen: 1440px;
         }
     }
 
-    .show-logo {
-        animation: slideInFromTop 0.2s ease-out forwards;
-    }
 
 }
 

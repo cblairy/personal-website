@@ -49,17 +49,6 @@ function SkillsSection(props) {
         threshold: 0,
     });
 
-    /******** HTML FOR MOBILE BUTTONS ********/
-    const toggleVisibleBars = (divId) => {
-
-        if (visibleBars === divId){
-            setVisibleBars("");
-        } else {
-            setVisibleBars(divId); 
-        }
-    };
-
-
     const divs = [
         { id: "langages", ref: refViewButton1, inView: inViewButton1, content: 
             <div>
@@ -90,7 +79,7 @@ function SkillsSection(props) {
             </div> 
         },
 
-        { id: "frameworks", ref: refViewButton2, inView: inViewButton2, content: 
+        { id: "frameworks & librairies", ref: refViewButton2, inView: inViewButton2, content: 
             <div>
                 <div className="bar-and-logo">
                     <img src={symfonyLogo} className="skills-logo" alt="SymfonyLogo"/>
@@ -159,9 +148,23 @@ function SkillsSection(props) {
         },
     ];
 
+    const toggleVisibleBars = (divId) => {
+
+        if (visibleBars === divId){
+            setVisibleBars("");
+        } else {
+            setVisibleBars(divId); 
+        }
+    };
+
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
-            <p className={`sub-intro ${inView ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓<br/><span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span></p>
+            <p className={`sub-intro ${inView ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓
+                <br/>
+                <span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span>
+                <div></div>
+                <span>Ci-dessous des "capacités téchniques" qui ne veulent plus ou moins rien dire. Ma meilleur capacité étant celle d'en apprendre de nouvelles.</span>
+            </p>
             <div className={`skills-title ${inViewTitleSkills ? "visible" : ""}`} ref={refViewTitleSkills}>
                 <div></div>
                 <h3>Mes maitrises</h3>
