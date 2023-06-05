@@ -77,32 +77,33 @@ export const ContactMe = () => {
         <>
             <form className="contact-form" ref={form} onSubmit={sendEmail}>
                 <img src={devImg} alt="page contenant du code" />
-                <div className="inputs">
-                    <input
-                        required
-                        className="input-text"
-                        type="text"
-                        name="user_name"
-                        placeholder="Nom ou entreprise"
-                    />
-                    <input
-                        required
-                        onChange={handleEmailChange}
-                        className="input-text"
-                        value={email}
-                        type="text"
-                        name="user_email"
-                        placeholder="Email"
-                    />
-                    {emailError && <span className="email-error">{emailError}</span>}
-                    <textarea
-                        required
-                        className="input-text textArea"
-                        type="text"
-                        name="message"
-                        placeholder="Message"
-                    />
-
+                <div>
+                    <div className="inputs">
+                        <input
+                            required
+                            className="input-text"
+                            type="text"
+                            name="user_name"
+                            placeholder="Nom ou entreprise"
+                        />
+                        <input
+                            required
+                            onChange={handleEmailChange}
+                            className="input-text"
+                            value={email}
+                            type="text"
+                            name="user_email"
+                            placeholder="Email"
+                        />
+                        {emailError && <span className="email-error">{emailError}</span>}
+                        <textarea
+                            required
+                            className="input-text textArea"
+                            type="text"
+                            name="message"
+                            placeholder="Message"
+                        />
+                    </div>
                     <div className="sending-button">
                         <button
                             className={`svg-button ${(submitted, formAlreadySubmitted ? "disabled" : "")} ${active ? "active" : ""} `}
