@@ -3,7 +3,10 @@ const InternalLink = ({ content, onLinkClick, className, setIsActiveBurger }) =>
 
     const handleClick = () => {
         onLinkClick();
-        setIsActiveBurger(false);
+
+        if (window.innerWidth <= 450){
+            setIsActiveBurger(false);
+        }
     }
 
     return (

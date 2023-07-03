@@ -2,15 +2,29 @@
     "data1": {
         "id": 1,
         "title": "Personal website",
-        "content": "React - react-parallax - EmailJs - Javascript - SCSS",
+        "content": "react - react-parallax - EmailJs - Javascript - SCSS",
         "href": "",
         "gitHref": "https://github.com/cblairy/personal-website"
     },
     "data2": {
         "id": 2,
         "title": "Bewebcademy",
-        "content": "micro-services - nodeJs - mondeDB - RabbitMQ - React",
+        "content": "micro-services - nodeJs - mondeDB - rabbitMQ - react",
         "href": "https://bewebcademy.vercel.app/",
         "gitHref": "https://github.com/cblairy/bewebCademy"
+    },
+    "data3": {
+        "id": 2,
+        "title": "Back-office multi applications",
+        "content": "nodeJs - nestJs (express) - react - postgreSQL",
+        "href": "#",
+        "gitHref": "#"
+    },
+    "data4": {
+        "id": 2,
+        "title": "Éco-chantiers",
+        "content": "java - spring ",
+        "href": "",
+        "gitHref": ""
     }
 }

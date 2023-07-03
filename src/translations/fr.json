@@ -18,5 +18,40 @@
         
     },
 
-    "warning": "Cette page est actuellement en cours de développement"
+    "warning": "Cette page est actuellement en cours de développement",
+
+    "skillsSection": {
+        "intro": {
+            "1": "Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir! 🖥️🤓",
+            "2": "🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓",
+            "3": "Ci-dessous des 'capacités téchniques' qui ne veulent plus ou moins rien dire. Ma meilleur capacité étant celle d'en apprendre de nouvelles."
+        },
+    
+        "title": "Mes maitrises",
+        "cards": {
+            "1": "langages",
+            "2": "frameworks & librairies",
+            "3": "environnements"
+        }
+    },
+
+    "portfolioSection": {
+        "title": "Mes travaux récents"
+    },
+
+    "contactSection": {
+        "title": "contactez moi",
+        "form": {
+            "name": "Nom ou entreprise",
+            "message": "Message",
+            "button": "ENVOYER",
+            "invalidMail": "L'adresse e-mail n'est pas valide"
+        },
+        "modal": {
+            "submitted": "Le formulaire a été soumis avec succès! ✅",
+            "error": "Oups! Erreur lors de la soumission du formulaire. 😓",
+            "alreadySubmitted": "Le formulaire a déjà été soumis. Pour me contacter, n'hésitez pas à m'envoyer un email ! 📩"
+        }
+    }
+
 }

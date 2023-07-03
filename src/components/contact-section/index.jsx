@@ -1,9 +1,11 @@
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
+import { useTranslation } from 'react-i18next';
 
 import { ContactMe } from "./contactMe.jsx";
 import InternalLink from "../basics/internalLink.jsx";
+import Modal from "../basics/modal";
 
 import emailLogo from "../../assets/images/icons/email.png";
 import githubLogo from "../../assets/images/icons/github.png";
@@ -15,10 +17,14 @@ import './styles.scss';
 const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
     const email = "corentinblairy1@gmail.com";
     const [showSection, setShowSection] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [formAlreadySubmitted, setFormAlreadySubmitted] = useState(false);
+    const [submittedError, setSubmittedError] = useState(false);
     const [refView, inView] = useInView({
         threshold: 0.25,
         showSection,
     });
+    const { t } = useTranslation();
 
     useEffect(() => {
         
@@ -34,7 +40,7 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
                 <InternalLink className="scroll-arrow-bottom" onLinkClick={() => onLinkClick(startRef)} content={<span></span>}/>
                 <div className='contact-title' >
                     <div></div>
-                    <h3>Contactez moi</h3>
+                    <h3>{t('contactSection.title')}</h3>
                     <div></div>
                 </div>
             </div>
@@ -51,7 +57,7 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
                         opacity={[0,2]}
                         rotateX={['-100deg', '100deg']}
                     >
-                        <ContactMe />
+                        <ContactMe submitted={submitted} setSubmitted={setSubmitted} formAlreadySubmitted={formAlreadySubmitted} setFormAlreadySubmitted={setFormAlreadySubmitted} submittedError={submittedError} setSubmittedError={setSubmittedError} />
                     </Parallax>
                     <nav className="mobile-nav-logo">
                         <a href={"mailto:" + email}>
@@ -73,7 +79,27 @@ const ContactSection = ({ isLoading, sectionRef, startRef, onLinkClick }) => {
                     <div className="navbar-line"></div>
                 </nav>
             </div>
-            
+
+            {submitted && (
+                <Modal
+                    message={t('contactSection.modal.submitted')}
+                    valid={true}
+                />
+            )}
+
+            {submittedError && (
+                <Modal
+                    message={t('contactSection.modal.error')}
+                    valid={false}
+                />
+            )}
+
+            {formAlreadySubmitted && (
+                <Modal
+                    message={t('contactSection.modal.alreadySubmitted')}
+                    alreadySubmitted={true}
+                />
+            )}
 
         </section>
     );

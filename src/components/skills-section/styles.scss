@@ -100,7 +100,7 @@ $secondColor: rgb(22, 27, 33);
             transition: max-height 0.7s;  
 
             overflow: hidden;
-            max-height: 500px;
+            max-height: 600px;
 
         }
 
@@ -169,24 +169,22 @@ $secondColor: rgb(22, 27, 33);
 
 .bar-and-logo {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 50px;
 
 }
 
 .skills-logo {
-    width: 30px;
     height: 30px;
     margin-top: 13px;
-    margin-right: 10px;
 
 }
 
 /******** PROGRESS BAR ********/
 
 .progress-bar {
-    width: 100%;
+    width: 93%;
     height: 20px;
     background-color: #e0e0e0;
     border-radius: 50px;

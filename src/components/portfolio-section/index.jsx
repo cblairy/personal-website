@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import { Parallax, ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from 'react-i18next';
 
 import Card from "./card.jsx";
 import Modal from "../basics/modal.jsx";
@@ -9,6 +10,7 @@ import data from './data.json';
 import bureau from "../../assets/images/bureau.jpeg";
 import bewebcademy from "../../assets/images/bewebcademy.png";
 import personalWebsite from "../../assets/images/personal-website.png";
+import comingSoon from "../../assets/images/coming-soon.jpg";
 
 import './styles.scss';
 
@@ -40,7 +42,22 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
             data: data.data2,
             bgImg: bewebcademy
         },
+        { 
+            cardRef: useRef(null),
+            figureIsActive: useState(false),
+            data: data.data3,
+            bgImg: comingSoon
+        },
+        { 
+            cardRef: useRef(null),
+            figureIsActive: useState(false),
+            data: data.data4,
+            bgImg: comingSoon
+        },
+ 
     ];
+
+    const { t } = useTranslation();
 
     const cardsDataMemo = useMemo(() => cardsData.map(el => {
         return el
@@ -82,7 +99,7 @@ function PortfolioSection({ isLoading, sectionRef, startRef }) {
                 <Parallax className="portfolio-content" speed={-10} >
                     <div ref={inViewRef} className={`cards-title ${inViewSection ? "visible-section" : ""}`} >
                         <div></div>
-                        <h3 >Mes travaux récents</h3>
+                        <h3>{t('portfolioSection.title')}</h3>
                         <div></div>
                     </div>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
@@ -7,7 +7,7 @@ import Bar from './bar';
 import cssLogo from '../../assets/images/icons/css-3.png';
 import sassLogo from '../../assets/images/icons/sass.png';
 import phpLogo from '../../assets/images/icons/php.png';
-import codeIgniterLogo from '../../assets/images/icons/codeigniter.png';
+import nextjsLogo from '../../assets/images/icons/nextjs.png';
 import nodeLogo from '../../assets/images/icons/node.png';
 import reactLogo from '../../assets/images/icons/react.png';
 import angularLogo from '../../assets/images/icons/angular.png';
@@ -21,6 +21,10 @@ import gitLogo from '../../assets/images/icons/git.png';
 import mySqlLogo from '../../assets/images/icons/mysql.png';
 import mongoDbLogo from '../../assets/images/icons/mongodb.png';
 import javaLogo from '../../assets/images/icons/java.png';
+import sqlLogo from '../../assets/images/icons/sql.png';
+import springLogo from '../../assets/images/icons/spring.png';
+import nestLogo from '../../assets/images/icons/nest.png';
+
 
 import './styles.scss';
 
@@ -53,8 +57,13 @@ function SkillsSection(props) {
         { id: "langages", ref: refViewButton1, inView: inViewButton1, content: 
             <div>
                 <div className="bar-and-logo">
+                    <img src={javaLogo} className="skills-logo" alt="javaLogo"/>
+                    <Bar percent={"60%"}/>
+                </div>
+
+                <div className="bar-and-logo">
                     <img src={phpLogo} className="skills-logo" alt="phpLogo"/>
-                    <Bar percent={"80%"} />
+                    <Bar percent={"75%"} />
                 </div>
 
                 <div className="bar-and-logo">
@@ -68,13 +77,13 @@ function SkillsSection(props) {
                 </div>
 
                 <div className="bar-and-logo">
-                    <img src={pythonLogo} className="skills-logo" alt="pythonLogo"/>
-                    <Bar percent={"55%"}/>
+                    <img src={sqlLogo} className="skills-logo" alt="sqlLogo"/>
+                    <Bar percent={"65%"}/>
                 </div>
 
                 <div className="bar-and-logo">
-                    <img src={javaLogo} className="skills-logo" alt="javaLogo"/>
-                    <Bar percent={"50%"}/>
+                    <img src={pythonLogo} className="skills-logo" alt="pythonLogo"/>
+                    <Bar percent={"55%"}/>
                 </div>
             </div> 
         },
@@ -82,12 +91,17 @@ function SkillsSection(props) {
         { id: "frameworks & librairies", ref: refViewButton2, inView: inViewButton2, content: 
             <div>
                 <div className="bar-and-logo">
+                    <img src={springLogo} className="skills-logo" alt="springLogo"/>
+                    <Bar percent={"25%"}/>
+                </div>
+
+                <div className="bar-and-logo">
                     <img src={symfonyLogo} className="skills-logo" alt="SymfonyLogo"/>
                     <Bar percent={"75%"}/>
                 </div>
 
                 <div className="bar-and-logo">
-                    <img src={codeIgniterLogo} className="skills-logo" alt="codeIgniterLogo"/>
+                    <img src={nestLogo} className="skills-logo" alt="nestLogo"/>
                     <Bar percent={"30%"}/>
                 </div>
 
@@ -97,8 +111,13 @@ function SkillsSection(props) {
                 </div>
 
                 <div className="bar-and-logo">
+                    <img src={nextjsLogo} className="skills-logo" alt="nestjsLogo"/>
+                    <Bar percent={"15%"}/>
+                </div>
+
+                <div className="bar-and-logo">
                     <img src={angularLogo} className="skills-logo" alt="angularLogo"/>
-                    <Bar percent={"25%"} />
+                    <Bar percent={"20%"} />
                 </div>
 
                 <div className="bar-and-logo">
@@ -159,15 +178,16 @@ function SkillsSection(props) {
 
     return (
         <section className="skills-section" ref={(el) => {props.sectionRef.current = el; refView(el);}}>
-            <p className={`sub-intro ${inView ? "visible" : ""}`}>Développeur full-stack passionné, j'aime particulièrement le web3 ⛓️ et souhaite le développer à l'avenir ! 🖥️ 🤓
+            <p className={`sub-intro ${inView ? "visible" : ""}`}>
+                {t('skillsSection.intro.1')}
                 <br/>
-                <span>🎓 Fraichement diplômé d'un Bac+2 développeur web 🎓</span>
+                <span>{t('skillsSection.intro.2')}</span>
                 <div></div>
-                <span>Ci-dessous des "capacités téchniques" qui ne veulent plus ou moins rien dire. Ma meilleur capacité étant celle d'en apprendre de nouvelles.</span>
+                <span>{t('skillsSection.intro.3')}</span>
             </p>
             <div className={`skills-title ${inViewTitleSkills ? "visible" : ""}`} ref={refViewTitleSkills}>
                 <div></div>
-                <h3>Mes maitrises</h3>
+                <h3>{t('skillsSection.title')}</h3>
                 <div></div>
             </div>
             
@@ -175,7 +195,11 @@ function SkillsSection(props) {
 
                 {divs.map((div) => ( 
                     <div key={div.id} className={visibleBars === div.id ? "button-clicked" : ""}>
-                        <button onClick={() => toggleVisibleBars(div.id)} ref={div.ref} className={`${visibleBars === div.id ? "is-clicked" : ""} ${div.inView ? "visible" : ""}`}>
+                        <button 
+                            onClick={() => toggleVisibleBars(div.id)} 
+                            ref={div.ref} 
+                            className={`${visibleBars === div.id ? "is-clicked" : ""} ${div.inView ? "visible" : ""}`}
+                        >
                             <span>{div.id}</span>
                         </button>
                         {visibleBars === div.id && <div>{div.content}</div>}

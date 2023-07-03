@@ -1,17 +1,15 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Modal from "../basics/modal";
+import { useTranslation } from 'react-i18next';
 
 import devImg from "../../assets/images/collaboration.jpg";
 
-export const ContactMe = () => {
+export const ContactMe = ({ submitted, setSubmitted, formAlreadySubmitted, setFormAlreadySubmitted, submittedError, setSubmittedError }) => {
     const form = useRef();
-    const [submitted, setSubmitted] = useState(false);
-    const [formAlreadySubmitted, setFormAlreadySubmitted] = useState(false);
-    const [submittedError, setSubmittedError] = useState(false);
     const [active, setActive] = useState(false);
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
+    const { t } = useTranslation();
     
     const handleEmailChange = (event) => {
       setEmail(event.target.value);
@@ -76,7 +74,7 @@ export const ContactMe = () => {
     return (
         <>
             <form className="contact-form" ref={form} onSubmit={sendEmail}>
-                <img src={devImg} alt="page contenant du code" />
+                <img src={devImg} alt="support"/>
                 <div>
                     <div className="inputs">
                         <input
@@ -84,7 +82,7 @@ export const ContactMe = () => {
                             className="input-text"
                             type="text"
                             name="user_name"
-                            placeholder="Nom ou entreprise"
+                            placeholder={t('contactSection.form.name')}
                         />
                         <input
                             required
@@ -101,7 +99,7 @@ export const ContactMe = () => {
                             className="input-text textArea"
                             type="text"
                             name="message"
-                            placeholder="Message"
+                            placeholder={t('contactSection.form.message')}
                         />
                     </div>
                     <div className="sending-button">
@@ -110,7 +108,7 @@ export const ContactMe = () => {
                             type="submit"
                             disabled={submitted}
                         >
-                            <span>ENVOYER</span>
+                            <span>{t('contactSection.form.button')}</span>
                             <span>
                                 <svg version="1.1" viewBox="0 0 66 43">
                                     <g fill="#fff" fillRule="evenodd">
@@ -132,28 +130,7 @@ export const ContactMe = () => {
                         </button>
                     </div>
                 </div>
-            </form>
-
-            {submitted && (
-                <Modal
-                    message="Le formulaire a été soumis avec succès! ✅"
-                    valid={true}
-                />
-            )}
-
-            {submittedError && (
-                <Modal
-                    message="Oups! Erreur lors de la soumission du formulaire. 😓"
-                    valid={false}
-                />
-            )}
-
-            {formAlreadySubmitted && (
-                <Modal
-                    message="Le formulaire a déjà été soumis. Pour me contacter, n'hésitez pas à m'envoyer un email ! 📩"
-                    alreadySubmitted={true}
-                />
-            )}
+            </form>     
         </>
     );
 };

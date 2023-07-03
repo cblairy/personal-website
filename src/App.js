@@ -71,7 +71,7 @@ function App() {
                     contactSectionRef={contactSectionRef}
                     portfolioSectionRef={portfolioSectionRef}
                 />
-                <p className="warning" >{t('warning')}</p>
+                {/*<p className="warning" >{t('warning')}</p>*/}
                 <TopSection isLoading={!isAnimationDone} skillsSectionRef={skillsSectionRef} onLinkClick={(ref) => handleLinkClick(ref)} />
                 <SkillsSection isLoading={!isAnimationDone} sectionRef={skillsSectionRef}/>
                 <PortfolioSection isLoading={!isAnimationDone} sectionRef={portfolioSectionRef} startRef={startRef} />

@@ -18,6 +18,40 @@
         
     },
 
-    "warning": "This page is currently under development. "
+    "warning": "This page is currently under development. ",
+
+    "skillsSection": {
+        "intro": {
+            "1": "As a passionate full-stack developer, I particularly like web3 ⛓️ and hope to develop it in the future! 🖥️🤓",
+            "2": "🎓 Recently graduated with a Bac+2 in web development 🎓",
+            "3": "Here are some 'technical skills' that mean more or less nothing. My best skill is learning new ones."
+        },
+    
+        "title": "My skills",
+        "cards": {
+            "1": "languages",
+            "2": "frameworks & librairies",
+            "3": "environments"
+        }
+    },
+
+    "portfolioSection": {
+        "title": "My recent work"
+    },
+
+    "contactSection": {
+        "title": "contact me !",
+        "form": {
+            "name": "Name or company",
+            "message": "Message",
+            "button": "SEND",
+            "invalidMail": "Invalid e-mail address"
+        },
+        "modal": {
+            "submitted": "The form has been successfully submitted! ✅",
+            "error": "Oops! Error submitting form. 😓",
+            "alreadySubmitted": "The form has already been submitted. To contact me, please send me an email! 📩"
+        }
+    }
 
 }
