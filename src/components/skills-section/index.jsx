@@ -58,7 +58,7 @@ function SkillsSection(props) {
             <div>
                 <div className="bar-and-logo">
                     <img src={javaLogo} className="skills-logo" alt="javaLogo"/>
-                    <Bar percent={"60%"}/>
+                    <Bar percent={"65%"}/>
                 </div>
 
                 <div className="bar-and-logo">
@@ -78,7 +78,7 @@ function SkillsSection(props) {
 
                 <div className="bar-and-logo">
                     <img src={sqlLogo} className="skills-logo" alt="sqlLogo"/>
-                    <Bar percent={"65%"}/>
+                    <Bar percent={"60%"}/>
                 </div>
 
                 <div className="bar-and-logo">
@@ -92,12 +92,12 @@ function SkillsSection(props) {
             <div>
                 <div className="bar-and-logo">
                     <img src={springLogo} className="skills-logo" alt="springLogo"/>
-                    <Bar percent={"25%"}/>
+                    <Bar percent={"45%"}/>
                 </div>
 
                 <div className="bar-and-logo">
                     <img src={symfonyLogo} className="skills-logo" alt="SymfonyLogo"/>
-                    <Bar percent={"75%"}/>
+                    <Bar percent={"70%"}/>
                 </div>
 
                 <div className="bar-and-logo">
@@ -117,12 +117,12 @@ function SkillsSection(props) {
 
                 <div className="bar-and-logo">
                     <img src={angularLogo} className="skills-logo" alt="angularLogo"/>
-                    <Bar percent={"20%"} />
+                    <Bar percent={"60%"} />
                 </div>
 
                 <div className="bar-and-logo">
                     <img src={sassLogo} className="skills-logo" alt="sassLogo"/>
-                    <Bar percent={"60%"} />
+                    <Bar percent={"75%"} />
                 </div>
 
                 <div className="bar-and-logo">
